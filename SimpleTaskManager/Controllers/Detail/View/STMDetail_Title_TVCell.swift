@@ -22,7 +22,8 @@ class STMDetail_Title_TVCell: STMTextField_TVCell, UITextFieldDelegate {
                                                queue: nil,
                                                using: { [weak self] notification in
                                                 if let taskNameField = notification.object as? UITextField {
-                                                    self?.delegate?.updateDetailModel(with: .title, value: taskNameField.text as AnyObject)
+                                                    self?.delegate?.updateDetailModel(with: .title,
+                                                                                      value: taskNameField.text as AnyObject)
                                                 }
         })
     }

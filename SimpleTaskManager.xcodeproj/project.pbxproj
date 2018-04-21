@@ -35,7 +35,6 @@
 		A1EC3EF0208696BD0012AAC6 /* STMOrderingPicker_TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC3EEF208696BD0012AAC6 /* STMOrderingPicker_TVCell.swift */; };
 		A1EC3EF220869BAD0012AAC6 /* STMDetailNotification_TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC3EF120869BAD0012AAC6 /* STMDetailNotification_TVCell.swift */; };
 		A1EC3EF420869BFB0012AAC6 /* STMSettingsNotification_TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC3EF320869BFB0012AAC6 /* STMSettingsNotification_TVCell.swift */; };
-		A1EC3EF720869F490012AAC6 /* STMAddCategory_TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC3EF620869F490012AAC6 /* STMAddCategory_TVCell.swift */; };
 		A1EC3EF92086A2340012AAC6 /* STMDetailDueDate_TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC3EF82086A2340012AAC6 /* STMDetailDueDate_TVCell.swift */; };
 		A1EC3EFB2086A25F0012AAC6 /* STMDetailCategoty_TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC3EFA2086A25F0012AAC6 /* STMDetailCategoty_TVCell.swift */; };
 		A1EC3EFD2086A2810012AAC6 /* STMDetail_Title_TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC3EFC2086A2810012AAC6 /* STMDetail_Title_TVCell.swift */; };
@@ -75,7 +74,6 @@
 		A1EC3EEF208696BD0012AAC6 /* STMOrderingPicker_TVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMOrderingPicker_TVCell.swift; sourceTree = "<group>"; };
 		A1EC3EF120869BAD0012AAC6 /* STMDetailNotification_TVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMDetailNotification_TVCell.swift; sourceTree = "<group>"; };
 		A1EC3EF320869BFB0012AAC6 /* STMSettingsNotification_TVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMSettingsNotification_TVCell.swift; sourceTree = "<group>"; };
-		A1EC3EF620869F490012AAC6 /* STMAddCategory_TVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMAddCategory_TVCell.swift; sourceTree = "<group>"; };
 		A1EC3EF82086A2340012AAC6 /* STMDetailDueDate_TVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMDetailDueDate_TVCell.swift; sourceTree = "<group>"; };
 		A1EC3EFA2086A25F0012AAC6 /* STMDetailCategoty_TVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMDetailCategoty_TVCell.swift; sourceTree = "<group>"; };
 		A1EC3EFC2086A2810012AAC6 /* STMDetail_Title_TVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMDetail_Title_TVCell.swift; sourceTree = "<group>"; };
@@ -291,7 +289,6 @@
 			children = (
 				A1EC3EF320869BFB0012AAC6 /* STMSettingsNotification_TVCell.swift */,
 				A1EC3EEF208696BD0012AAC6 /* STMOrderingPicker_TVCell.swift */,
-				A1EC3EF620869F490012AAC6 /* STMAddCategory_TVCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -457,7 +454,6 @@
 				A1B7562720851BC600FFB67D /* STMAddNewCategory_VC.swift in Sources */,
 				A1B755EF20848D7000FFB67D /* AppDelegate.swift in Sources */,
 				A1B7561F2084F0C300FFB67D /* STMMain_TVCell.swift in Sources */,
-				A1EC3EF720869F490012AAC6 /* STMAddCategory_TVCell.swift in Sources */,
 				A1B756172084BFCF00FFB67D /* STMSettings_TVC.swift in Sources */,
 				A1B756122084AF1700FFB67D /* STMCategory.swift in Sources */,
 				A1EC3EF0208696BD0012AAC6 /* STMOrderingPicker_TVCell.swift in Sources */,

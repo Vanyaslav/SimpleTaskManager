@@ -8,18 +8,6 @@
 
 import UIKit
 
-//
-protocol STMSettings_TVC_Delegate {
-    //
-    func pushAddCategoryController()
-}
-//
-extension STMSettings_TVC: STMSettings_TVC_Delegate {
-    //
-    func pushAddCategoryController() {
-        performSegue(withIdentifier: "addNewCategory", sender: nil)
-    }
-}
 ///
 class STMSettings_TVC: UITableViewController {
     
@@ -50,7 +38,7 @@ class STMSettings_TVC: UITableViewController {
         switch indexPath.section {
         case 0:
             if let theCell = tableView.dequeueReusableCell(withIdentifier:
-                String(describing: STMAddCategory_TVCell.self), for: indexPath) as? STMAddCategory_TVCell {
+                String(describing: STMButton_TVCell.self), for: indexPath) as? STMButton_TVCell {
                 cell = theCell
             }
         case 1:

@@ -22,6 +22,7 @@ enum STMTaskAction {
         switch self {
         case .addNew(let title, let category, let dueDate, let description, let isNotified):
             STMRecord.createTask(with: title, category: category, dueDate: dueDate, description: description, isNotified:isNotified)
+            
         case .edit(let id, let title, let category, let dueDate, let description):
             STMRecord.updateTask(with: id, title: title, category: category, dueDate: dueDate, description: description)
         case .deleteTask(let id):

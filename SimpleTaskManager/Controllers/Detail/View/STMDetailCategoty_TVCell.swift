@@ -10,7 +10,7 @@ import UIKit
 
 internal struct STMCategoryData {
     //
-    static let taskCategories = STMCategory.getAllCategories()
+    let taskCategories = STMCategory.getAllCategories()
 }
 
 class STMDetailCategoty_TVCell: STMPicker_TVCell, UIPickerViewDelegate, UIPickerViewDataSource {
@@ -24,12 +24,12 @@ class STMDetailCategoty_TVCell: STMPicker_TVCell, UIPickerViewDelegate, UIPicker
     
     //
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return STMCategoryData.taskCategories[row].title!
+        return STMCategoryData().taskCategories[row].title!
     }
     //
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         // delegate
-        delegate?.updateDetailModel(with: .category, value: STMCategoryData.taskCategories[row])
+        delegate?.updateDetailModel(with: .category, value: STMCategoryData().taskCategories[row])
     }
     
     //
@@ -38,6 +38,6 @@ class STMDetailCategoty_TVCell: STMPicker_TVCell, UIPickerViewDelegate, UIPicker
     }
     //
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return STMCategoryData.taskCategories.count
+        return STMCategoryData().taskCategories.count
     }
 }

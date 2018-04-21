@@ -36,17 +36,24 @@ extension STMRecord {
     //
     public static func createTask(with title:String, category:STMCategory, dueDate:Date, description:String, isNotified:Bool) {
         //
+        let newId = UUID()
+        //
         MagicalRecord.save(blockAndWait: { context in
             if let theRecord = STMRecord.mr_createEntity(in: context) {
-                theRecord.id = UUID()
+                theRecord.id = newId
                 theRecord.taskTitle = title
                 theRecord.taskDueDate = dueDate
                 theRecord.taskCreationDate = Date(timeIntervalSinceNow: 0)
                 theRecord.isFinished = false
                 theRecord.taskDescription = description
+                theRecord.isNotificationOn = isNotified
                 theRecord.taskCategory = (context.object(with: category.objectID) as! STMCategory)
             }
         })
+        //
+        if isNotified {
+            UNNotification.createNotification(from: STMRecord.getRecord(by: newId)!)
+        }
     }
     //
     public static func updateTask(with id:UUID, title:String, category:STMCategory, dueDate:Date, description:String) {
