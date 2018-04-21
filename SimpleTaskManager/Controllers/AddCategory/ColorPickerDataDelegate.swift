@@ -11,8 +11,12 @@ import UIKit
 //
 @objc class ColorPickerDelegate: NSObject, UIPickerViewDelegate {
     //
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return UIColor.standardColorList()[row].convertToString()
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        
+        let theView = UILabel(frame: CGRect(x: 0, y: 0, width: 85, height: 25))
+        theView.backgroundColor = UIColor.standardColorList()[row]
+        
+        return theView
     }
 }
 

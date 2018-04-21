@@ -9,5 +9,20 @@
 import UIKit
 
 class STMSettingsNotification_TVCell: STMSwitch_TVCell {
- 
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+        self.isGlobal = true
+        //
+        let globalStatus = STMRecord.getAllTasks().map({ task in
+            task.isNotificationOn == true
+        })
+        
+        if globalStatus.count == STMRecord.getAllTasks().count {
+            self.theSwitch.isOn = true
+        }
+        //
+        
+    }
 }

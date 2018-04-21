@@ -8,13 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		3D3ED009D959468E4FA5D9A8 /* Pods_SimpleTaskManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12E7DA96F8BBEEC2B6BA0DB1 /* Pods_SimpleTaskManager.framework */; };
+		A199D0CF2088650800F39B6E /* SimpleTaskManager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A199D0CD2088650800F39B6E /* SimpleTaskManager.xcdatamodeld */; };
 		A1B755EF20848D7000FFB67D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B755EE20848D7000FFB67D /* AppDelegate.swift */; };
 		A1B755F420848D7100FFB67D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1B755F220848D7100FFB67D /* Main.storyboard */; };
-		A1B755F720848D7100FFB67D /* SimpleTaskManager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A1B755F520848D7100FFB67D /* SimpleTaskManager.xcdatamodeld */; };
 		A1B755F920848D7200FFB67D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B755F820848D7200FFB67D /* Assets.xcassets */; };
 		A1B755FC20848D7200FFB67D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1B755FA20848D7200FFB67D /* LaunchScreen.storyboard */; };
 		A1B7560A20849C4D00FFB67D /* STMRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B7560920849C4D00FFB67D /* STMRecord.swift */; };
-		A1B7560C20849C6200FFB67D /* STMRecordDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B7560B20849C6200FFB67D /* STMRecordDetail.swift */; };
 		A1B756122084AF1700FFB67D /* STMCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B756112084AF1700FFB67D /* STMCategory.swift */; };
 		A1B756152084B2F600FFB67D /* STMDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B756142084B2F600FFB67D /* STMDefaults.swift */; };
 		A1B756172084BFCF00FFB67D /* STMSettings_TVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B756162084BFCF00FFB67D /* STMSettings_TVC.swift */; };
@@ -31,7 +30,6 @@
 		A1B756362085683F00FFB67D /* ColorPickerDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B756352085683F00FFB67D /* ColorPickerDataDelegate.swift */; };
 		A1EC3EE32086232C0012AAC6 /* UNNotificationExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC3EE22086232C0012AAC6 /* UNNotificationExtention.swift */; };
 		A1EC3EE520867E3F0012AAC6 /* STMPicker_TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC3EE420867E3F0012AAC6 /* STMPicker_TVCell.swift */; };
-		A1EC3EE720867F870012AAC6 /* STMCategoryPickerDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC3EE620867F870012AAC6 /* STMCategoryPickerDataDelegate.swift */; };
 		A1EC3EE92086829D0012AAC6 /* STMOrderingPickerDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC3EE82086829D0012AAC6 /* STMOrderingPickerDataDelegate.swift */; };
 		A1EC3EEB208694F80012AAC6 /* OrderingEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC3EEA208694F80012AAC6 /* OrderingEnum.swift */; };
 		A1EC3EF0208696BD0012AAC6 /* STMOrderingPicker_TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC3EEF208696BD0012AAC6 /* STMOrderingPicker_TVCell.swift */; };
@@ -41,21 +39,21 @@
 		A1EC3EF92086A2340012AAC6 /* STMDetailDueDate_TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC3EF82086A2340012AAC6 /* STMDetailDueDate_TVCell.swift */; };
 		A1EC3EFB2086A25F0012AAC6 /* STMDetailCategoty_TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC3EFA2086A25F0012AAC6 /* STMDetailCategoty_TVCell.swift */; };
 		A1EC3EFD2086A2810012AAC6 /* STMDetail_Title_TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC3EFC2086A2810012AAC6 /* STMDetail_Title_TVCell.swift */; };
+		A1EC3EFF208758F50012AAC6 /* STMTextField_TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC3EFE208758F50012AAC6 /* STMTextField_TVCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		059E5DD19244FFEB20CCF5C1 /* Pods-SimpleTaskManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleTaskManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleTaskManager/Pods-SimpleTaskManager.debug.xcconfig"; sourceTree = "<group>"; };
 		12E7DA96F8BBEEC2B6BA0DB1 /* Pods_SimpleTaskManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleTaskManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41A03B0A4318C6ADEC95F4DC /* Pods-SimpleTaskManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleTaskManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleTaskManager/Pods-SimpleTaskManager.release.xcconfig"; sourceTree = "<group>"; };
+		A199D0CE2088650800F39B6E /* SimpleTaskManager.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SimpleTaskManager.xcdatamodel; sourceTree = "<group>"; };
 		A1B755EB20848D7000FFB67D /* SimpleTaskManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleTaskManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B755EE20848D7000FFB67D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1B755F320848D7100FFB67D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		A1B755F620848D7100FFB67D /* SimpleTaskManager.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SimpleTaskManager.xcdatamodel; sourceTree = "<group>"; };
 		A1B755F820848D7200FFB67D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1B755FB20848D7200FFB67D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1B755FD20848D7200FFB67D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1B7560920849C4D00FFB67D /* STMRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMRecord.swift; sourceTree = "<group>"; };
-		A1B7560B20849C6200FFB67D /* STMRecordDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMRecordDetail.swift; sourceTree = "<group>"; };
 		A1B756112084AF1700FFB67D /* STMCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMCategory.swift; sourceTree = "<group>"; };
 		A1B756142084B2F600FFB67D /* STMDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMDefaults.swift; sourceTree = "<group>"; };
 		A1B756162084BFCF00FFB67D /* STMSettings_TVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMSettings_TVC.swift; sourceTree = "<group>"; };
@@ -72,7 +70,6 @@
 		A1B756352085683F00FFB67D /* ColorPickerDataDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerDataDelegate.swift; sourceTree = "<group>"; };
 		A1EC3EE22086232C0012AAC6 /* UNNotificationExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UNNotificationExtention.swift; sourceTree = "<group>"; };
 		A1EC3EE420867E3F0012AAC6 /* STMPicker_TVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = STMPicker_TVCell.swift; path = SimpleTaskManager/Views/STMPicker_TVCell.swift; sourceTree = SOURCE_ROOT; };
-		A1EC3EE620867F870012AAC6 /* STMCategoryPickerDataDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMCategoryPickerDataDelegate.swift; sourceTree = "<group>"; };
 		A1EC3EE82086829D0012AAC6 /* STMOrderingPickerDataDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMOrderingPickerDataDelegate.swift; sourceTree = "<group>"; };
 		A1EC3EEA208694F80012AAC6 /* OrderingEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderingEnum.swift; sourceTree = "<group>"; };
 		A1EC3EEF208696BD0012AAC6 /* STMOrderingPicker_TVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMOrderingPicker_TVCell.swift; sourceTree = "<group>"; };
@@ -82,6 +79,7 @@
 		A1EC3EF82086A2340012AAC6 /* STMDetailDueDate_TVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMDetailDueDate_TVCell.swift; sourceTree = "<group>"; };
 		A1EC3EFA2086A25F0012AAC6 /* STMDetailCategoty_TVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMDetailCategoty_TVCell.swift; sourceTree = "<group>"; };
 		A1EC3EFC2086A2810012AAC6 /* STMDetail_Title_TVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMDetail_Title_TVCell.swift; sourceTree = "<group>"; };
+		A1EC3EFE208758F50012AAC6 /* STMTextField_TVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMTextField_TVCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,8 +125,8 @@
 			children = (
 				A1B755EE20848D7000FFB67D /* AppDelegate.swift */,
 				A1B756142084B2F600FFB67D /* STMDefaults.swift */,
-				A1B7562E2085403400FFB67D /* Views */,
 				A1B75628208532B700FFB67D /* Enum */,
+				A1B7562E2085403400FFB67D /* Views */,
 				A1B7560520848DCD00FFB67D /* Controllers */,
 				A1B7560720848E0900FFB67D /* DB */,
 				A1B756132084B04000FFB67D /* Extention */,
@@ -159,10 +157,10 @@
 		A1B7560520848DCD00FFB67D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A1B7562320850ACD00FFB67D /* Detail */,
 				A1B7561C2084F03800FFB67D /* Main */,
-				A1B7562420850ADD00FFB67D /* AddCategory */,
+				A1B7562320850ACD00FFB67D /* Detail */,
 				A1B7562220850AB700FFB67D /* Settings */,
+				A1B7562420850ADD00FFB67D /* AddCategory */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -178,8 +176,8 @@
 		A1B7560720848E0900FFB67D /* DB */ = {
 			isa = PBXGroup;
 			children = (
+				A199D0CD2088650800F39B6E /* SimpleTaskManager.xcdatamodeld */,
 				A1B75608208494B900FFB67D /* Model */,
-				A1B755F520848D7100FFB67D /* SimpleTaskManager.xcdatamodeld */,
 			);
 			path = DB;
 			sourceTree = "<group>";
@@ -188,7 +186,6 @@
 			isa = PBXGroup;
 			children = (
 				A1B7560920849C4D00FFB67D /* STMRecord.swift */,
-				A1B7560B20849C6200FFB67D /* STMRecordDetail.swift */,
 				A1B756112084AF1700FFB67D /* STMCategory.swift */,
 			);
 			path = Model;
@@ -233,7 +230,6 @@
 		A1B7562320850ACD00FFB67D /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				A1EC3EE620867F870012AAC6 /* STMCategoryPickerDataDelegate.swift */,
 				A1B7562B20853F5D00FFB67D /* View */,
 				A1B756202084FDB300FFB67D /* STMTaskDetail_TVC.swift */,
 			);
@@ -260,8 +256,8 @@
 		A1B7562B20853F5D00FFB67D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A1B7562C20853F8800FFB67D /* STMDetailTextView_TVCell.swift */,
 				A1B7563120854EE800FFB67D /* STMDetailAddButton_TVCell.swift */,
+				A1B7562C20853F8800FFB67D /* STMDetailTextView_TVCell.swift */,
 				A1EC3EF120869BAD0012AAC6 /* STMDetailNotification_TVCell.swift */,
 				A1EC3EF82086A2340012AAC6 /* STMDetailDueDate_TVCell.swift */,
 				A1EC3EFA2086A25F0012AAC6 /* STMDetailCategoty_TVCell.swift */,
@@ -276,6 +272,7 @@
 				A1B7562F2085408600FFB67D /* STMButton_TVCell.swift */,
 				A1B756332085607D00FFB67D /* STMSwitch_TVCell.swift */,
 				A1EC3EE420867E3F0012AAC6 /* STMPicker_TVCell.swift */,
+				A1EC3EFE208758F50012AAC6 /* STMTextField_TVCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -445,17 +442,17 @@
 				A1B756152084B2F600FFB67D /* STMDefaults.swift in Sources */,
 				A1B756362085683F00FFB67D /* ColorPickerDataDelegate.swift in Sources */,
 				A1EC3EFB2086A25F0012AAC6 /* STMDetailCategoty_TVCell.swift in Sources */,
-				A1EC3EE720867F870012AAC6 /* STMCategoryPickerDataDelegate.swift in Sources */,
 				A1B756192084CCCC00FFB67D /* STMTaskList_TVC.swift in Sources */,
 				A1B7561B2084EA2600FFB67D /* UtilExtention.swift in Sources */,
+				A1EC3EFF208758F50012AAC6 /* STMTextField_TVCell.swift in Sources */,
 				A1B756212084FDB300FFB67D /* STMTaskDetail_TVC.swift in Sources */,
-				A1B7560C20849C6200FFB67D /* STMRecordDetail.swift in Sources */,
 				A1B756342085607E00FFB67D /* STMSwitch_TVCell.swift in Sources */,
 				A1B7563220854EE800FFB67D /* STMDetailAddButton_TVCell.swift in Sources */,
 				A1B7560A20849C4D00FFB67D /* STMRecord.swift in Sources */,
 				A1B756302085408600FFB67D /* STMButton_TVCell.swift in Sources */,
 				A1B7562A208532E000FFB67D /* STMEnum.swift in Sources */,
 				A1EC3EE32086232C0012AAC6 /* UNNotificationExtention.swift in Sources */,
+				A199D0CF2088650800F39B6E /* SimpleTaskManager.xcdatamodeld in Sources */,
 				A1EC3EF220869BAD0012AAC6 /* STMDetailNotification_TVCell.swift in Sources */,
 				A1B7562720851BC600FFB67D /* STMAddNewCategory_VC.swift in Sources */,
 				A1B755EF20848D7000FFB67D /* AppDelegate.swift in Sources */,
@@ -464,7 +461,6 @@
 				A1B756172084BFCF00FFB67D /* STMSettings_TVC.swift in Sources */,
 				A1B756122084AF1700FFB67D /* STMCategory.swift in Sources */,
 				A1EC3EF0208696BD0012AAC6 /* STMOrderingPicker_TVCell.swift in Sources */,
-				A1B755F720848D7100FFB67D /* SimpleTaskManager.xcdatamodeld in Sources */,
 				A1EC3EE92086829D0012AAC6 /* STMOrderingPickerDataDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -665,12 +661,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		A1B755F520848D7100FFB67D /* SimpleTaskManager.xcdatamodeld */ = {
+		A199D0CD2088650800F39B6E /* SimpleTaskManager.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				A1B755F620848D7100FFB67D /* SimpleTaskManager.xcdatamodel */,
+				A199D0CE2088650800F39B6E /* SimpleTaskManager.xcdatamodel */,
 			);
-			currentVersion = A1B755F620848D7100FFB67D /* SimpleTaskManager.xcdatamodel */;
+			currentVersion = A199D0CE2088650800F39B6E /* SimpleTaskManager.xcdatamodel */;
 			path = SimpleTaskManager.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

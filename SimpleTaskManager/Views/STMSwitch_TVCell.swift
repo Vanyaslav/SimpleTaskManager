@@ -10,11 +10,11 @@ import UIKit
 // Used for notifications cells
 class STMSwitch_TVCell: UITableViewCell {
     //
-    @IBOutlet var theSwitch: UISwitch!
+    weak var delegate:RecordDetailUpdate?
+    //
+    @IBOutlet weak var theSwitch: UISwitch!
     // notification
     var isGlobal = false
-    // specific task - used only on detail record
-    var taskId:UUID?
     //
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,12 +29,10 @@ class STMSwitch_TVCell: UITableViewCell {
                 theSwitch.isOn = false
                 return
             }
-            STMRecord.manageAllTaskNotification(isOn: theSwitch.isOn ? true : false)
-            // manage specific one
+            //
+            STMRecord.manageAllTaskNotification(isOn: theSwitch.isOn)
         } else {
-            if let theTaskId = taskId {
-                STMRecord.manageTaskNotification(with: theTaskId, isNotified: theSwitch.isOn ? true:false)
-            }
+            delegate?.updateDetailModel(with: .notification, value: theSwitch.isOn as AnyObject)
         }
     }
 }

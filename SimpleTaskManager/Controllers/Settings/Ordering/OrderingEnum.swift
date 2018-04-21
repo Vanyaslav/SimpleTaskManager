@@ -13,10 +13,9 @@ enum STMOrderingManner: Int {
     //
     case ascending = 0, descending
     // the last one + 1
-    static let numberOfManners = STMOrderingManner.descending.rawValue + 1
+    static let count = STMOrderingManner.descending.rawValue + 1
     //
     private var title: String {
-        // return self.rawValue.capitalized
         switch self {
         case .ascending: return "Ascending"
         case .descending: return "Descending"
@@ -27,11 +26,11 @@ enum STMOrderingManner: Int {
         return (STMOrderingManner(rawValue: row)?.title)!
     }
     //
-    static func manageOrderingManner(with row:Int) {
+    static func manageOrdering(with row:Int) {
         UserDefaults.storeOrderingManner(with: STMOrderingManner(rawValue: row)!)
     }
     //
-    static func getStoredManner() -> STMOrderingManner {
+    static func getStored() -> STMOrderingManner {
         return UserDefaults.getOrderingManner()
     }
     //
@@ -42,7 +41,7 @@ enum STMOrderingType: Int {
     //
     case date = 0, name
     // the last one + 1
-    static let numberOfTypes = STMOrderingType.name.rawValue + 1
+    static let count = STMOrderingType.name.rawValue + 1
     //
     private var title: String {
         switch self {
@@ -51,15 +50,19 @@ enum STMOrderingType: Int {
         }
     }
     //
+    public static func getOrderVariable() -> String {
+        return STMOrderingType.getStored() == .date ? "taskDueDate":"taskTitle"
+    }
+    //
     public static func getTitle(row:Int) -> String {
         return (STMOrderingType(rawValue: row)?.title)!
     }
     //
-    static func manageOrderingType(with row:Int) {
+    static func manageOrdering(with row:Int) {
         UserDefaults.storeOrderingType(with: STMOrderingType(rawValue: row)!)
     }
     //
-    static func getStoredType() -> STMOrderingType {
+    static func getStored() -> STMOrderingType {
         return UserDefaults.getOrderingType()
     }
     //

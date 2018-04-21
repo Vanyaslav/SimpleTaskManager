@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 import UserNotifications
 //
 private let center = UNUserNotificationCenter.current()
@@ -16,14 +17,20 @@ extension UNNotification {
     public static func createNotification(from task:STMRecord) {
         //
         let content = UNMutableNotificationContent()
-            content.body = (task.detail?.taskDescription!)!
-            content.title = task.taskTitle!
+        if let theDescription = task.taskDescription {
+            content.body = theDescription
+        }
+        
+        content.title = task.taskTitle!
+        content.sound = UNNotificationSound.default()
+        content.badge = UIApplication.shared.applicationIconBadgeNumber + 1 as NSNumber
         //
-        let triggerDate = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second,], from: task.taskDueDate!)
+        let triggerDate = Calendar.current.dateComponents([.year,.month,.day, .hour, .minute], from: task.taskDueDate!)
         let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
         let request = UNNotificationRequest(identifier: task.id!.uuidString, content: content, trigger: trigger)
         //
-        center.add(request, withCompletionHandler: { error in
+        center.add(request,
+                   withCompletionHandler: { error in
             
         })
     }

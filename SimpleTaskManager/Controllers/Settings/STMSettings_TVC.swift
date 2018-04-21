@@ -13,24 +13,16 @@ protocol STMSettings_TVC_Delegate {
     //
     func pushAddCategoryController()
 }
-///
-class STMSettings_TVC: UITableViewController, STMSettings_TVC_Delegate {
+//
+extension STMSettings_TVC: STMSettings_TVC_Delegate {
     //
     func pushAddCategoryController() {
         performSegue(withIdentifier: "addNewCategory", sender: nil)
     }
+}
+///
+class STMSettings_TVC: UITableViewController {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -46,7 +38,7 @@ class STMSettings_TVC: UITableViewController, STMSettings_TVC_Delegate {
     //
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
-        case 1: return 189
+        case 1: return 190
         default: return 103
         }
     }
@@ -55,28 +47,24 @@ class STMSettings_TVC: UITableViewController, STMSettings_TVC_Delegate {
         //
         var cell = UITableViewCell()
         // Configure the cell...
-        if indexPath.row == 0 {
-            switch indexPath.section {
-            case 0:
-                if let theCell = tableView.dequeueReusableCell(withIdentifier:
-                    String(describing: STMAddCategory_TVCell.self), for: indexPath) as? STMAddCategory_TVCell {
-                    cell = theCell
-                }
-            case 1:
-                if let theCell = tableView.dequeueReusableCell(withIdentifier:
-                    String(describing: STMOrderingPicker_TVCell.self), for: indexPath) as? STMOrderingPicker_TVCell {
-                    cell =  theCell
-                }
-            default:
-                if let theCell = tableView.dequeueReusableCell(withIdentifier:
-                    String(describing: STMSettingsNotification_TVCell.self), for: indexPath) as? STMSettingsNotification_TVCell {
-                    theCell.isGlobal = true
-                    cell =  theCell
-                }
+        switch indexPath.section {
+        case 0:
+            if let theCell = tableView.dequeueReusableCell(withIdentifier:
+                String(describing: STMAddCategory_TVCell.self), for: indexPath) as? STMAddCategory_TVCell {
+                cell = theCell
+            }
+        case 1:
+            if let theCell = tableView.dequeueReusableCell(withIdentifier:
+                String(describing: STMOrderingPicker_TVCell.self), for: indexPath) as? STMOrderingPicker_TVCell {
+                cell =  theCell
+            }
+        default:
+            if let theCell = tableView.dequeueReusableCell(withIdentifier:
+                String(describing: STMSettingsNotification_TVCell.self), for: indexPath) as? STMSettingsNotification_TVCell {
+                cell =  theCell
             }
         }
         //
         return cell
     }
-    
 }

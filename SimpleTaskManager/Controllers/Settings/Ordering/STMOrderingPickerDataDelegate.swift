@@ -12,11 +12,11 @@ import UIKit
 class STMOrderingPickerData: NSObject, UIPickerViewDataSource {
     //
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return STMOrderingType.numberOfTypes
+        return STMOrderingType.count
     }
     //
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return STMOrderingManner.numberOfManners
+        return STMOrderingManner.count
     }
 }
 ///
@@ -44,8 +44,8 @@ class STMOrderingPickerDelegate: NSObject, UIPickerViewDelegate {
     //
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch component {
-        case 0: STMOrderingType.manageOrderingType(with: row)
-        default: STMOrderingManner.manageOrderingManner(with: row)
+        case 0: STMOrderingType.manageOrdering(with: row)
+        default: STMOrderingManner.manageOrdering(with: row)
         }
     }
 }

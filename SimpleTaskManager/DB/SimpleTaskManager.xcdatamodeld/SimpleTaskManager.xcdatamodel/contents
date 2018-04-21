@@ -8,20 +8,17 @@
     <entity name="STMRecord" representedClassName="STMRecord" syncable="YES" codeGenerationType="class">
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="isFinished" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isNotificationOn" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="taskCreationDate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="taskDescription" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="taskDueDate" attributeType="Date" minDateTimeInterval="545565480" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="taskTitle" attributeType="String" minValueString="3" syncable="YES"/>
-        <relationship name="detail" maxCount="1" deletionRule="Nullify" destinationEntity="STMRecordDetail" inverseName="relationship" inverseEntity="STMRecordDetail" syncable="YES"/>
         <relationship name="taskCategory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMCategory" inverseName="relationship" inverseEntity="STMCategory" syncable="YES"/>
     </entity>
-    <entity name="STMRecordDetail" representedClassName="STMRecordDetail" syncable="YES" codeGenerationType="class">
-        <attribute name="isNotificationOn" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="taskDescription" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMRecord" inverseName="detail" inverseEntity="STMRecord" syncable="YES"/>
-    </entity>
+    <entity name="STMRecordDetail" representedClassName="STMRecordDetail" syncable="YES" codeGenerationType="class"/>
     <elements>
         <element name="STMCategory" positionX="-2018" positionY="-2071" width="128" height="88"/>
-        <element name="STMRecord" positionX="-2169" positionY="-1935" width="117" height="148"/>
-        <element name="STMRecordDetail" positionX="-1899" positionY="-1926" width="128" height="88"/>
+        <element name="STMRecord" positionX="-2169" positionY="-1935" width="117" height="163"/>
+        <element name="STMRecordDetail" positionX="-1899" positionY="-1926" width="128" height="43"/>
     </elements>
 </model>

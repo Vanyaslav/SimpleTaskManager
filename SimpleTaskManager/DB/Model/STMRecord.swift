@@ -12,99 +12,100 @@ import UserNotifications
 //
 extension STMRecord {
     //
+    public static func getAllTasks(completed:Bool) -> [STMRecord] {
+        let tasks = getAllTasks()
+        //
+        let filteredTasks = tasks.filter({ task in
+            task.isFinished == completed
+        })
+        
+        return filteredTasks
+    }
+    //
     public static func getAllTasks() -> [STMRecord] {
-        guard let tasks = STMRecord.mr_findAll() as? [STMRecord] else {
+        //
+        let theType = STMOrderingType.getOrderVariable()
+        let theManner = STMOrderingManner.getStored() == .ascending ? true:false
+        //
+        guard let tasks = STMRecord.mr_findAllSorted(by: theType, ascending: theManner) as? [STMRecord] else {
             return []
         }
+        
         return tasks
     }
     //
-    public static func getTask(with theID:UUID) -> STMRecord? {
-        return STMRecord.getAllTasks().filter({ record in
-             record.id == theID
-        }).first
-    }
-    //
-    public static func createTask(with title:String, category:STMCategory, dueDate:Date, description: String) {
+    public static func createTask(with title:String, category:STMCategory, dueDate:Date, description:String, isNotified:Bool) {
         //
         MagicalRecord.save(blockAndWait: { context in
             if let theRecord = STMRecord.mr_createEntity(in: context) {
                 theRecord.id = UUID()
                 theRecord.taskTitle = title
-                theRecord.taskCategory = category
                 theRecord.taskDueDate = dueDate
                 theRecord.taskCreationDate = Date(timeIntervalSinceNow: 0)
-                //
-                STMRecordDetail.createTaskDetail(with: description, isNotified: false)
+                theRecord.isFinished = false
+                theRecord.taskDescription = description
+                theRecord.taskCategory = (context.object(with: category.objectID) as! STMCategory)
             }
         })
     }
     //
-    public static func updateTask(with id:UUID, title:String?, category:STMCategory?, dueDate:Date?, isFinished:Bool) {
+    public static func updateTask(with id:UUID, title:String, category:STMCategory, dueDate:Date, description:String) {
         //
-        if let theRecord = getRecord(by: id) {
+        if let theRecord = getRecord(by:id) {
             //
             MagicalRecord.save(blockAndWait: { context in
                 let localRecord = theRecord.mr_(in: context)
+                //
                 localRecord?.taskTitle = title
-                localRecord?.taskCategory = category
+                localRecord?.taskCategory = (context.object(with:category.objectID) as! STMCategory)
                 localRecord?.taskDueDate = dueDate
-                localRecord?.isFinished = isFinished
+                localRecord?.taskDescription = description
             })
         }
     }
     //
     public static func deleteTask(with id:UUID) {
         if let theRecord = getRecord(by: id)  {
-            if theRecord.mr_deleteEntity() {
-                
-            }
+            //
+            MagicalRecord.save(blockAndWait: { context in
+                if theRecord.mr_deleteEntity(in: context) {
+                    
+                }
+            })
         }
     }
     //
     public static func manageAllTaskNotification(isOn: Bool = true) {
-        if isOn {
-            _ = STMRecord.getAllTasks().map({ task in
-                STMRecord.manageTaskNotification(with: task.id!, isNotified: true)
-                //
-                UNNotification.createNotification(from: task)
-            })
+        _ = STMRecord.getAllTasks().map({ task in
+            STMRecord.manageTaskNotification(with: task, isNotified: isOn)
             
-        } else {
-            //
-            _ = STMRecord.getAllTasks().map({ task in
-                STMRecord.manageTaskNotification(with: task.id!, isNotified: false)
-            })
-            //
-            UNNotification.cancelAllNotifications()
-        }
+        })
     }
-    //
     
     //
-    public static func manageTaskNotification(with id:UUID, isNotified:Bool) {
+    public static func manageTaskNotification(with task:STMRecord, isNotified:Bool) {
         //
-        if let theRecord = getRecord(by: id) {
+        if !task.isNotificationOn {
             //
             MagicalRecord.save(blockAndWait: { context in
-                let localRecord = theRecord.mr_(in: context)
-                localRecord?.detail?.isNotificationOn = isNotified
+                let localRecord = task.mr_(in:context)
+                localRecord?.isNotificationOn = isNotified
             })
-        }
-        //
-        if isNotified {
-            UNNotification.createNotification(from: STMRecord.getTask(with: id)!)
-        } else {
-            UNNotification.cancelNotification(with: id)
+            //
+            if isNotified {
+                UNNotification.createNotification(from: STMRecord.getRecord(by: task.id!)!)
+            } else {
+                UNNotification.cancelNotification(with: task.id!)
+            }
         }
     }
     //
-    public static func manageTaskStatus(with id:UUID, isFinished:Bool) {
+    public static func manageTaskStatus(with task:STMRecord, isFinished:Bool) {
         //
-        if let theRecord = getRecord(by: id) {
+        if task.isFinished != isFinished {
             //
             MagicalRecord.save(blockAndWait: { context in
-                let localRecord = theRecord.mr_(in: context)
+                let localRecord = task.mr_(in: context)
                 localRecord?.isFinished = isFinished
             })
         }

@@ -11,13 +11,13 @@ import UIKit
 ///
 class STMDetailAddButton_TVCell: STMButton_TVCell {
     //
-    var delegate: STMStoreDataDelegate?
+    weak var delegate: STMStoreDataDelegate?
     ///
     override func awakeFromNib() {
         super.awakeFromNib()
         //
         manageButton.setTitle("Add New Task", for: .normal)
-        manageButton.addTarget(self, action:  #selector(manageTask), for: .touchUpInside)
+        manageButton.addTarget(self, action: #selector(manageTask), for: .touchUpInside)
     }
     ///
     @objc func manageTask() {

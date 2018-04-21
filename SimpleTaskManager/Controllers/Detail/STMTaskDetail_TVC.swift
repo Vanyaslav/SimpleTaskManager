@@ -8,133 +8,244 @@
 
 import UIKit
 //
-protocol STMStoreDataDelegate {
+struct DetailModel {
+    //
+    var theTitle: String?
+    //
+    var theCategory: STMCategory = STMCategoryData.taskCategories[0]
+    //
+    var theDueDate = Date()
+    //
+    var theTaskDesription: String = ""
+    //
+    var theNotificationStatus = false
+    //
+    var theTaskStatus = false
+    ///
+    var isEligable: Bool {
+        guard let title = theTitle, title.count > 2 else {
+            return false
+        }
+        return true
+    }
+}
+//
+enum DetailType: Int {
+    //
+    case title = 0, category, dueDate, description, status, notification
+    //
+    static var count: Int { return DetailType.notification.rawValue + 1 }
+}
+//
+protocol STMStoreDataDelegate: AnyObject {
     //
     func saveTask()
 }
-///
-class STMTaskDetail_TVC: UITableViewController, STMStoreDataDelegate {
+//
+protocol RecordDetailUpdate: AnyObject {
+    //
+    func updateDetailModel(with type: DetailType, value:AnyObject)
+}
+//
+extension STMTaskDetail_TVC: RecordDetailUpdate {
+    //
+    func updateDetailModel(with type: DetailType, value:AnyObject) {
+        //
+        switch type {
+        case .title: theDetailModel.theTitle = (value as! String)
+        case .category: theDetailModel.theCategory = (value as! STMCategory)
+        case .dueDate: theDetailModel.theDueDate = (value as! Date)
+        case .description: theDetailModel.theTaskDesription = (value as! String)
+        case .status: theDetailModel.theTaskStatus = (value as! Bool)
+        case .notification: theDetailModel.theNotificationStatus = (value as! Bool)
+        }
+        //
+        self.hasBeenUpdated = true
+    }
+}
+
+//
+extension STMTaskDetail_TVC: STMStoreDataDelegate {
     //
     func saveTask() {
-        //STMTaskAction.addNewTask(titel: taskTitle.text, category: category, dueDate: taskDueDateLabel.text, description: taskDesription.text).manageTask()
+        //
+        if theDetailModel.isEligable {
+            //
+            STMTaskAction.addNew(titel: theDetailModel.theTitle!,
+                                 category: theDetailModel.theCategory,
+                                 dueDate: theDetailModel.theDueDate,
+                                 description: theDetailModel.theTaskDesription,
+                                 isNotified: theDetailModel.theNotificationStatus).manageTask()
+            //
+            self.navigationController?.popViewController(animated: true)
+        } else {
+            showIncorectTitelAlert()
+        }
+    }
+}
+//
+extension STMTaskDetail_TVC: STMTaskList_TVC_Delegate {
+    //
+    func reloadData() {
+        self.tableView.reloadRows(at: [IndexPath(row: 0, section: 5)], with: .fade)
+    }
+}
+/// add and edit task
+class STMTaskDetail_TVC: UITableViewController {
+    //
+    private var theDetailModel = DetailModel()
+    //
+    func getRelevantCell(for row:Int) -> UITableViewCell? {
+        return self.tableView.cellForRow(at: IndexPath(row: 0, section: row))
+    }
+    // if task available then Edit/Review mode else Add New task mode
+    var task: STMRecord? {
+        didSet {
+            theDetailModel.theTitle = task?.taskTitle
+            theDetailModel.theCategory = (task?.taskCategory)!
+            theDetailModel.theDueDate = (task?.taskDueDate)!
+            theDetailModel.theTaskDesription = (task?.taskDescription)!
+            theDetailModel.theNotificationStatus = (task?.isNotificationOn)!
+            theDetailModel.theTaskStatus = (task?.isFinished)!
+        }
     }
     //
-    var taskID:UUID?
-    //
-    var isTaskBeingEditing = false
-    //
-    @IBOutlet var taskDesription:UITextView!
-    //
-    @IBOutlet var taskDueDateLabel:UILabel!
-    //
-    @IBOutlet var taskTitle:UILabel!
-    //
-    @IBOutlet var enableNotificationSwitch:UISwitch!
-    //
-    @IBOutlet var manageTaskButton:UIButton!
+    var hasBeenUpdated = false
     ///
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
         //
-        if isTaskBeingEditing {
-            //
-            if let record = STMRecord.getTask(with:taskID!) {
-                taskTitle.text = record.taskTitle
-                taskDueDateLabel.text = record.taskDueDate?.description
-                taskDesription.text = record.detail?.taskDescription
-            }
+        if task != nil {
+            let backButton = UIBarButtonItem(title: "Save",
+                                             style: .done,
+                                             target: self,
+                                             action: #selector(STMTaskDetail_TVC.saveAction(sender:)))
+            self.navigationItem.rightBarButtonItem = backButton
         }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    //
+    @objc func saveAction(sender:UIButton) {
+        //
+        if hasBeenUpdated {
+            showUpdateAlert(with: { confirmAction in
+                // update
+                self.updateRecentValues()
+                self.pushControllerBack(animated: true)
+                
+            }, cancelAction: { cancelAction in
+                //
+                self.pushControllerBack(animated: true)
+            })
+        } else {
+            self.pushControllerBack(animated: true)
+        }
+    }
+    
+    //
+    private func updateRecentValues() {
+        //
+        if theDetailModel.isEligable {
+            STMTaskAction.edit(id: (task?.id)!,
+                               titel: theDetailModel.theTitle!,
+                               category: theDetailModel.theCategory,
+                               dueDate: theDetailModel.theDueDate,
+                               description: theDetailModel.theTaskDesription).manageTask()
+
+            STMRecord.manageTaskNotification(with:task!, isNotified:theDetailModel.theNotificationStatus)
+            STMRecord.manageTaskStatus(with:task!, isFinished:theDetailModel.theTaskStatus)
+        } else {
+            showIncorectTitelAlert()
+        }
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return DetailType.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 6
+        return 1
     }
 
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        //
+        switch indexPath.section {
+        case 1: return 140
+        case 2: return 240
+        case 3: return 220
+        default: return 75
+        }
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //
         var cell = UITableViewCell()
         //
-        switch indexPath.row {
-        case 0:
-            cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-        default:
-            if isTaskBeingEditing {
-                cell = tableView.dequeueReusableCell(withIdentifier:
-                        String(describing: STMConfirmButton_TVCell.self), for: indexPath) as! STMConfirmButton_TVCell
+        switch indexPath.section {
+            
+        case 0: let theCell = tableView.dequeueReusableCell(withIdentifier:
+            String(describing: STMDetail_Title_TVCell.self), for: indexPath) as! STMDetail_Title_TVCell
+            theCell.theTextField.text = theDetailModel.theTitle
+            theCell.delegate = self
+            cell = theCell
+            
+        case 1: let theCell = tableView.dequeueReusableCell(withIdentifier:
+            String(describing: STMDetailCategoty_TVCell.self), for: indexPath) as! STMDetailCategoty_TVCell
+            theCell.thePicker.selectRow(STMCategoryData.taskCategories.index(of: theDetailModel.theCategory)!,
+                                        inComponent: 0,
+                                        animated: true)
+            theCell.delegate = self
+            cell = theCell
+            
+        case 2: let theCell = tableView.dequeueReusableCell(withIdentifier:
+            String(describing: STMDetailDueDate_TVCell.self), for: indexPath) as! STMDetailDueDate_TVCell
+            theCell.theDatePicker.setDate(theDetailModel.theDueDate, animated: true)
+            theCell.delegate = self
+            cell = theCell
+            
+        case 3: let theCell = tableView.dequeueReusableCell(withIdentifier:
+            String(describing: STMDetailTextView_TVCell.self), for: indexPath) as! STMDetailTextView_TVCell
+            theCell.taskDescription.text = theDetailModel.theTaskDesription
+            theCell.delegate = self
+            cell = theCell
+            
+        case 4: let theCell = tableView.dequeueReusableCell(withIdentifier:
+            String(describing: STMDetailNotification_TVCell.self), for: indexPath) as! STMDetailNotification_TVCell
+            theCell.theSwitch.isOn = theDetailModel.theNotificationStatus
+            theCell.delegate = self
+            cell = theCell
+        // alternate behaviour according to the action
+        case 5:
+            if let theTask=task {
+                let theCell = tableView.dequeueReusableCell(withIdentifier:
+                String(describing: STMConfirmButton_TVCell.self), for: indexPath) as! STMConfirmButton_TVCell
+                theCell.theTaskRecord = theTask
+                theCell.delegate = self
+                cell = theCell
             } else {
-                cell = tableView.dequeueReusableCell(withIdentifier:
-                        String(describing: STMDetailAddButton_TVCell.self), for: indexPath) as! STMDetailAddButton_TVCell
+                let theCell = tableView.dequeueReusableCell(withIdentifier:
+                String(describing: STMDetailAddButton_TVCell.self), for: indexPath) as! STMDetailAddButton_TVCell
+                theCell.delegate = self
+                cell = theCell
+                
             }
-
+            
+        default: break
         }
-
+        //
         return cell
     }
- 
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    //
+    // MARK: - Util functions
+    //
+    private func getIndexRow(from category:STMCategory) -> Int {
+        guard let row = STMCategoryData.taskCategories.index(of: category) else {
+            return 0
+        }
+        return row
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -7,44 +7,43 @@
 //
 
 import UIKit
-//
+// generic one
 class STMButton_TVCell: UITableViewCell {
     //
-    @IBOutlet var manageButton: UIButton!
+    @IBOutlet weak var manageButton: UIButton!
 }
-/// Used for main view cell and task detail cell 
+/// Used for main view cell and task detail cell as a base cell
 class STMConfirmButton_TVCell: STMButton_TVCell {
-    // possibly using MVVM can bring very similar solution, but with structs on board might be less resource consumpting
-    // default
-    var theTaskRecord: STMRecord? {
+    //
+    var theTaskRecord:STMRecord? {
         didSet {
             formatButton()
         }
     }
     //
+    weak var delegate: STMTaskList_TVC_Delegate? = nil
+    //
     internal func formatButton() {
         manageButton.addTarget(self, action:#selector(manageTask), for: .touchUpInside)
-        manageButton.isSelected = (theTaskRecord?.isFinished)! ? true : false
+        manageButton.isSelected = (theTaskRecord?.isFinished)!
     }
     ///
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        manageButton.setTitle(STMFinishTask.incompleteTask.labelTitle, for: .normal)
-        manageButton.setTitle(STMFinishTask.completeTask.labelTitle, for: .selected)
+        manageButton.setTitle(STMTaskStatus.incompleteTask.labelTitle, for: .normal)
+        manageButton.setTitle(STMTaskStatus.completeTask.labelTitle, for: .selected)
         //
     }
     ///
     @objc func manageTask() {
         //
-        manageButton.isSelected = !manageButton.isSelected
-        //
-        if let task = theTaskRecord, let id = task.id {
-            if task.isFinished {
-                STMFinishTask.incompleteTask.manageTask(with: id)
-            } else {
-                STMFinishTask.completeTask.manageTask(with: id)
-            }
+        if (theTaskRecord?.isFinished)! {
+            STMTaskStatus.incompleteTask.manageTask(with:theTaskRecord!)
+        } else {
+            STMTaskStatus.completeTask.manageTask(with:theTaskRecord!)
         }
+        //
+        delegate?.reloadData()
     }
 }

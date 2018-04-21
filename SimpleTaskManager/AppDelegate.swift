@@ -7,6 +7,16 @@
 //
 
 import UIKit
+import UserNotifications
+
+//
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    //
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        //
+        completionHandler([.alert, .sound, .badge])
+    }
+}
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, STMPersistantProtocol {

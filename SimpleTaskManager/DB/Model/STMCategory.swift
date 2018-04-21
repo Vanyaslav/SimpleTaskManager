@@ -13,12 +13,17 @@ import MagicalRecord
 //
 extension STMCategory {
     //
-    public static func createTaskCategory(with titel:String, color:UIColor) {
+    public static func getAllCategories() -> [STMCategory] {
+        return STMCategory.mr_findAll() as? [STMCategory] ?? []
+    }
+    //
+    public static func createTaskCategory(with title:String, color:UIColor) {
         //
         MagicalRecord.save(blockAndWait: { context in
             let theRecord = STMCategory.mr_createEntity(in: context)
-            theRecord?.title = titel
-            theRecord?.backgroundColor = color.convertToString()
+            theRecord?.title = title
+            theRecord?.backgroundColor = color.coreImageColor.stringRepresentation
+            
         })
     }
 }

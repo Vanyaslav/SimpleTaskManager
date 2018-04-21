@@ -11,42 +11,49 @@ import Foundation
 //
 enum STMTaskAction {
     // create
-    case addNewTask(titel:String, category:STMCategory, dueDate:Date, description:String)
+    case addNew(titel:String, category:STMCategory, dueDate:Date, description:String, isNotified:Bool)
     // update
-    case edit(task:STMRecord)
+    case edit(id:UUID, titel:String, category:STMCategory, dueDate:Date, description:String)
     // destroy
     case deleteTask(id:UUID)
     //
     func manageTask() {
         //
         switch self {
-        case .addNewTask(let title, let category, let dueDate, let description):
-            STMRecord.createTask(with: title, category: category, dueDate: dueDate, description: description)
-        case .edit(task: let task):
-            STMRecord.updateTask(with: task.id!, title: task.taskTitle, category: task.taskCategory, dueDate: task.taskDueDate, isFinished: task.isFinished)
+        case .addNew(let title, let category, let dueDate, let description, let isNotified):
+            STMRecord.createTask(with: title, category: category, dueDate: dueDate, description: description, isNotified:isNotified)
+        case .edit(let id, let title, let category, let dueDate, let description):
+            STMRecord.updateTask(with: id, title: title, category: category, dueDate: dueDate, description: description)
         case .deleteTask(let id):
             STMRecord.deleteTask(with: id)
         }
     }
 }
 //
-enum STMFinishTask {
+enum STMTaskStatus {
     // finish
     case completeTask
     // unfinish
     case incompleteTask
     //
-    func manageTask(with id: UUID) {
+    func manageTask(with record:STMRecord) {
         switch self {
-        case .completeTask: STMRecord.manageTaskStatus(with: id, isFinished: true)
-        case .incompleteTask: STMRecord.manageTaskStatus(with: id, isFinished: false)
+        case .completeTask: STMRecord.manageTaskStatus(with: record, isFinished: true)
+        case .incompleteTask: STMRecord.manageTaskStatus(with: record, isFinished: false)
         }
     }
     //
     var labelTitle:String {
         switch self {
-        case .incompleteTask:     return "Undo Finish!"
-        case .completeTask:       return "Finish Task!"
+        case .incompleteTask:     return "Finish Task!"
+        case .completeTask:       return "Undo Finish!"
+        }
+    }
+    //
+    var tableHeaderTitle:String {
+        switch self {
+        case .incompleteTask:     return "Incompleted Tasks"
+        case .completeTask:       return "Completed Tasks"
         }
     }
 }

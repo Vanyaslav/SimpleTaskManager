@@ -8,17 +8,28 @@
 
 import UIKit
 
-class STMDetail_Title_TVCell: UITableViewCell {
-
+class STMDetail_Title_TVCell: STMTextField_TVCell, UITextFieldDelegate {
+    //
+    weak var delegate:RecordDetailUpdate?
+    //
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        theTextField.delegate = self
+        ////
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.UITextFieldTextDidChange,
+                                               object: theTextField,
+                                               queue: nil,
+                                               using: { [weak self] notification in
+                                                if let taskNameField = notification.object as? UITextField {
+                                                    self?.delegate?.updateDetailModel(with: .title, value: taskNameField.text as AnyObject)
+                                                }
+        })
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    //
+    deinit {
+        NotificationCenter.default.removeObserver(self,
+                                                  name: NSNotification.Name.UITextFieldTextDidChange,
+                                                  object:theTextField)
     }
-
 }

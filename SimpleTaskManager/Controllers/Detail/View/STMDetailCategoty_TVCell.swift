@@ -8,17 +8,36 @@
 
 import UIKit
 
-class STMDetailCategoty_TVCell: UITableViewCell {
+internal struct STMCategoryData {
+    //
+    static let taskCategories = STMCategory.getAllCategories()
+}
+
+class STMDetailCategoty_TVCell: STMPicker_TVCell, UIPickerViewDelegate, UIPickerViewDataSource {
+    //
+    weak var delegate:RecordDetailUpdate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    //
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return STMCategoryData.taskCategories[row].title!
     }
-
+    //
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        // delegate
+        delegate?.updateDetailModel(with: .category, value: STMCategoryData.taskCategories[row])
+    }
+    
+    //
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    //
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return STMCategoryData.taskCategories.count
+    }
 }
