@@ -42,12 +42,12 @@ protocol STMStoreDataDelegate: AnyObject {
     func saveTask()
 }
 //
-protocol RecordDetailUpdate: AnyObject {
+protocol RecordDetailProtocol: AnyObject {
     //
     func updateDetailModel(with type: DetailType, value:AnyObject)
 }
 //
-extension STMTaskDetail_TVC: RecordDetailUpdate {
+extension STMTaskDetail_TVC: RecordDetailProtocol {
     //
     func updateDetailModel(with type: DetailType, value:AnyObject) {
         //

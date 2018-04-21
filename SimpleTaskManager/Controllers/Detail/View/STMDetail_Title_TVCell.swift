@@ -10,7 +10,7 @@ import UIKit
 
 class STMDetail_Title_TVCell: STMTextField_TVCell, UITextFieldDelegate {
     //
-    weak var delegate:RecordDetailUpdate?
+    weak var delegate:RecordDetailProtocol?
     //
     override func awakeFromNib() {
         super.awakeFromNib()

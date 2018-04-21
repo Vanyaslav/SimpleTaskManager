@@ -15,7 +15,7 @@ internal struct STMCategoryData {
 
 class STMDetailCategoty_TVCell: STMPicker_TVCell, UIPickerViewDelegate, UIPickerViewDataSource {
     //
-    weak var delegate:RecordDetailUpdate?
+    weak var delegate:RecordDetailProtocol?
 
     override func awakeFromNib() {
         super.awakeFromNib()

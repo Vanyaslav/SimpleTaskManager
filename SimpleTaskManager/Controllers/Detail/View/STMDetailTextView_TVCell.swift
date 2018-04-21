@@ -10,7 +10,7 @@ import UIKit
 
 class STMDetailTextView_TVCell: UITableViewCell, UITextViewDelegate {
     //
-    weak var delegate:RecordDetailUpdate?
+    weak var delegate:RecordDetailProtocol?
     //
     @IBOutlet weak var taskDescription: UITextView!
     //

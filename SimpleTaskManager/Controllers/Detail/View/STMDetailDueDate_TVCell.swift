@@ -12,7 +12,7 @@ class STMDetailDueDate_TVCell: UITableViewCell {
     //
     @IBOutlet weak var theDatePicker: UIDatePicker!
     //
-    weak var delegate:RecordDetailUpdate?
+    weak var delegate:RecordDetailProtocol?
     //
     override func awakeFromNib() {
         super.awakeFromNib()

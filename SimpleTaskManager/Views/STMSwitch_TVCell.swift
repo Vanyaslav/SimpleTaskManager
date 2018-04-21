@@ -10,7 +10,7 @@ import UIKit
 // Used for notifications cells
 class STMSwitch_TVCell: UITableViewCell {
     //
-    weak var delegate:RecordDetailUpdate?
+    weak var delegate:RecordDetailProtocol?
     //
     @IBOutlet weak var theSwitch: UISwitch!
     // notification
