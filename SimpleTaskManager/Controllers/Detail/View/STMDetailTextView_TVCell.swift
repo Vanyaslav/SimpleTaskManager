@@ -8,9 +8,20 @@
 
 import UIKit
 
-class STMDetailTextView_TVCell: UITableViewCell {
+class STMDetailTextView_TVCell: UITableViewCell, UITextViewDelegate {
     //
-    @IBOutlet var taskDescription: UITextView!
+    weak var delegate:RecordDetailUpdate?
+    //
+    @IBOutlet weak var taskDescription: UITextView!
+    //
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        //
+        taskDescription.delegate = self
+    }
     ////
-    
+    func textViewDidChange(_ textView: UITextView) {
+        // delegate
+        delegate?.updateDetailModel(with:.description, value:textView.text as AnyObject)
+    }
 }
