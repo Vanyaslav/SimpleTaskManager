@@ -14,7 +14,16 @@ private let center = UNUserNotificationCenter.current()
 //
 extension UNNotification {
     //
+    public static func makeAuthorizationRequest(with delegate: UNUserNotificationCenterDelegate) {
+
+        center.delegate = delegate
+        center.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
+        }
+    }
+    //
     public static func createNotification(from task:STMRecord) {
+        //
+        cancelNotification(with: task.id!)
         //
         let content = UNMutableNotificationContent()
         if let theDescription = task.taskDescription {

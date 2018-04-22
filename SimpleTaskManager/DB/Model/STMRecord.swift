@@ -25,7 +25,7 @@ extension STMRecord {
     public static func getAllTasks() -> [STMRecord] {
         //
         let theType = STMOrderingType.getOrderVariable()
-        let theManner = STMOrderingManner.getStored() == .ascending ? true:false
+        let theManner = STMOrderingManner.getStored() == .ascending ? true : false
         //
         guard let tasks = STMRecord.mr_findAllSorted(by: theType, ascending: theManner) as? [STMRecord] else {
             return []
@@ -43,7 +43,7 @@ extension STMRecord {
                 theRecord.id = newId
                 theRecord.taskTitle = title
                 theRecord.taskDueDate = dueDate
-                theRecord.taskCreationDate = Date(timeIntervalSinceNow: 0)
+                theRecord.taskCreationDate = Date()
                 theRecord.isFinished = false
                 theRecord.taskDescription = description
                 theRecord.isNotificationOn = isNotified
@@ -82,29 +82,25 @@ extension STMRecord {
         }
     }
     //
-    public static func manageAllTaskNotification(isOn: Bool = true) {
+    public static func updateAllTaskNotification(isOn: Bool = true) {
         _ = STMRecord.getAllTasks().map({ task in
-            STMRecord.manageTaskNotification(with: task, isNotified: isOn)
+            STMRecord.updateTaskNotification(with: task, isNotified: isOn)
             
         })
     }
-    
     //
-    public static func manageTaskNotification(with task:STMRecord, isNotified:Bool) {
+    public static func updateTaskNotification(with task:STMRecord, isNotified:Bool) {
         //
-        if !task.isNotificationOn {
-            //
-            MagicalRecord.save(blockAndWait: { context in
-                let localRecord = task.mr_(in:context)
-                localRecord?.isNotificationOn = isNotified
-            })
-            //
-            if isNotified {
-                UNNotification.createNotification(from: STMRecord.getRecord(by: task.id!)!)
-            } else {
-                UNNotification.cancelNotification(with: task.id!)
-            }
+        if isNotified {
+            UNNotification.createNotification(from: STMRecord.getRecord(by: task.id!)!)
+        } else {
+            UNNotification.cancelNotification(with: task.id!)
         }
+        //
+        MagicalRecord.save(blockAndWait: { context in
+            let localRecord = task.mr_(in:context)
+            localRecord?.isNotificationOn = isNotified
+        })
     }
     //
     public static func manageTaskStatus(with task:STMRecord, isFinished:Bool) {

@@ -27,6 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, STMPersistantProtocol {
         // Override point for customization after application launch.
         //
         initPersinstantStore()
+        //
+        UNNotification.makeAuthorizationRequest(with: self)
         
         return true
     }

@@ -210,9 +210,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LZC-04-RzY">
-                                <rect key="frame" x="11" y="119" width="348" height="181"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LZC-04-RzY">
+                                <rect key="frame" x="11" y="119" width="348" height="145"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="145" id="UYR-uP-Opu"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="NGr-HO-vyD" id="hn4-EA-LvM"/>
                                     <outlet property="delegate" destination="uR7-7N-mUy" id="W4g-QA-ktN"/>
@@ -226,8 +228,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="LZC-04-RzY" firstAttribute="top" secondItem="nia-BF-ujY" secondAttribute="bottom" constant="7" id="0FC-Be-UdF"/>
+                            <constraint firstItem="LZC-04-RzY" firstAttribute="leading" secondItem="o6q-hb-JEl" secondAttribute="leading" constant="11" id="5rY-Jv-FZa"/>
                             <constraint firstItem="UrA-cS-h4W" firstAttribute="centerX" secondItem="QsQ-jB-lK6" secondAttribute="centerX" id="CNu-uV-CcQ"/>
                             <constraint firstItem="o6q-hb-JEl" firstAttribute="trailing" secondItem="nia-BF-ujY" secondAttribute="trailing" constant="16" id="KIR-Jd-Axu"/>
+                            <constraint firstItem="o6q-hb-JEl" firstAttribute="trailing" secondItem="LZC-04-RzY" secondAttribute="trailing" constant="16" id="Vex-0p-AVy"/>
                             <constraint firstItem="nia-BF-ujY" firstAttribute="leading" secondItem="o6q-hb-JEl" secondAttribute="leading" constant="16" id="mqw-h7-srt"/>
                             <constraint firstItem="o6q-hb-JEl" firstAttribute="bottom" secondItem="UrA-cS-h4W" secondAttribute="bottom" constant="20" id="txj-gy-02p"/>
                             <constraint firstItem="nia-BF-ujY" firstAttribute="top" secondItem="o6q-hb-JEl" secondAttribute="top" constant="18" id="zZC-Yk-D35"/>
@@ -244,7 +249,7 @@
                 <customObject id="NGr-HO-vyD" customClass="ColorPickerData" customModule="SimpleTaskManager" customModuleProvider="target"/>
                 <customObject id="uR7-7N-mUy" customClass="ColorPickerDelegate" customModule="SimpleTaskManager" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="633" y="1059"/>
+            <point key="canvasLocation" x="632.79999999999995" y="1058.3208395802101"/>
         </scene>
         <!--Detail-->
         <scene sceneID="QP8-i9-0fj">

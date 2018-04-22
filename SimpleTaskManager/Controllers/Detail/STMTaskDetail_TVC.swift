@@ -28,6 +28,16 @@ struct DetailModel {
         }
         return true
     }
+    //
+    mutating func initModel(with task:STMRecord) {
+        //
+        theTitle = task.taskTitle
+        theCategory = task.taskCategory!
+        theDueDate = task.taskDueDate!
+        theTaskDesription = task.taskDescription!
+        theNotificationStatus = task.isNotificationOn
+        theTaskStatus = task.isFinished
+    }
 }
 //
 enum DetailType: Int {
@@ -95,18 +105,12 @@ class STMTaskDetail_TVC: UITableViewController {
     //
     private var theDetailModel = DetailModel()
     //
-    func getRelevantCell(for row:Int) -> UITableViewCell? {
-        return self.tableView.cellForRow(at: IndexPath(row: 0, section: row))
-    }
     // if task available then Edit/Review mode else Add New task mode
+    // TODO: let view know nothing about Model
     var task: STMRecord? {
+        //
         didSet {
-            theDetailModel.theTitle = task?.taskTitle
-            theDetailModel.theCategory = (task?.taskCategory)!
-            theDetailModel.theDueDate = (task?.taskDueDate)!
-            theDetailModel.theTaskDesription = (task?.taskDescription)!
-            theDetailModel.theNotificationStatus = (task?.isNotificationOn)!
-            theDetailModel.theTaskStatus = (task?.isFinished)!
+            theDetailModel.initModel(with: task!)
         }
     }
     //
@@ -152,7 +156,7 @@ class STMTaskDetail_TVC: UITableViewController {
                                dueDate: theDetailModel.theDueDate,
                                description: theDetailModel.theTaskDesription).manageTask()
 
-            STMRecord.manageTaskNotification(with:task!, isNotified:theDetailModel.theNotificationStatus)
+            STMRecord.updateTaskNotification(with:task!, isNotified:theDetailModel.theNotificationStatus)
             STMRecord.manageTaskStatus(with:task!, isFinished:theDetailModel.theTaskStatus)
         } else {
             showIncorectTitelAlert()

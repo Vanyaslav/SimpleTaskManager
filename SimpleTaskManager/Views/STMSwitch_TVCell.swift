@@ -30,7 +30,7 @@ class STMSwitch_TVCell: UITableViewCell {
                 return
             }
             //
-            STMRecord.manageAllTaskNotification(isOn: theSwitch.isOn)
+            STMRecord.updateAllTaskNotification(isOn: theSwitch.isOn)
         } else {
             delegate?.updateDetailModel(with: .notification, value: theSwitch.isOn as AnyObject)
         }
