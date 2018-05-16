@@ -22,7 +22,7 @@ extension STMTaskList_TVC: STMTaskList_TVC_Delegate {
 }
 ///
 class STMTaskList_TVC: UITableViewController {
-    //
+    // TODO: detailViewModel instead of Records
     var completedTasks = [STMRecord]()
     //
     var incompletedTasks = [STMRecord]()

@@ -47,22 +47,22 @@ struct STMDefault {
     }
 }
 //
-protocol STMPersistantProtocol {
+protocol STMPersistentProtocol {
     //
-    func initPersinstantStore()
+    func initPersinstentStore()
     //
-    func deinitPersinstantStore()
+    func deinitPersinstentStore()
 }
 // default implementation
-extension STMPersistantProtocol {
+extension STMPersistentProtocol {
     //
-    func initPersinstantStore() {
+    func initPersinstentStore() {
         MagicalRecord.setupCoreDataStack(withStoreNamed: STMDefault.storageName)
         //
         STMDefault.initDefaults()
     }
     //
-    func deinitPersinstantStore() {
+    func deinitPersinstentStore() {
         MagicalRecord.cleanUp()
     }
 }

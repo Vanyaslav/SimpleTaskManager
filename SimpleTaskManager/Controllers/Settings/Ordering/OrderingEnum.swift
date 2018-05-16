@@ -22,6 +22,13 @@ enum STMOrderingManner: Int {
         }
     }
     //
+    var actionBool:Bool {
+        switch self {
+        case .ascending: return true
+        case .descending: return false
+        }
+    }
+    //
     public static func getTitle(row:Int) -> String {
         return (STMOrderingManner(rawValue: row)?.title)!
     }

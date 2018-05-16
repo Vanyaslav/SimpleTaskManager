@@ -25,7 +25,7 @@ extension STMRecord {
     public static func getAllTasks() -> [STMRecord] {
         //
         let theType = STMOrderingType.getOrderVariable()
-        let theManner = STMOrderingManner.getStored() == .ascending ? true : false
+        let theManner = STMOrderingManner.getStored().actionBool
         //
         guard let tasks = STMRecord.mr_findAllSorted(by: theType, ascending: theManner) as? [STMRecord] else {
             return []
