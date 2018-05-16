@@ -8,15 +8,13 @@
 
 import UIKit
 
-internal struct STMCategoryData {
-    //
-    let taskCategories = STMCategory.getAllCategories()
-}
 
 class STMDetailCategoty_TVCell: STMPicker_TVCell, UIPickerViewDelegate, UIPickerViewDataSource {
     //
     weak var delegate:RecordDetailProtocol?
-
+    //
+    let taskCategories = STMCategory.allCategories
+    //
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -24,12 +22,12 @@ class STMDetailCategoty_TVCell: STMPicker_TVCell, UIPickerViewDelegate, UIPicker
     
     //
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return STMCategoryData().taskCategories[row].title!
+        return taskCategories[row].title!
     }
     //
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         // delegate
-        delegate?.updateDetailModel(with: .category, value: STMCategoryData().taskCategories[row])
+        delegate?.updateDetailModel(with: .category, value: taskCategories[row])
     }
     
     //
@@ -38,6 +36,6 @@ class STMDetailCategoty_TVCell: STMPicker_TVCell, UIPickerViewDelegate, UIPicker
     }
     //
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return STMCategoryData().taskCategories.count
+        return taskCategories.count
     }
 }

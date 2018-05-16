@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17E199" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17E202" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="STMCategory" representedClassName="STMCategory" syncable="YES" codeGenerationType="class">
         <attribute name="backgroundColor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
@@ -15,10 +15,8 @@
         <attribute name="taskTitle" attributeType="String" minValueString="3" syncable="YES"/>
         <relationship name="taskCategory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMCategory" inverseName="relationship" inverseEntity="STMCategory" syncable="YES"/>
     </entity>
-    <entity name="STMRecordDetail" representedClassName="STMRecordDetail" syncable="YES" codeGenerationType="class"/>
     <elements>
         <element name="STMCategory" positionX="-2018" positionY="-2071" width="128" height="88"/>
         <element name="STMRecord" positionX="-2169" positionY="-1935" width="117" height="163"/>
-        <element name="STMRecordDetail" positionX="-1899" positionY="-1926" width="128" height="43"/>
     </elements>
 </model>

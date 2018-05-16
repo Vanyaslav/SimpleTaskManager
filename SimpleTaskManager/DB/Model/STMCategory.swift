@@ -13,7 +13,7 @@ import MagicalRecord
 //
 extension STMCategory {
     //
-    public static func getAllCategories() -> [STMCategory] {
+    public static var allCategories: [STMCategory] {
         return STMCategory.mr_findAll() as? [STMCategory] ?? []
     }
     //

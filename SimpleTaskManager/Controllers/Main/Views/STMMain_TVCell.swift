@@ -14,11 +14,21 @@ class STMMain_TVCell: STMConfirmButton_TVCell {
     //
     @IBOutlet var dueDateLabel: UILabel!
     //
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        //
+        formatButton()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    //
     override var theTaskRecord: STMRecord? {
         didSet {
             titelLabel.text = theTaskRecord?.taskTitle
             dueDateLabel.text = theTaskRecord?.taskDueDate?.returnString(with: .long)
-            formatButton()
         }
     }
 }

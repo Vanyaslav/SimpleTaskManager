@@ -12,7 +12,7 @@ struct DetailModel {
     //
     var theTitle: String?
     //
-    var theCategory: STMCategory = STMCategoryData().taskCategories[0]
+    var theCategory: STMCategory = STMCategory.allCategories[0]
     //
     var theDueDate = Date()
     //
@@ -199,7 +199,7 @@ class STMTaskDetail_TVC: UITableViewController {
             
         case 1: let theCell = tableView.dequeueReusableCell(withIdentifier:
             String(describing: STMDetailCategoty_TVCell.self), for: indexPath) as! STMDetailCategoty_TVCell
-            theCell.thePicker.selectRow(STMCategoryData().taskCategories.index(of: theDetailModel.theCategory)!,
+            theCell.thePicker.selectRow(STMCategory.allCategories.index(of: theDetailModel.theCategory)!,
                                         inComponent: 0,
                                         animated: true)
             theCell.delegate = self
@@ -247,7 +247,7 @@ class STMTaskDetail_TVC: UITableViewController {
     // MARK: - Util functions
     //
     private func getIndexRow(from category:STMCategory) -> Int {
-        guard let row = STMCategoryData().taskCategories.index(of: category) else {
+        guard let row = STMCategory.allCategories.index(of: category) else {
             return 0
         }
         return row

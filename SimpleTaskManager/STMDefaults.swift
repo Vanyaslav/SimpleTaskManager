@@ -36,14 +36,6 @@ struct STMDefault {
             UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedStringKey.font: font], for: .normal)
             UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.font:font]
         }
-        
-        // init just for the first run
-        if STMCategory.mr_findAll()?.count == 0 {
-            //
-            _ = STMDefault.categories.map{ (title, color) in
-                STMCategory.createTaskCategory(with: title, color: color)
-            }
-        }
     }
 }
 //
@@ -59,7 +51,13 @@ extension STMPersistentProtocol {
     func initPersinstentStore() {
         MagicalRecord.setupCoreDataStack(withStoreNamed: STMDefault.storageName)
         //
-        STMDefault.initDefaults()
+        // init just for the first run
+        if STMCategory.mr_findAll()?.count == 0 {
+            //
+            _ = STMDefault.categories.map{ (title, color) in
+                STMCategory.createTaskCategory(with: title, color: color)
+            }
+        }
     }
     //
     func deinitPersinstentStore() {

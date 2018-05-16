@@ -26,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, STMPersistentProtocol {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         //
+        STMDefault.initDefaults()
+        //
         initPersinstentStore()
         //
         UNNotification.makeAuthorizationRequest(with: self)
