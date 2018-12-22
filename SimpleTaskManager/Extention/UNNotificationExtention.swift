@@ -31,7 +31,7 @@ extension UNNotification {
         }
         
         content.title = task.taskTitle!
-        content.sound = UNNotificationSound.default()
+        content.sound = UNNotificationSound.default
         content.badge = UIApplication.shared.applicationIconBadgeNumber + 1 as NSNumber
         //
         let triggerDate = Calendar.current.dateComponents([.year,.month,.day, .hour, .minute], from: task.taskDueDate!)

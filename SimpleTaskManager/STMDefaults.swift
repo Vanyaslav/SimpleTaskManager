@@ -33,8 +33,8 @@ struct STMDefault {
     static func initDefaults() {
         //
         if let font = UIFont(name: font.labelMain, size: font.labelMainSize) {
-            UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedStringKey.font: font], for: .normal)
-            UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.font:font]
+            UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
+            UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.font:font]
         }
     }
 }

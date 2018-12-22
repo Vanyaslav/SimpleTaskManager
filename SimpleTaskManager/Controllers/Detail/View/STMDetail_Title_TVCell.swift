@@ -17,7 +17,7 @@ class STMDetail_Title_TVCell: STMTextField_TVCell, UITextFieldDelegate {
         // Initialization code
         theTextField.delegate = self
         ////
-        NotificationCenter.default.addObserver(forName: NSNotification.Name.UITextFieldTextDidChange,
+        NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification,
                                                object: theTextField,
                                                queue: nil,
                                                using: { [weak self] notification in
@@ -30,7 +30,7 @@ class STMDetail_Title_TVCell: STMTextField_TVCell, UITextFieldDelegate {
     //
     deinit {
         NotificationCenter.default.removeObserver(self,
-                                                  name: NSNotification.Name.UITextFieldTextDidChange,
+                                                  name: UITextField.textDidChangeNotification,
                                                   object:theTextField)
     }
 }
