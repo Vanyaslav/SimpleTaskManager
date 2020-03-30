@@ -1,0 +1,22 @@
+PODS:
+  - MagicalRecord (2.3.2):
+    - MagicalRecord/Core (= 2.3.2)
+  - MagicalRecord/Core (2.3.2)
+  - Yoga (1.14.0)
+
+DEPENDENCIES:
+  - MagicalRecord
+  - Yoga
+
+SPEC REPOS:
+  trunk:
+    - MagicalRecord
+    - Yoga
+
+SPEC CHECKSUMS:
+  MagicalRecord: 53bed74b4323b930992a725be713e53b37d19755
+  Yoga: cff67a400f6b74dc38eb0bad4f156673d9aa980c
+
+PODFILE CHECKSUM: 5626c5a02e6bf17c4c3dd0f8d1d987aeeb422054
+
+COCOAPODS: 1.9.1

@@ -7,5 +7,6 @@ target 'SimpleTaskManager' do
 
   # Pods for SimpleTaskManager
     pod 'MagicalRecord'
+    pod 'Yoga'
 
 end
