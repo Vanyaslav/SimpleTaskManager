@@ -12,11 +12,11 @@ import UIKit
 class STMOrderingPickerData: NSObject, UIPickerViewDataSource {
     //
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return STMOrderingType.count
+        return STMOrderingType.allCases.count
     }
     //
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return STMOrderingManner.count
+        return STMOrderingManner.allCases.count
     }
 }
 ///

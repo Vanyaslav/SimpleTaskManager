@@ -9,7 +9,5 @@
 import UIKit
 
 class STMTextField_TVCell: UITableViewCell {
-
-    @IBOutlet weak var theTextField: UITextField!
-
+    @IBOutlet weak var textField: UITextField!
 }

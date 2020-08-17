@@ -11,27 +11,29 @@ import UIKit
 ///
 class STMAddNewCategory_VC: UIViewController {
     //
-    @IBOutlet var colorPicker:UIPickerView!
+    @IBOutlet var colorPicker: UIPickerView!
     //
-    @IBOutlet var saveButton:UIButton!
+    @IBOutlet var saveButton: UIButton!
     //
-    @IBOutlet var titleTextView:UITextField!
+    @IBOutlet var titleTextView: UITextField!
     //
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
         saveButton.addTarget(self, action: #selector(saveNewCategory), for: .touchUpInside)
     }
-    //
+    
     @objc func saveNewCategory() {
-        //
         if (titleTextView.text?.count)! > 2 {
-            let theColor = UIColor.standardColorList()[colorPicker.selectedRow(inComponent: 0)]
+            let theColor = UIColor.standardColorList[colorPicker.selectedRow(inComponent: 0)]
             STMCategory.createTaskCategory(with: titleTextView.text!, color: theColor)
             self.navigationController?.popViewController(animated: true)
         } else {
             showIncorectTitelAlert()
         }
+    }
+    
+    @IBAction func respondTouch() {
+        titleTextView.resignFirstResponder()
     }
 }

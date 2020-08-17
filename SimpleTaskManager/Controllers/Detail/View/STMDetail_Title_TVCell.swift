@@ -10,15 +10,15 @@ import UIKit
 
 class STMDetail_Title_TVCell: STMTextField_TVCell, UITextFieldDelegate {
     //
-    weak var delegate:RecordDetailProtocol?
+    weak var delegate: STMRecordDetailProtocol?
     //
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        theTextField.delegate = self
+        textField.delegate = self
         ////
         NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification,
-                                               object: theTextField,
+                                               object: textField,
                                                queue: nil,
                                                using: { [weak self] notification in
                                                 if let taskNameField = notification.object as? UITextField {
@@ -27,10 +27,10 @@ class STMDetail_Title_TVCell: STMTextField_TVCell, UITextFieldDelegate {
                                                 }
         })
     }
-    //
+    
     deinit {
         NotificationCenter.default.removeObserver(self,
                                                   name: UITextField.textDidChangeNotification,
-                                                  object:theTextField)
+                                                  object:textField)
     }
 }

@@ -15,7 +15,7 @@ class STMButton_TVCell: UITableViewCell {
 /// Used for main view cell and task detail cell as a base cell
 class STMConfirmButton_TVCell: STMButton_TVCell {
     //
-    var theTaskRecord:STMRecord? {
+    var theTaskRecord: STMRecord? {
         didSet {
             formatButton()
         }
@@ -37,13 +37,12 @@ class STMConfirmButton_TVCell: STMButton_TVCell {
     }
     ///
     @objc func manageTask() {
-        //
         if (theTaskRecord?.isFinished)! {
             STMTaskStatus.incompleteTask.manageTask(with:theTaskRecord!)
         } else {
             STMTaskStatus.completeTask.manageTask(with:theTaskRecord!)
         }
-        //
+        
         delegate?.reloadData()
     }
 }

@@ -9,12 +9,10 @@
 import UIKit
 
 protocol STMTaskList_TVC_Delegate: class {
-    //
     func reloadData()
 }
 //
 extension STMTaskList_TVC: STMTaskList_TVC_Delegate {
-    //
     func reloadData() {
         self.reloadRecords()
         self.tableView.reloadData()
@@ -127,23 +125,6 @@ class STMTaskList_TVC: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
     
     // MARK: - Navigation
 

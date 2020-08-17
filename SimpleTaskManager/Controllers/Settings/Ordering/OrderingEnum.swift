@@ -9,11 +9,9 @@
 import Foundation
 
 ///
-enum STMOrderingManner: Int {
+enum STMOrderingManner: Int, CaseIterable {
     //
     case ascending = 0, descending
-    // the last one + 1
-    static let count = STMOrderingManner.descending.rawValue + 1
     //
     private var title: String {
         switch self {
@@ -22,33 +20,29 @@ enum STMOrderingManner: Int {
         }
     }
     //
-    var actionBool:Bool {
+    var actionBool: Bool {
         switch self {
         case .ascending: return true
         case .descending: return false
         }
     }
     //
-    public static func getTitle(row:Int) -> String {
+    public static func getTitle(row: Int) -> String {
         return (STMOrderingManner(rawValue: row)?.title)!
     }
     //
-    static func manageOrdering(with row:Int) {
+    static func manageOrdering(with row: Int) {
         UserDefaults.storeOrderingManner(with: STMOrderingManner(rawValue: row)!)
     }
     //
     static func getStored() -> STMOrderingManner {
         return UserDefaults.getOrderingManner()
     }
-    //
-    static let storageKey = "STMOrderingManner"
 }
 ///
-enum STMOrderingType: Int {
+enum STMOrderingType: Int, CaseIterable {
     //
     case date = 0, name
-    // the last one + 1
-    static let count = STMOrderingType.name.rawValue + 1
     //
     private var title: String {
         switch self {
@@ -58,40 +52,44 @@ enum STMOrderingType: Int {
     }
     //
     public static func getOrderVariable() -> String {
-        return STMOrderingType.getStored() == .date ? "taskDueDate":"taskTitle"
+        return STMOrderingType.getStored() == .date
+            ? "taskDueDate"
+            : "taskTitle"
     }
     //
-    public static func getTitle(row:Int) -> String {
+    public static func getTitle(row: Int) -> String {
         return (STMOrderingType(rawValue: row)?.title)!
     }
     //
-    static func manageOrdering(with row:Int) {
+    static func manageOrdering(with row: Int) {
         UserDefaults.storeOrderingType(with: STMOrderingType(rawValue: row)!)
     }
     //
     static func getStored() -> STMOrderingType {
         return UserDefaults.getOrderingType()
     }
-    //
-    static let storageKey = "STMOrderingType"
 }
 //
 /// Persistancy
 extension UserDefaults {
     //
+    private static let storageKeyManner = "STMOrderingManner"
+    //
+    private static let storageKeyType = "STMOrderingType"
+    //
     fileprivate static func storeOrderingManner(with manner: STMOrderingManner) {
-        standard.set(manner.rawValue, forKey: STMOrderingManner.storageKey)
+        standard.set(manner.rawValue, forKey: storageKeyManner)
     }
     //
     fileprivate static func storeOrderingType(with type: STMOrderingType) {
-        standard.set(type.rawValue, forKey: STMOrderingType.storageKey)
+        standard.set(type.rawValue, forKey: storageKeyType)
     }
     //
     fileprivate static func getOrderingManner() -> STMOrderingManner {
-        return STMOrderingManner(rawValue: standard.integer(forKey: STMOrderingManner.storageKey))!
+        return STMOrderingManner(rawValue: standard.integer(forKey: storageKeyManner))!
     }
     //
     fileprivate static func getOrderingType() -> STMOrderingType {
-        return STMOrderingType(rawValue: standard.integer(forKey: STMOrderingType.storageKey))!
+        return STMOrderingType(rawValue: standard.integer(forKey: storageKeyType))!
     }
 }

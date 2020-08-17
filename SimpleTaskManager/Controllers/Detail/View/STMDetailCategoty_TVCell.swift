@@ -11,15 +11,9 @@ import UIKit
 
 class STMDetailCategoty_TVCell: STMPicker_TVCell, UIPickerViewDelegate, UIPickerViewDataSource {
     //
-    weak var delegate:RecordDetailProtocol?
+    weak var delegate: STMRecordDetailProtocol?
     //
     let taskCategories = STMCategory.allCategories
-    //
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
     //
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return taskCategories[row].title!
