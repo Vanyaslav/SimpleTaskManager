@@ -15,32 +15,37 @@ class STMSettings_TVC: UITableViewController {
         3
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView,
+                            numberOfRowsInSection section: Int) -> Int {
         1
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView,
+                            heightForRowAt indexPath: IndexPath) -> CGFloat {
         indexPath.section == 1
             ? 190
             : 103
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView,
+                            cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         switch indexPath.section {
+            
         case 0:
-            if let cell = tableView.dequeueReusableCell(withIdentifier:
-                String(describing: STMButton_TVCell.self), for: indexPath) as? STMButton_TVCell {
-                return cell
-            }
+            let cell: STMButton_TVCell = tableView.dequeueReusableCell(for: indexPath)
+            return cell
+
         case 1:
-            if let cell = tableView.dequeueReusableCell(withIdentifier:
-                String(describing: STMOrderingPicker_TVCell.self), for: indexPath) as? STMOrderingPicker_TVCell {
-                return cell
-            }
+            let cell: STMOrderingPicker_TVCell = tableView.dequeueReusableCell(for: indexPath)
+            return cell
+            
+        case 2:
+            let cell: STMSettingsNotification_TVCell = tableView.dequeueReusableCell(for: indexPath)
+            return cell
+            
         default:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: STMSettingsNotification_TVCell.self), for: indexPath) as? STMSettingsNotification_TVCell {
-                return cell
-            }
+            break
         }
         
         return UITableViewCell()

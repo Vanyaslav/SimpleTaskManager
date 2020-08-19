@@ -42,26 +42,29 @@ class STMTaskList_TVC: UITableViewController {
             : 0
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView,
+                            numberOfRowsInSection section: Int) -> Int {
         section == 0
             ? viewModel.incompletedTasks.count
             : viewModel.completedTasks.count
     }
     
     //
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView,
+                            titleForHeaderInSection section: Int) -> String? {
         section == 0
             ? STMTaskStatusEnum.incompleteTask.tableHeaderTitle
             : STMTaskStatusEnum.completeTask.tableHeaderTitle
     }
 
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView,
+                            heightForRowAt indexPath: IndexPath) -> CGFloat {
         110
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: STMMain_TVCell.self), for: indexPath) as? STMMain_TVCell {
-            
+    override func tableView(_ tableView: UITableView,
+                            cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: STMMain_TVCell = tableView.dequeueReusableCell(for: indexPath)
             func assignColor(for task:STMRecord) {
                 let color = task.taskCategory?.backgroundColor
                 
@@ -69,19 +72,17 @@ class STMTaskList_TVC: UITableViewController {
                 cell.backgroundColor = UIColor(ciColor: CIColor(string: color!)).withAlphaComponent(0.1)
             }
             
-            switch indexPath.section {
-            case 0: cell.taskRecord = viewModel.incompletedTasks[indexPath.row]
-                assignColor(for: cell.taskRecord!)
-            default: cell.taskRecord = viewModel.completedTasks[indexPath.row]
-                assignColor(for: cell.taskRecord!)
-            }
-            return cell
+        switch indexPath.section {
+        case 0: cell.taskRecord = viewModel.incompletedTasks[indexPath.row]
+            assignColor(for: cell.taskRecord!)
+        default: cell.taskRecord = viewModel.completedTasks[indexPath.row]
+            assignColor(for: cell.taskRecord!)
         }
-        
-        return UITableViewCell()
+        return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView,
+                            didSelectRowAt indexPath: IndexPath) {
         let task = indexPath.section == 0
             ? viewModel.incompletedTasks[indexPath.row]
             : viewModel.completedTasks[indexPath.row]
@@ -90,12 +91,14 @@ class STMTaskList_TVC: UITableViewController {
     }
     
     // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    override func tableView(_ tableView: UITableView,
+                            canEditRowAt indexPath: IndexPath) -> Bool {
         true
     }
  
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView,
+                            commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
             viewModel.deleteRecords(in: indexPath)
@@ -114,13 +117,13 @@ class STMTaskList_TVC: UITableViewController {
         if segue.identifier == "showTaskDetail" {
             if let controller = segue.destination as? STMTaskDetail_VC {
                 guard let task = sender as? STMRecord else { return }
-                controller.viewModel = STMTaskDetail_VMNew(task: task)
+                controller.viewModel = STMTaskDetail_VM(task: task)
             }
         }
         
         if segue.identifier == "addNewTask" {
             if let controller = segue.destination as? STMTaskDetail_VC {
-                controller.viewModel = STMTaskDetail_VMNew(task: nil)
+                controller.viewModel = STMTaskDetail_VM(task: nil)
             }
         }
     }

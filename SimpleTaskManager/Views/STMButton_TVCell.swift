@@ -9,7 +9,6 @@
 import UIKit
 // generic one
 class STMButton_TVCell: UITableViewCell {
-    //
     @IBOutlet weak var manageButton: UIButton!
 }
 /// Used for main view cell and task detail cell as a base cell
@@ -24,7 +23,7 @@ class STMConfirmButton_TVCell: STMButton_TVCell {
     weak var delegate: STMTaskList_TVC_Delegate? = nil
     //
     func formatButton() {
-        manageButton.addTarget(self, action:#selector(manageTask), for: .touchUpInside)
+        manageButton.addTarget(self, action: #selector(manageTask), for: .touchUpInside)
         manageButton.isSelected = (taskRecord?.isFinished)!
     }
     ///
@@ -33,15 +32,12 @@ class STMConfirmButton_TVCell: STMButton_TVCell {
         // Initialization code
         manageButton.setTitle(STMTaskStatusEnum.incompleteTask.labelTitle, for: .normal)
         manageButton.setTitle(STMTaskStatusEnum.completeTask.labelTitle, for: .selected)
-        //
     }
     ///
     @objc func manageTask() {
-        if (taskRecord?.isFinished)! {
-            STMTaskStatusEnum.incompleteTask.manageTask(with: taskRecord!)
-        } else {
-            STMTaskStatusEnum.completeTask.manageTask(with: taskRecord!)
-        }
+        (taskRecord?.isFinished)!
+            ? STMTaskStatusEnum.incompleteTask.manageTask(with: taskRecord!)
+            : STMTaskStatusEnum.completeTask.manageTask(with: taskRecord!)
         
         delegate?.reloadData()
     }

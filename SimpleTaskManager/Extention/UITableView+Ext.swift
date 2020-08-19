@@ -2,20 +2,20 @@
 //  UITableView+Ext.swift
 //  SimpleTaskManager
 //
-//  Created by Tomas Baculák on 18/08/2020.
+//  Created by Tomas Baculák on 19/08/2020.
 //  Copyright © 2020 Tomas Baculák. All rights reserved.
 //
 
 import UIKit
 
-extension UITableView {
-    func dequeueReusableCell<T: UITableViewCell>(_ cell: T, index: IndexPath) -> T? {
-        return dequeueReusableCell(withIdentifier: cell.dequeueIdentifier, for: index) as? T
-    }
-}
+extension UITableViewCell: ReusableView {}
 
-extension UITableViewCell {
-    var dequeueIdentifier: String {
-        return String(describing: self.self)
+extension UITableView {
+    func dequeueReusableCell<T: UITableViewCell>(for indexPath: IndexPath) -> T {
+        guard let cell = dequeueReusableCell(withIdentifier: T.reuseIdentifier,
+                                             for: indexPath) as? T else {
+            fatalError("Unable to Dequeue Reusable Table View Cell \(T.self)")
+        }
+        return cell
     }
 }

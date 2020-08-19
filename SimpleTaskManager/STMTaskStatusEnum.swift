@@ -21,15 +21,15 @@ enum STMTaskStatusEnum {
     
     var labelTitle: String {
         switch self {
-        case .incompleteTask:     return "Finish Task!"
-        case .completeTask:       return "Undo Finish!"
+        case .incompleteTask:   return "Finish Task!"
+        case .completeTask:     return "Undo Finish!"
         }
     }
     
     var tableHeaderTitle: String {
         switch self {
-        case .incompleteTask:     return "Incompleted Tasks"
-        case .completeTask:       return "Completed Tasks"
+        case .incompleteTask:   return "Incompleted Tasks"
+        case .completeTask:     return "Completed Tasks"
         }
     }
 }

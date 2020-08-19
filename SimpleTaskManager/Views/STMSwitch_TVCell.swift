@@ -11,27 +11,27 @@ import UIKit
 class STMSwitch_TVCell: UITableViewCell {
     weak var delegate: STMRecordDetailProtocol?
     
-    @IBOutlet weak var theSwitch: UISwitch!
+    @IBOutlet weak var cellSwitch: UISwitch!
     // notification
     var isGlobal = false
     //
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        theSwitch.addTarget(self, action: #selector(manageSwitch), for: .touchUpInside)
+        cellSwitch.addTarget(self, action: #selector(manageSwitch), for: .touchUpInside)
     }
     //
     @objc func manageSwitch() {
         // manage all notifications
         if isGlobal {
             if STMRecord.getAllTasks().count == 0 {
-                theSwitch.isOn = false
+                cellSwitch.setOn(false, animated: true)
                 return
             }
             //
-            STMRecord.updateAllTaskNotification(isOn: theSwitch.isOn)
+            STMRecord.updateAllTaskNotification(isOn: cellSwitch.isOn)
         } else {
-            delegate?.updateDetailModel(with: .notification, value: theSwitch.isOn as AnyObject)
+            delegate?.updateDetailModel(with: .notification, value: cellSwitch.isOn as AnyObject)
         }
     }
 }

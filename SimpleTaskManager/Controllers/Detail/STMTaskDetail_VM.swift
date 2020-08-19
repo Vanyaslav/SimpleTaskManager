@@ -8,7 +8,7 @@
 
 import Foundation
 
-class STMTaskDetail_VMNew {
+class STMTaskDetail_VM {
     var task: STMRecord?
     
     init(task: STMRecord?) {

@@ -175,7 +175,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="theSwitch" destination="4mK-Pe-OUP" id="Sm2-3h-YwH"/>
+                                    <outlet property="cellSwitch" destination="4mK-Pe-OUP" id="LvF-4R-c0t"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -408,7 +408,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="theSwitch" destination="Hav-Od-shb" id="yeh-M2-inH"/>
+                                            <outlet property="cellSwitch" destination="Hav-Od-shb" id="JVA-N5-jgP"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="STMDetailAddButton_TVCell" rowHeight="79" id="cYv-h6-lvC" customClass="STMDetailAddButton_TVCell" customModule="SimpleTaskManager" customModuleProvider="target">

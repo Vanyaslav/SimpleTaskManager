@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		3D3ED009D959468E4FA5D9A8 /* Pods_SimpleTaskManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12E7DA96F8BBEEC2B6BA0DB1 /* Pods_SimpleTaskManager.framework */; };
 		A16D57B624EA929A008B45E7 /* STMTaskDetail_VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16D57B524EA929A008B45E7 /* STMTaskDetail_VM.swift */; };
-		A1786FA420ACDF56002229DF /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1786FA320ACDF56002229DF /* Alerts.swift */; };
+		A1786FA420ACDF56002229DF /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1786FA320ACDF56002229DF /* UIViewController+Alerts.swift */; };
 		A199D0CF2088650800F39B6E /* SimpleTaskManager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A199D0CD2088650800F39B6E /* SimpleTaskManager.xcdatamodeld */; };
 		A1B755EF20848D7000FFB67D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B755EE20848D7000FFB67D /* AppDelegate.swift */; };
 		A1B755F420848D7100FFB67D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1B755F220848D7100FFB67D /* Main.storyboard */; };
@@ -20,7 +20,7 @@
 		A1B756152084B2F600FFB67D /* STMDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B756142084B2F600FFB67D /* STMDefaults.swift */; };
 		A1B756172084BFCF00FFB67D /* STMSettings_TVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B756162084BFCF00FFB67D /* STMSettings_TVC.swift */; };
 		A1B756192084CCCC00FFB67D /* STMTaskList_TVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B756182084CCCC00FFB67D /* STMTaskList_TVC.swift */; };
-		A1B7561B2084EA2600FFB67D /* UtilExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B7561A2084EA2600FFB67D /* UtilExtention.swift */; };
+		A1B7561B2084EA2600FFB67D /* Utils+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B7561A2084EA2600FFB67D /* Utils+Ext.swift */; };
 		A1B7561F2084F0C300FFB67D /* STMMain_TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B7561E2084F0C300FFB67D /* STMMain_TVCell.swift */; };
 		A1B756212084FDB300FFB67D /* STMTaskDetail_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B756202084FDB300FFB67D /* STMTaskDetail_VC.swift */; };
 		A1B7562720851BC600FFB67D /* STMAddNewCategory_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B7562620851BC600FFB67D /* STMAddNewCategory_VC.swift */; };
@@ -31,9 +31,10 @@
 		A1B756342085607E00FFB67D /* STMSwitch_TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B756332085607D00FFB67D /* STMSwitch_TVCell.swift */; };
 		A1B756362085683F00FFB67D /* ColorPickerDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B756352085683F00FFB67D /* ColorPickerDataDelegate.swift */; };
 		A1DF57FD24EBCC5E00A9CE2B /* STMTaskList_VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DF57FC24EBCC5E00A9CE2B /* STMTaskList_VM.swift */; };
-		A1DF57FF24EBD33000A9CE2B /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DF57FE24EBD33000A9CE2B /* UITableView+Ext.swift */; };
 		A1DF580124ED610600A9CE2B /* UIKit+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DF580024ED610600A9CE2B /* UIKit+Ext.swift */; };
-		A1EC3EE32086232C0012AAC6 /* UNNotificationExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC3EE22086232C0012AAC6 /* UNNotificationExtention.swift */; };
+		A1DF580424EDC0DF00A9CE2B /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DF580324EDC0DF00A9CE2B /* ReusableView.swift */; };
+		A1DF580624EDC15400A9CE2B /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DF580524EDC15400A9CE2B /* UITableView+Ext.swift */; };
+		A1EC3EE32086232C0012AAC6 /* UNNotification+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC3EE22086232C0012AAC6 /* UNNotification+Ext.swift */; };
 		A1EC3EE520867E3F0012AAC6 /* STMPicker_TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC3EE420867E3F0012AAC6 /* STMPicker_TVCell.swift */; };
 		A1EC3EE92086829D0012AAC6 /* STMOrderingPickerDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC3EE82086829D0012AAC6 /* STMOrderingPickerDataDelegate.swift */; };
 		A1EC3EEB208694F80012AAC6 /* OrderingEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC3EEA208694F80012AAC6 /* OrderingEnum.swift */; };
@@ -51,7 +52,7 @@
 		12E7DA96F8BBEEC2B6BA0DB1 /* Pods_SimpleTaskManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleTaskManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41A03B0A4318C6ADEC95F4DC /* Pods-SimpleTaskManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleTaskManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleTaskManager/Pods-SimpleTaskManager.release.xcconfig"; sourceTree = "<group>"; };
 		A16D57B524EA929A008B45E7 /* STMTaskDetail_VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMTaskDetail_VM.swift; sourceTree = "<group>"; };
-		A1786FA320ACDF56002229DF /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
+		A1786FA320ACDF56002229DF /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
 		A199D0CE2088650800F39B6E /* SimpleTaskManager.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SimpleTaskManager.xcdatamodel; sourceTree = "<group>"; };
 		A1B755EB20848D7000FFB67D /* SimpleTaskManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleTaskManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B755EE20848D7000FFB67D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -64,7 +65,7 @@
 		A1B756142084B2F600FFB67D /* STMDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMDefaults.swift; sourceTree = "<group>"; };
 		A1B756162084BFCF00FFB67D /* STMSettings_TVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMSettings_TVC.swift; sourceTree = "<group>"; };
 		A1B756182084CCCC00FFB67D /* STMTaskList_TVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMTaskList_TVC.swift; sourceTree = "<group>"; };
-		A1B7561A2084EA2600FFB67D /* UtilExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilExtention.swift; sourceTree = "<group>"; };
+		A1B7561A2084EA2600FFB67D /* Utils+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Utils+Ext.swift"; sourceTree = "<group>"; };
 		A1B7561E2084F0C300FFB67D /* STMMain_TVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMMain_TVCell.swift; sourceTree = "<group>"; };
 		A1B756202084FDB300FFB67D /* STMTaskDetail_VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMTaskDetail_VC.swift; sourceTree = "<group>"; };
 		A1B7562620851BC600FFB67D /* STMAddNewCategory_VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMAddNewCategory_VC.swift; sourceTree = "<group>"; };
@@ -75,9 +76,10 @@
 		A1B756332085607D00FFB67D /* STMSwitch_TVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMSwitch_TVCell.swift; sourceTree = "<group>"; };
 		A1B756352085683F00FFB67D /* ColorPickerDataDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerDataDelegate.swift; sourceTree = "<group>"; };
 		A1DF57FC24EBCC5E00A9CE2B /* STMTaskList_VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMTaskList_VM.swift; sourceTree = "<group>"; };
-		A1DF57FE24EBD33000A9CE2B /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
 		A1DF580024ED610600A9CE2B /* UIKit+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Ext.swift"; sourceTree = "<group>"; };
-		A1EC3EE22086232C0012AAC6 /* UNNotificationExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UNNotificationExtention.swift; sourceTree = "<group>"; };
+		A1DF580324EDC0DF00A9CE2B /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+		A1DF580524EDC15400A9CE2B /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
+		A1EC3EE22086232C0012AAC6 /* UNNotification+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UNNotification+Ext.swift"; sourceTree = "<group>"; };
 		A1EC3EE420867E3F0012AAC6 /* STMPicker_TVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = STMPicker_TVCell.swift; path = SimpleTaskManager/Views/STMPicker_TVCell.swift; sourceTree = SOURCE_ROOT; };
 		A1EC3EE82086829D0012AAC6 /* STMOrderingPickerDataDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMOrderingPickerDataDelegate.swift; sourceTree = "<group>"; };
 		A1EC3EEA208694F80012AAC6 /* OrderingEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderingEnum.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				A1B756132084B04000FFB67D /* Extention */,
 				A1B7560420848DB900FFB67D /* IB */,
 				A1B7560320848D9300FFB67D /* Resources */,
+				A1DF580224EDC0BD00A9CE2B /* Utils */,
 				A1B7560620848DE100FFB67D /* Support */,
 			);
 			path = SimpleTaskManager;
@@ -202,11 +205,11 @@
 		A1B756132084B04000FFB67D /* Extention */ = {
 			isa = PBXGroup;
 			children = (
-				A1B7561A2084EA2600FFB67D /* UtilExtention.swift */,
-				A1EC3EE22086232C0012AAC6 /* UNNotificationExtention.swift */,
-				A1786FA320ACDF56002229DF /* Alerts.swift */,
-				A1DF57FE24EBD33000A9CE2B /* UITableView+Ext.swift */,
+				A1B7561A2084EA2600FFB67D /* Utils+Ext.swift */,
+				A1EC3EE22086232C0012AAC6 /* UNNotification+Ext.swift */,
+				A1786FA320ACDF56002229DF /* UIViewController+Alerts.swift */,
 				A1DF580024ED610600A9CE2B /* UIKit+Ext.swift */,
+				A1DF580524EDC15400A9CE2B /* UITableView+Ext.swift */,
 			);
 			path = Extention;
 			sourceTree = "<group>";
@@ -280,6 +283,14 @@
 				A1EC3EFE208758F50012AAC6 /* STMTextField_TVCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		A1DF580224EDC0BD00A9CE2B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A1DF580324EDC0DF00A9CE2B /* ReusableView.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		A1EC3EEE208695430012AAC6 /* Ordering */ = {
@@ -422,6 +433,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1EC3EE520867E3F0012AAC6 /* STMPicker_TVCell.swift in Sources */,
+				A1DF580624EDC15400A9CE2B /* UITableView+Ext.swift in Sources */,
 				A1EC3EEB208694F80012AAC6 /* OrderingEnum.swift in Sources */,
 				A1EC3EF420869BFB0012AAC6 /* STMSettingsNotification_TVCell.swift in Sources */,
 				A1B7562D20853F8800FFB67D /* STMDetailTextView_TVCell.swift in Sources */,
@@ -431,18 +443,18 @@
 				A1B756362085683F00FFB67D /* ColorPickerDataDelegate.swift in Sources */,
 				A1EC3EFB2086A25F0012AAC6 /* STMDetailCategoty_TVCell.swift in Sources */,
 				A1B756192084CCCC00FFB67D /* STMTaskList_TVC.swift in Sources */,
-				A1B7561B2084EA2600FFB67D /* UtilExtention.swift in Sources */,
+				A1B7561B2084EA2600FFB67D /* Utils+Ext.swift in Sources */,
 				A1DF580124ED610600A9CE2B /* UIKit+Ext.swift in Sources */,
 				A1EC3EFF208758F50012AAC6 /* STMTextField_TVCell.swift in Sources */,
-				A1786FA420ACDF56002229DF /* Alerts.swift in Sources */,
-				A1DF57FF24EBD33000A9CE2B /* UITableView+Ext.swift in Sources */,
+				A1786FA420ACDF56002229DF /* UIViewController+Alerts.swift in Sources */,
 				A1B756212084FDB300FFB67D /* STMTaskDetail_VC.swift in Sources */,
+				A1DF580424EDC0DF00A9CE2B /* ReusableView.swift in Sources */,
 				A1B756342085607E00FFB67D /* STMSwitch_TVCell.swift in Sources */,
 				A1B7563220854EE800FFB67D /* STMDetailAddButton_TVCell.swift in Sources */,
 				A1B7560A20849C4D00FFB67D /* STMRecord.swift in Sources */,
 				A1B756302085408600FFB67D /* STMButton_TVCell.swift in Sources */,
 				A1B7562A208532E000FFB67D /* STMTaskStatusEnum.swift in Sources */,
-				A1EC3EE32086232C0012AAC6 /* UNNotificationExtention.swift in Sources */,
+				A1EC3EE32086232C0012AAC6 /* UNNotification+Ext.swift in Sources */,
 				A199D0CF2088650800F39B6E /* SimpleTaskManager.xcdatamodeld in Sources */,
 				A1EC3EF220869BAD0012AAC6 /* STMDetailNotification_TVCell.swift in Sources */,
 				A1DF57FD24EBCC5E00A9CE2B /* STMTaskList_VM.swift in Sources */,
