@@ -9,14 +9,12 @@
 import UIKit
 ///
 class STMMain_TVCell: STMConfirmButton_TVCell {
-    //
     @IBOutlet var titelLabel: UILabel!
-    //
     @IBOutlet var dueDateLabel: UILabel!
-    //
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        //
+        
         formatButton()
     }
     

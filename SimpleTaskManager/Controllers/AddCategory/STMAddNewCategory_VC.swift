@@ -17,7 +17,8 @@ class STMAddNewCategory_VC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        saveButton.addTarget(self, action: #selector(saveNewCategory), for: .touchUpInside)
+        saveButton.addTarget(self, action: #selector(saveNewCategory),
+                             for: .touchUpInside)
     }
     
     @objc func saveNewCategory() {

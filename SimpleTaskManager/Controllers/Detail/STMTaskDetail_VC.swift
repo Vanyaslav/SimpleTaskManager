@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 enum STMTaskDetailEnum: CaseIterable {
     case title, category, dueDate, description, status, notification
 }
@@ -62,65 +61,62 @@ extension STMTaskDetail_VC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = UITableViewCell()
-        
         switch indexPath.section {
             
-        case 0: let theCell = tableView.dequeueReusableCell(withIdentifier:
+        case 0: let cell = tableView.dequeueReusableCell(withIdentifier:
             String(describing: STMDetail_Title_TVCell.self), for: indexPath) as! STMDetail_Title_TVCell
-            theCell.textField.text = viewModel.taskTitle
-            theCell.delegate = self
-            cell = theCell
+            cell.textField.text = viewModel.taskTitle
+            cell.delegate = self
+            return cell
             
-        case 1: let theCell = tableView.dequeueReusableCell(withIdentifier:
+        case 1: let cell = tableView.dequeueReusableCell(withIdentifier:
             String(describing: STMDetailCategoty_TVCell.self), for: indexPath) as! STMDetailCategoty_TVCell
-            theCell.thePicker.selectRow(STMCategory.allCategories.firstIndex(of: viewModel.taskCategory)!,
+            cell.picker.selectRow(STMCategory.allCategories.firstIndex(of: viewModel.taskCategory)!,
                                         inComponent: 0,
                                         animated: true)
-            theCell.delegate = self
-            cell = theCell
+            cell.delegate = self
+            return cell
             
-        case 2: let theCell = tableView.dequeueReusableCell(withIdentifier:
+        case 2: let cell = tableView.dequeueReusableCell(withIdentifier:
             String(describing: STMDetailDueDate_TVCell.self), for: indexPath) as! STMDetailDueDate_TVCell
-            theCell.theDatePicker.setDate(viewModel.taskDueDate, animated: true)
-            theCell.delegate = self
-            cell = theCell
+            cell.theDatePicker.setDate(viewModel.taskDueDate, animated: true)
+            cell.delegate = self
+            return cell
             
-        case 3: let theCell = tableView.dequeueReusableCell(withIdentifier:
+        case 3: let cell = tableView.dequeueReusableCell(withIdentifier:
             String(describing: STMDetailTextView_TVCell.self), for: indexPath) as! STMDetailTextView_TVCell
-            theCell.taskDescription.text = viewModel.taskDesription
-            theCell.delegate = self
-            cell = theCell
+            cell.taskDescription.text = viewModel.taskDesription
+            cell.delegate = self
+            return cell
             
-        case 4: let theCell = tableView.dequeueReusableCell(withIdentifier:
+        case 4: let cell = tableView.dequeueReusableCell(withIdentifier:
             String(describing: STMDetailNotification_TVCell.self), for: indexPath) as! STMDetailNotification_TVCell
-            theCell.theSwitch.isOn = viewModel.taskNotificationStatus
-            theCell.delegate = self
-            cell = theCell
+            cell.theSwitch.isOn = viewModel.taskNotificationStatus
+            cell.delegate = self
+            return cell
         // alternate behaviour according to the action
         case 5:
             if let task = viewModel.task {
-                let theCell = tableView.dequeueReusableCell(withIdentifier:
+                let cell = tableView.dequeueReusableCell(withIdentifier:
                 String(describing: STMConfirmButton_TVCell.self), for: indexPath) as! STMConfirmButton_TVCell
-                theCell.taskRecord = task
-                theCell.delegate = self
-                cell = theCell
+                cell.taskRecord = task
+                cell.delegate = self
+                return cell
             } else {
-                let theCell = tableView.dequeueReusableCell(withIdentifier:
+                let cell = tableView.dequeueReusableCell(withIdentifier:
                 String(describing: STMDetailAddButton_TVCell.self), for: indexPath) as! STMDetailAddButton_TVCell
-                theCell.delegate = self
-                cell = theCell
+                cell.delegate = self
+                return cell
             }
             
         default: break
         }
         
-        return cell
+        return UITableViewCell()
     }
 }
 
 class STMTaskDetail_VC: UIViewController {
-    
     @IBOutlet weak var tableView: UITableView!
     
     var viewModel: STMTaskDetail_VMNew!

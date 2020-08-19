@@ -20,10 +20,10 @@ extension STMRecord {
         
         return filteredTasks
     }
-    //
+
     public static func getAllTasks() -> [STMRecord] {
-        let theType = STMOrderingType.getOrderVariable()
-        let theManner = STMOrderingManner.getStored().actionBool
+        let theType = STMOrderingTypeEnum.getOrderVariable()
+        let theManner = STMOrderingMannerEnum.getStored().actionBool
         
         guard let tasks = STMRecord.mr_findAllSorted(by: theType, ascending: theManner) as? [STMRecord] else {
             return []
@@ -31,7 +31,7 @@ extension STMRecord {
         
         return tasks
     }
-    //
+
     public static func createTask(with title: String, category: STMCategory, dueDate: Date, description: String, isNotified: Bool) {
 
         let newId = UUID()
@@ -53,12 +53,11 @@ extension STMRecord {
             UNNotification.createNotification(from: STMRecord.getRecord(by: newId)!)
         }
     }
-    //
+
     public static func updateTask(with id: UUID, title: String, category: STMCategory, dueDate: Date, description: String) {
-        
-        if let theRecord = getRecord(by:id) {
+        if let record = getRecord(by:id) {
             MagicalRecord.save(blockAndWait: { context in
-                let localRecord = theRecord.mr_(in: context)
+                let localRecord = record.mr_(in: context)
                 
                 localRecord?.taskTitle = title
                 localRecord?.taskCategory = (context.object(with:category.objectID) as! STMCategory)
@@ -67,23 +66,21 @@ extension STMRecord {
             })
         }
     }
-    //
+    
     public static func deleteTask(with id: UUID) {
         if let theRecord = getRecord(by: id) {
             MagicalRecord.save(blockAndWait: { context in
-                if theRecord.mr_deleteEntity(in: context) {
-                    
-                }
+                if theRecord.mr_deleteEntity(in: context) {}
             })
         }
     }
-    //
+    
     public static func updateAllTaskNotification(isOn: Bool = true) {
         STMRecord.getAllTasks().forEach({ task in
             STMRecord.updateTaskNotification(with: task, isNotified: isOn)
         })
     }
-    //
+    
     public static func updateTaskNotification(with task: STMRecord, isNotified: Bool) {
         if isNotified {
             UNNotification.createNotification(from: STMRecord.getRecord(by: task.id!)!)
@@ -96,7 +93,7 @@ extension STMRecord {
             localRecord?.isNotificationOn = isNotified
         })
     }
-    //
+    
     public static func manageTaskStatus(with task: STMRecord, isFinished: Bool) {
         if task.isFinished != isFinished {
             
@@ -106,7 +103,7 @@ extension STMRecord {
             })
         }
     }
-    //
+    
     private static func getRecord(by id: UUID) -> STMRecord? {
         return STMRecord.mr_findFirst(byAttribute: "id", withValue: id)
     }

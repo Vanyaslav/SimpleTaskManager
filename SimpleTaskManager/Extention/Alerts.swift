@@ -7,9 +7,9 @@
 //
 
 import UIKit
-//
+
 public typealias AlertAction = ((UIAlertAction) -> Void)?
-//
+
 extension UIViewController {
     public func showIncorectTitleAlert() {
         let alert = UIAlertController(title: "??",
@@ -32,7 +32,7 @@ extension UIViewController {
         
         self.present(alert, animated: true, completion: nil)
     }
-    //
+    
     public func pushControllerBack(animated:Bool) {
         self.navigationController?.popViewController(animated: animated)
     }

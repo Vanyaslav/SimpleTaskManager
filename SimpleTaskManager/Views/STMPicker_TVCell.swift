@@ -9,5 +9,5 @@
 import UIKit
 // generic UIPickerView sublass
 class STMPicker_TVCell: UITableViewCell {
-    @IBOutlet weak var thePicker: UIPickerView!
+    @IBOutlet weak var picker: UIPickerView!
 }

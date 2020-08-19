@@ -9,7 +9,6 @@
 import UIKit
 
 class STMSettingsNotification_TVCell: STMSwitch_TVCell {
-
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -21,8 +21,8 @@ class STMSettings_TVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         indexPath.section == 1
-        ? 190
-        : 103
+            ? 190
+            : 103
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

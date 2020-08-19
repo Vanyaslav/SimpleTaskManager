@@ -14,20 +14,16 @@ protocol STMTaskList_TVC_Delegate: class {
 //
 extension STMTaskList_TVC: STMTaskList_TVC_Delegate {
     func reloadData() {
-        self.reloadRecords()
+        viewModel.reloadRecords()
         self.tableView.reloadData()
     }
 }
 ///
 class STMTaskList_TVC: UITableViewController {
-    //
-    var completedTasks = [STMRecord]()
-    //
-    var incompletedTasks = [STMRecord]()
+    var viewModel: STMTaskList_VM!
     //
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Uncomment the following line to preserve selection between presentations
         self.clearsSelectionOnViewWillAppear = false
     }
@@ -37,36 +33,30 @@ class STMTaskList_TVC: UITableViewController {
         
         self.reloadData()
     }
-    
-    //
-    private func reloadRecords() {
-        completedTasks = STMRecord.getAllTasks(completed: true)
-        incompletedTasks = STMRecord.getAllTasks(completed: false)
-    }
 
     // MARK: - Table view data source
     // Split Table View according to the completition state
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return completedTasks.count + incompletedTasks.count > 0
+        viewModel.numberOfItems > 0
             ? 2
             : 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0
-            ? incompletedTasks.count
-            : completedTasks.count
+        section == 0
+            ? viewModel.incompletedTasks.count
+            : viewModel.completedTasks.count
     }
     
     //
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return section == 0
+        section == 0
             ? STMTaskStatusEnum.incompleteTask.tableHeaderTitle
             : STMTaskStatusEnum.completeTask.tableHeaderTitle
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 110
+        110
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -80,9 +70,9 @@ class STMTaskList_TVC: UITableViewController {
             }
             
             switch indexPath.section {
-            case 0: cell.taskRecord = incompletedTasks[indexPath.row]
+            case 0: cell.taskRecord = viewModel.incompletedTasks[indexPath.row]
                 assignColor(for: cell.taskRecord!)
-            default: cell.taskRecord = completedTasks[indexPath.row]
+            default: cell.taskRecord = viewModel.completedTasks[indexPath.row]
                 assignColor(for: cell.taskRecord!)
             }
             return cell
@@ -93,28 +83,22 @@ class STMTaskList_TVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let task = indexPath.section == 0
-            ? incompletedTasks[indexPath.row]
-            : completedTasks[indexPath.row]
+            ? viewModel.incompletedTasks[indexPath.row]
+            : viewModel.completedTasks[indexPath.row]
         
         self.performSegue(withIdentifier: "showTaskDetail", sender: task)
     }
     
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
+        true
     }
  
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            if indexPath.section == 0 {
-                STMRecord.deleteTask(with: incompletedTasks[indexPath.row].id!)
-            } else {
-                STMRecord.deleteTask(with: completedTasks[indexPath.row].id!)
-            }
-            //
-            reloadRecords()
+            viewModel.deleteRecords(in: indexPath)
             //
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.reloadData()

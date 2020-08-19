@@ -14,10 +14,10 @@ typealias STMCategoryType = [String: UIColor]
 //
 struct STMDefault {
     // 4 defaults categories
-    static let categories:STMCategoryType = ["Music": .blue,
-                                             "Girlfriend": .green,
-                                             "Education": .red,
-                                             "Customer": .brown]
+    static let categories:STMCategoryType = ["Music":       .blue,
+                                             "Girlfriend":  .green,
+                                             "Education":   .red,
+                                             "Customer":    .brown]
     // default storage name
     static let storageName = "STMTest"
     //

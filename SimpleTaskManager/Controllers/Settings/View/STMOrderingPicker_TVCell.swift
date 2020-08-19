@@ -9,11 +9,12 @@
 import UIKit
 
 class STMOrderingPicker_TVCell: STMPicker_TVCell {
-    //
     override func awakeFromNib() {
         super.awakeFromNib()
         // set ordering configuration
-        self.thePicker.selectRow(STMOrderingManner.getStored().rawValue, inComponent: 1, animated: true)
-        self.thePicker.selectRow(STMOrderingType.getStored().rawValue, inComponent: 0, animated: true)
+        self.picker.selectRow(STMOrderingMannerEnum
+            .getStored().rawValue, inComponent: 1, animated: true)
+        self.picker.selectRow(STMOrderingTypeEnum
+            .getStored().rawValue, inComponent: 0, animated: true)
     }
 }

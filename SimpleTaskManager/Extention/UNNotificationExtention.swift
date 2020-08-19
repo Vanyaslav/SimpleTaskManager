@@ -14,9 +14,11 @@ private let notificationCenter = UNUserNotificationCenter.current()
 
 extension UNNotification {
     public static func makeAuthorizationRequest(with delegate: UNUserNotificationCenterDelegate) {
-
         notificationCenter.delegate = delegate
-        notificationCenter.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
+        notificationCenter
+            .requestAuthorization(options: [.alert,
+                                            .badge,
+                                            .sound]) { (granted, error) in
         }
     }
 
@@ -24,8 +26,8 @@ extension UNNotification {
         cancelNotification(with: task.id!)
         
         let content = UNMutableNotificationContent()
-        if let theDescription = task.taskDescription {
-            content.body = theDescription
+        if let description = task.taskDescription {
+            content.body = description
         }
         
         content.title = task.taskTitle!
@@ -33,9 +35,15 @@ extension UNNotification {
         content.badge = UIApplication.shared.applicationIconBadgeNumber + 1 as NSNumber
         
         let triggerDate = Calendar.current
-            .dateComponents([.year,.month,.day, .hour, .minute], from: task.taskDueDate!)
+            .dateComponents([.year,
+                             .month,
+                             .day,
+                             .hour,
+                             .minute], from: task.taskDueDate!)
         let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
-        let request = UNNotificationRequest(identifier: task.id!.uuidString, content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: task.id!.uuidString,
+                                            content: content,
+                                            trigger: trigger)
         
         notificationCenter.add(request, withCompletionHandler: nil)
     }

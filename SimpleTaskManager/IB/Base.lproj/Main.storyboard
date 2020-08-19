@@ -147,7 +147,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="thePicker" destination="MAD-Cf-fRO" id="q9K-2G-TkV"/>
+                                    <outlet property="picker" destination="MAD-Cf-fRO" id="Kzb-bj-kfo"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="STMSettingsNotification_TVCell" rowHeight="103" id="8gK-uY-nGC" customClass="STMSettingsNotification_TVCell" customModule="SimpleTaskManager" customModuleProvider="target">
@@ -313,7 +313,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="thePicker" destination="O4V-zP-p5T" id="TBU-Ig-t0F"/>
+                                            <outlet property="picker" destination="O4V-zP-p5T" id="QJU-Vp-wRa"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="STMDetailDueDate_TVCell" rowHeight="249" id="jFC-nd-jgg" customClass="STMDetailDueDate_TVCell" customModule="SimpleTaskManager" customModuleProvider="target">

@@ -29,6 +29,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, STMPersistentProtocol {
         initPersinstentStore()
         UNNotification.makeAuthorizationRequest(with: self)
         
+        if let nc = window?.rootViewController as? UINavigationController,
+            let vc = nc.topViewController as? STMTaskList_TVC {
+            vc.viewModel = STMTaskList_VM()
+        }
+        
         return true
     }
 

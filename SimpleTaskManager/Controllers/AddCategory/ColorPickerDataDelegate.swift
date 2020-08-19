@@ -21,10 +21,10 @@ import UIKit
 //
 @objc class ColorPickerData: NSObject, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+        1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return UIColor.standardColorList.count
+        UIColor.standardColorList.count
     }
 }

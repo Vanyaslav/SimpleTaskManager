@@ -11,11 +11,11 @@ import UIKit
 ///
 class STMOrderingPickerData: NSObject, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        STMOrderingType.allCases.count
+        STMOrderingTypeEnum.allCases.count
     }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        STMOrderingManner.allCases.count
+        STMOrderingMannerEnum.allCases.count
     }
 }
 ///
@@ -25,14 +25,14 @@ class STMOrderingPickerDelegate: NSObject, UIPickerViewDelegate {
         label.textAlignment = .center
         label.textColor = .blue
         label.text = component == 0
-            ? STMOrderingType.getTitle(row: row)
-            : STMOrderingManner.getTitle(row: row)
+            ? STMOrderingTypeEnum.getTitle(row: row)
+            : STMOrderingMannerEnum.getTitle(row: row)
         return label
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         component == 0
-            ? STMOrderingType.manageOrdering(with: row)
-            : STMOrderingManner.manageOrdering(with: row)
+            ? STMOrderingTypeEnum.manageOrdering(with: row)
+            : STMOrderingMannerEnum.manageOrdering(with: row)
     }
 }
