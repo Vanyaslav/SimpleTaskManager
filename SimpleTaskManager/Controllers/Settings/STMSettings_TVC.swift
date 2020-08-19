@@ -10,25 +10,19 @@ import UIKit
 
 ///
 class STMSettings_TVC: UITableViewController {
-    
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 3
+        3
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 1
+        1
     }
     
-    //
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch indexPath.section {
-        case 1: return 190
-        default: return 103
-        }
+        indexPath.section == 1
+        ? 190
+        : 103
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -47,12 +41,11 @@ class STMSettings_TVC: UITableViewController {
                 cell =  theCell
             }
         default:
-            if let theCell = tableView.dequeueReusableCell(withIdentifier:
-                String(describing: STMSettingsNotification_TVCell.self), for: indexPath) as? STMSettingsNotification_TVCell {
-                cell =  theCell
+            if let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: STMSettingsNotification_TVCell.self), for: indexPath) as? STMSettingsNotification_TVCell {
+                return cell
             }
         }
-        //
+        
         return cell
     }
 }

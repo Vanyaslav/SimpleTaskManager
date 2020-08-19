@@ -24,12 +24,12 @@ class STMAddNewCategory_VC: UIViewController {
     }
     
     @objc func saveNewCategory() {
-        if (titleTextView.text?.count)! > 2 {
-            let theColor = UIColor.standardColorList[colorPicker.selectedRow(inComponent: 0)]
-            STMCategory.createTaskCategory(with: titleTextView.text!, color: theColor)
+        if let titleText = titleTextView.text, titleText.count > 2 {
+            let categoryColor = UIColor.standardColorList[colorPicker.selectedRow(inComponent: 0)]
+            STMCategory.createTaskCategory(with: titleText, color: categoryColor)
             self.navigationController?.popViewController(animated: true)
         } else {
-            showIncorectTitelAlert()
+            showIncorectTitleAlert()
         }
     }
     

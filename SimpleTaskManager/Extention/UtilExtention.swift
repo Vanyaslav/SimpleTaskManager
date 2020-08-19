@@ -80,7 +80,7 @@ extension UIButton {
 }
 //
 extension Date {
-    func returnString(with style: DateFormatter.Style) -> String {
+    func getString(with style: DateFormatter.Style) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = style
         return dateFormatter.string(from: self)

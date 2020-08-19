@@ -11,9 +11,9 @@ import Foundation
 //
 enum STMTaskAction {
     // create
-    case addNew(titel:String, category:STMCategory, dueDate:Date, description:String, isNotified:Bool)
+    case addNew(titel: String, category: STMCategory, dueDate: Date, description: String, isNotified: Bool)
     // update
-    case edit(id:UUID, titel:String, category:STMCategory, dueDate:Date, description:String)
+    case edit(id: UUID, titel: String, category: STMCategory, dueDate: Date, description: String)
     // destroy
     case deleteTask(id:UUID)
     //

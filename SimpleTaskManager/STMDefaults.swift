@@ -14,10 +14,10 @@ typealias STMCategoryType = [String: UIColor]
 //
 struct STMDefault {
     // 4 defaults categories
-    static let categories:STMCategoryType = ["Music":.blue,
-                                             "Girlfriend":.green,
-                                             "Education":.red,
-                                             "Customer":.brown]
+    static let categories:STMCategoryType = ["Music": .blue,
+                                             "Girlfriend": .green,
+                                             "Education": .red,
+                                             "Customer": .brown]
     // default storage name
     static let storageName = "STMTest"
     //
@@ -30,16 +30,16 @@ struct STMDefault {
     //
     static func initDefaults() {
         if let font = UIFont(name: font.labelMain, size: font.labelMainSize) {
-            UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
-            UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.font:font]
+            UIBarButtonItem.appearance()
+                .setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
+            UINavigationBar.appearance()
+                .titleTextAttributes = [NSAttributedString.Key.font:font]
         }
     }
 }
 //
 protocol STMPersistentProtocol {
-    //
     func initPersinstentStore()
-    //
     func deinitPersinstentStore()
 }
 // default implementation

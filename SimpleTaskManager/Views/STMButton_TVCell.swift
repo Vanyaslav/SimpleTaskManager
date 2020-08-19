@@ -15,7 +15,7 @@ class STMButton_TVCell: UITableViewCell {
 /// Used for main view cell and task detail cell as a base cell
 class STMConfirmButton_TVCell: STMButton_TVCell {
     //
-    var theTaskRecord: STMRecord? {
+    var taskRecord: STMRecord? {
         didSet {
             formatButton()
         }
@@ -23,9 +23,9 @@ class STMConfirmButton_TVCell: STMButton_TVCell {
     //
     weak var delegate: STMTaskList_TVC_Delegate? = nil
     //
-    internal func formatButton() {
+    func formatButton() {
         manageButton.addTarget(self, action:#selector(manageTask), for: .touchUpInside)
-        manageButton.isSelected = (theTaskRecord?.isFinished)!
+        manageButton.isSelected = (taskRecord?.isFinished)!
     }
     ///
     override func awakeFromNib() {
@@ -37,10 +37,10 @@ class STMConfirmButton_TVCell: STMButton_TVCell {
     }
     ///
     @objc func manageTask() {
-        if (theTaskRecord?.isFinished)! {
-            STMTaskStatus.incompleteTask.manageTask(with:theTaskRecord!)
+        if (taskRecord?.isFinished)! {
+            STMTaskStatus.incompleteTask.manageTask(with: taskRecord!)
         } else {
-            STMTaskStatus.completeTask.manageTask(with:theTaskRecord!)
+            STMTaskStatus.completeTask.manageTask(with: taskRecord!)
         }
         
         delegate?.reloadData()

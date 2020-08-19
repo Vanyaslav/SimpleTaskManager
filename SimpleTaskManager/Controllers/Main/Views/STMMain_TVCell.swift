@@ -25,10 +25,10 @@ class STMMain_TVCell: STMConfirmButton_TVCell {
     }
     
     //
-    override var theTaskRecord: STMRecord? {
+    override var taskRecord: STMRecord? {
         didSet {
-            titelLabel.text = theTaskRecord?.taskTitle
-            dueDateLabel.text = theTaskRecord?.taskDueDate?.returnString(with: .long)
+            titelLabel.text = taskRecord?.taskTitle
+            dueDateLabel.text = taskRecord?.taskDueDate?.getString(with: .long)
         }
     }
 }

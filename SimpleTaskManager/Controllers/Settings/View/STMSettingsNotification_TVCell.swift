@@ -22,7 +22,5 @@ class STMSettingsNotification_TVCell: STMSwitch_TVCell {
         if globalStatus.count == STMRecord.getAllTasks().count {
             self.theSwitch.isOn = true
         }
-        //
-        
     }
 }

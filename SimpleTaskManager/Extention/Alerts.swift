@@ -11,7 +11,7 @@ import UIKit
 public typealias AlertAction = ((UIAlertAction) -> Void)?
 //
 extension UIViewController {
-    public func showIncorectTitelAlert() {
+    public func showIncorectTitleAlert() {
         let alert = UIAlertController(title: "??",
                                       message: "Pls consider more reasonable title!",
                                       preferredStyle: .alert)
