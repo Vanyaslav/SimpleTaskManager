@@ -10,13 +10,10 @@ import UIKit
 
 ///
 class STMAddNewCategory_VC: UIViewController {
-    //
     @IBOutlet var colorPicker: UIPickerView!
-    //
     @IBOutlet var saveButton: UIButton!
-    //
     @IBOutlet var titleTextView: UITextField!
-    //
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

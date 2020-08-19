@@ -31,16 +31,16 @@ class STMConfirmButton_TVCell: STMButton_TVCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        manageButton.setTitle(STMTaskStatus.incompleteTask.labelTitle, for: .normal)
-        manageButton.setTitle(STMTaskStatus.completeTask.labelTitle, for: .selected)
+        manageButton.setTitle(STMTaskStatusEnum.incompleteTask.labelTitle, for: .normal)
+        manageButton.setTitle(STMTaskStatusEnum.completeTask.labelTitle, for: .selected)
         //
     }
     ///
     @objc func manageTask() {
         if (taskRecord?.isFinished)! {
-            STMTaskStatus.incompleteTask.manageTask(with: taskRecord!)
+            STMTaskStatusEnum.incompleteTask.manageTask(with: taskRecord!)
         } else {
-            STMTaskStatus.completeTask.manageTask(with: taskRecord!)
+            STMTaskStatusEnum.completeTask.manageTask(with: taskRecord!)
         }
         
         delegate?.reloadData()

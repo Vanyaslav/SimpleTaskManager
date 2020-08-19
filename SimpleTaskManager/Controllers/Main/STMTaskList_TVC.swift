@@ -61,8 +61,8 @@ class STMTaskList_TVC: UITableViewController {
     //
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return section == 0
-            ? STMTaskStatus.incompleteTask.tableHeaderTitle
-            : STMTaskStatus.completeTask.tableHeaderTitle
+            ? STMTaskStatusEnum.incompleteTask.tableHeaderTitle
+            : STMTaskStatusEnum.completeTask.tableHeaderTitle
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -109,9 +109,9 @@ class STMTaskList_TVC: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             if indexPath.section == 0 {
-                STMTaskAction.deleteTask(id: incompletedTasks[indexPath.row].id!).manageTask()
+                STMRecord.deleteTask(with: incompletedTasks[indexPath.row].id!)
             } else {
-                STMTaskAction.deleteTask(id: completedTasks[indexPath.row].id!).manageTask()
+                STMRecord.deleteTask(with: completedTasks[indexPath.row].id!)
             }
             //
             reloadRecords()

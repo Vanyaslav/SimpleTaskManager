@@ -26,19 +26,16 @@ class STMSettings_TVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //
-        var cell = UITableViewCell()
-        // Configure the cell...
         switch indexPath.section {
         case 0:
-            if let theCell = tableView.dequeueReusableCell(withIdentifier:
+            if let cell = tableView.dequeueReusableCell(withIdentifier:
                 String(describing: STMButton_TVCell.self), for: indexPath) as? STMButton_TVCell {
-                cell = theCell
+                return cell
             }
         case 1:
-            if let theCell = tableView.dequeueReusableCell(withIdentifier:
+            if let cell = tableView.dequeueReusableCell(withIdentifier:
                 String(describing: STMOrderingPicker_TVCell.self), for: indexPath) as? STMOrderingPicker_TVCell {
-                cell =  theCell
+                return cell
             }
         default:
             if let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: STMSettingsNotification_TVCell.self), for: indexPath) as? STMSettingsNotification_TVCell {
@@ -46,6 +43,6 @@ class STMSettings_TVC: UITableViewController {
             }
         }
         
-        return cell
+        return UITableViewCell()
     }
 }

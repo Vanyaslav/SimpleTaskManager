@@ -24,7 +24,7 @@
 		A1B7561F2084F0C300FFB67D /* STMMain_TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B7561E2084F0C300FFB67D /* STMMain_TVCell.swift */; };
 		A1B756212084FDB300FFB67D /* STMTaskDetail_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B756202084FDB300FFB67D /* STMTaskDetail_VC.swift */; };
 		A1B7562720851BC600FFB67D /* STMAddNewCategory_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B7562620851BC600FFB67D /* STMAddNewCategory_VC.swift */; };
-		A1B7562A208532E000FFB67D /* STMEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B75629208532E000FFB67D /* STMEnum.swift */; };
+		A1B7562A208532E000FFB67D /* STMTaskStatusEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B75629208532E000FFB67D /* STMTaskStatusEnum.swift */; };
 		A1B7562D20853F8800FFB67D /* STMDetailTextView_TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B7562C20853F8800FFB67D /* STMDetailTextView_TVCell.swift */; };
 		A1B756302085408600FFB67D /* STMButton_TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B7562F2085408600FFB67D /* STMButton_TVCell.swift */; };
 		A1B7563220854EE800FFB67D /* STMDetailAddButton_TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B7563120854EE800FFB67D /* STMDetailAddButton_TVCell.swift */; };
@@ -67,7 +67,7 @@
 		A1B7561E2084F0C300FFB67D /* STMMain_TVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMMain_TVCell.swift; sourceTree = "<group>"; };
 		A1B756202084FDB300FFB67D /* STMTaskDetail_VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMTaskDetail_VC.swift; sourceTree = "<group>"; };
 		A1B7562620851BC600FFB67D /* STMAddNewCategory_VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMAddNewCategory_VC.swift; sourceTree = "<group>"; };
-		A1B75629208532E000FFB67D /* STMEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMEnum.swift; sourceTree = "<group>"; };
+		A1B75629208532E000FFB67D /* STMTaskStatusEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMTaskStatusEnum.swift; sourceTree = "<group>"; };
 		A1B7562C20853F8800FFB67D /* STMDetailTextView_TVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMDetailTextView_TVCell.swift; sourceTree = "<group>"; };
 		A1B7562F2085408600FFB67D /* STMButton_TVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMButton_TVCell.swift; sourceTree = "<group>"; };
 		A1B7563120854EE800FFB67D /* STMDetailAddButton_TVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMDetailAddButton_TVCell.swift; sourceTree = "<group>"; };
@@ -131,7 +131,7 @@
 			children = (
 				A1B755EE20848D7000FFB67D /* AppDelegate.swift */,
 				A1B756142084B2F600FFB67D /* STMDefaults.swift */,
-				A1B75628208532B700FFB67D /* Enum */,
+				A1B75629208532E000FFB67D /* STMTaskStatusEnum.swift */,
 				A1B7562E2085403400FFB67D /* Views */,
 				A1B7560520848DCD00FFB67D /* Controllers */,
 				A1B7560720848E0900FFB67D /* DB */,
@@ -253,14 +253,6 @@
 				A1B756352085683F00FFB67D /* ColorPickerDataDelegate.swift */,
 			);
 			path = AddCategory;
-			sourceTree = "<group>";
-		};
-		A1B75628208532B700FFB67D /* Enum */ = {
-			isa = PBXGroup;
-			children = (
-				A1B75629208532E000FFB67D /* STMEnum.swift */,
-			);
-			path = Enum;
 			sourceTree = "<group>";
 		};
 		A1B7562B20853F5D00FFB67D /* View */ = {
@@ -445,7 +437,7 @@
 				A1B7563220854EE800FFB67D /* STMDetailAddButton_TVCell.swift in Sources */,
 				A1B7560A20849C4D00FFB67D /* STMRecord.swift in Sources */,
 				A1B756302085408600FFB67D /* STMButton_TVCell.swift in Sources */,
-				A1B7562A208532E000FFB67D /* STMEnum.swift in Sources */,
+				A1B7562A208532E000FFB67D /* STMTaskStatusEnum.swift in Sources */,
 				A1EC3EE32086232C0012AAC6 /* UNNotificationExtention.swift in Sources */,
 				A199D0CF2088650800F39B6E /* SimpleTaskManager.xcdatamodeld in Sources */,
 				A1EC3EF220869BAD0012AAC6 /* STMDetailNotification_TVCell.swift in Sources */,

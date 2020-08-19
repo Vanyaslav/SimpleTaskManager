@@ -72,23 +72,21 @@ enum STMOrderingType: Int, CaseIterable {
 //
 /// Persistancy
 extension UserDefaults {
-    //
     private static let storageKeyManner = "STMOrderingManner"
-    //
     private static let storageKeyType = "STMOrderingType"
     //
     fileprivate static func storeOrderingManner(with manner: STMOrderingManner) {
         standard.set(manner.rawValue, forKey: storageKeyManner)
     }
-    //
+    
     fileprivate static func storeOrderingType(with type: STMOrderingType) {
         standard.set(type.rawValue, forKey: storageKeyType)
     }
-    //
+    
     fileprivate static func getOrderingManner() -> STMOrderingManner {
         return STMOrderingManner(rawValue: standard.integer(forKey: storageKeyManner))!
     }
-    //
+    
     fileprivate static func getOrderingType() -> STMOrderingType {
         return STMOrderingType(rawValue: standard.integer(forKey: storageKeyType))!
     }
