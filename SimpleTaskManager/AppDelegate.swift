@@ -22,7 +22,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, STMPersistentProtocol {
-
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {

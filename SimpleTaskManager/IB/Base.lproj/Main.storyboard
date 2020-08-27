@@ -24,9 +24,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Due Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Rq-nZ-Ozr">
-                                            <rect key="frame" x="186" y="6" width="173" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Rq-nZ-Ozr">
+                                            <rect key="frame" x="288" y="6" width="71" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -45,7 +44,10 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="CwU-xr-GcX" firstAttribute="centerX" secondItem="7Hj-2i-kkB" secondAttribute="centerX" id="LeG-ep-3fp"/>
+                                        <constraint firstItem="7Rq-nZ-Ozr" firstAttribute="top" secondItem="7Hj-2i-kkB" secondAttribute="top" constant="6" id="XGL-Bi-Adm"/>
+                                        <constraint firstAttribute="trailing" secondItem="7Rq-nZ-Ozr" secondAttribute="trailing" constant="16" id="eG3-L5-vhw"/>
                                         <constraint firstItem="CwU-xr-GcX" firstAttribute="bottom" secondItem="7Hj-2i-kkB" secondAttribute="bottomMargin" id="jke-YS-aA6"/>
+                                        <constraint firstItem="pJI-lw-xtk" firstAttribute="top" secondItem="7Hj-2i-kkB" secondAttribute="topMargin" constant="26" id="py9-ZB-0UE"/>
                                         <constraint firstItem="pJI-lw-xtk" firstAttribute="centerX" secondItem="7Hj-2i-kkB" secondAttribute="centerX" id="u4Y-VV-lkL"/>
                                         <constraint firstItem="CwU-xr-GcX" firstAttribute="top" secondItem="pJI-lw-xtk" secondAttribute="bottom" constant="8" id="yXG-jQ-bSI"/>
                                     </constraints>
@@ -111,7 +113,9 @@
                                         </button>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="wCE-JM-1v2" secondAttribute="bottom" constant="22.5" id="97C-22-KOQ"/>
                                         <constraint firstItem="wCE-JM-1v2" firstAttribute="centerX" secondItem="swa-Ty-deW" secondAttribute="centerX" id="HNs-St-xJx"/>
+                                        <constraint firstItem="wCE-JM-1v2" firstAttribute="top" secondItem="swa-Ty-deW" secondAttribute="topMargin" constant="22.5" id="ODq-jb-Th8"/>
                                         <constraint firstItem="wCE-JM-1v2" firstAttribute="centerY" secondItem="swa-Ty-deW" secondAttribute="centerY" id="WtB-mm-NQw"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -126,24 +130,27 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="189"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MAD-Cf-fRO">
+                                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MAD-Cf-fRO">
                                             <rect key="frame" x="16" y="23" width="343" height="162"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <connections>
                                                 <outlet property="dataSource" destination="8c7-TK-b1g" id="1dI-ZY-Ljf"/>
                                                 <outlet property="delegate" destination="zla-43-dQj" id="wWP-cH-zbA"/>
                                             </connections>
                                         </pickerView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6M-D8-lis">
-                                            <rect key="frame" x="145.5" y="4" width="84" height="21"/>
+                                            <rect key="frame" x="148.5" y="4" width="84.5" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="MAD-Cf-fRO" firstAttribute="leading" secondItem="iWB-ib-2wT" secondAttribute="leading" constant="16" id="K8x-fq-EPL"/>
+                                        <constraint firstAttribute="bottom" secondItem="MAD-Cf-fRO" secondAttribute="bottom" constant="4" id="N5f-5N-ddE"/>
+                                        <constraint firstItem="MAD-Cf-fRO" firstAttribute="top" secondItem="iWB-ib-2wT" secondAttribute="top" constant="23" id="T7B-Eh-2Po"/>
                                         <constraint firstItem="h6M-D8-lis" firstAttribute="top" secondItem="iWB-ib-2wT" secondAttribute="top" constant="4" id="og1-XL-gCg"/>
-                                        <constraint firstItem="h6M-D8-lis" firstAttribute="centerX" secondItem="iWB-ib-2wT" secondAttribute="centerX" id="z5B-M6-lHY"/>
+                                        <constraint firstAttribute="trailing" secondItem="MAD-Cf-fRO" secondAttribute="trailing" constant="16" id="pQ5-dh-3y8"/>
+                                        <constraint firstItem="h6M-D8-lis" firstAttribute="centerX" secondItem="iWB-ib-2wT" secondAttribute="centerX" constant="3" id="z5B-M6-lHY"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -168,9 +175,11 @@
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="izu-LI-kJS" secondAttribute="bottom" constant="30" id="ItG-f1-7qa"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="4mK-Pe-OUP" secondAttribute="trailing" constant="2" id="OSv-Ge-MiY"/>
                                         <constraint firstItem="izu-LI-kJS" firstAttribute="leading" secondItem="IN3-5y-X3X" secondAttribute="leadingMargin" id="Wx1-iJ-W1a"/>
                                         <constraint firstItem="4mK-Pe-OUP" firstAttribute="centerY" secondItem="IN3-5y-X3X" secondAttribute="centerY" id="be9-vH-mQP"/>
+                                        <constraint firstItem="izu-LI-kJS" firstAttribute="top" secondItem="IN3-5y-X3X" secondAttribute="topMargin" constant="30" id="pAB-Qi-8rL"/>
                                         <constraint firstItem="izu-LI-kJS" firstAttribute="centerY" secondItem="IN3-5y-X3X" secondAttribute="centerY" id="yhu-Xs-dCo"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -267,7 +276,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="STMDetail_Title_TVCell" rowHeight="76" id="i67-YZ-nrm" customClass="STMDetail_Title_TVCell" customModule="SimpleTaskManager" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="STMDetailTaskTitle_TVCell" rowHeight="76" id="i67-YZ-nrm" customClass="STMDetailTaskTitle_TVCell" customModule="SimpleTaskManager" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="76"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="i67-YZ-nrm" id="LmP-GA-r5T">
@@ -344,7 +353,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="theDatePicker" destination="ckr-ZF-iH3" id="ond-1v-bNN"/>
+                                            <outlet property="datePicker" destination="ckr-ZF-iH3" id="ond-1v-bNN"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="STMDetailTextView_TVCell" rowHeight="225" id="6KU-Rr-Uax" customClass="STMDetailTextView_TVCell" customModule="SimpleTaskManager" customModuleProvider="target">

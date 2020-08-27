@@ -15,18 +15,10 @@ class STMMain_TVCell: STMConfirmButton_TVCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        formatButton()
+        assignAction()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-    }
-    
-    //
-    override var taskRecord: STMRecord? {
-        didSet {
-            titelLabel.text = taskRecord?.taskTitle
-            dueDateLabel.text = taskRecord?.taskDueDate?.getString(with: .long)
-        }
     }
 }

@@ -8,11 +8,20 @@
 
 import UIKit
 
-class STMDetailNotification_TVCell: STMSwitch_TVCell {
-    //
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-        self.isGlobal = false
+class STMDetailNotification_TVCell: UITableViewCell {
+    @IBOutlet weak var cellSwitch: UISwitch!
+    
+    private var viewModel: STMTaskDetail_VM!
+    
+    func configure(with viewModel: STMTaskDetail_VM) {
+        self.viewModel = viewModel
+        cellSwitch.isOn = viewModel.taskNotificationStatus
+        cellSwitch.addTarget(self,
+            action: #selector(manageSwitch(_:)),
+            for: .touchUpInside)
+    }
+    
+    @objc func manageSwitch(_ swtch: UISwitch) {
+        viewModel.taskNotificationStatus = swtch.isOn
     }
 }

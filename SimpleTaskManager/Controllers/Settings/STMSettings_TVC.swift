@@ -10,6 +10,8 @@ import UIKit
 
 ///
 class STMSettings_TVC: UITableViewController {
+    //
+    var viewModel: STMSettings_VM!
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         3
@@ -19,35 +21,31 @@ class STMSettings_TVC: UITableViewController {
                             numberOfRowsInSection section: Int) -> Int {
         1
     }
-    
-    override func tableView(_ tableView: UITableView,
-                            heightForRowAt indexPath: IndexPath) -> CGFloat {
-        indexPath.section == 1
-            ? 190
-            : 103
-    }
 
     override func tableView(_ tableView: UITableView,
                             cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         switch indexPath.section {
-            
         case 0:
             let cell: STMButton_TVCell = tableView.dequeueReusableCell(for: indexPath)
             return cell
-
         case 1:
             let cell: STMOrderingPicker_TVCell = tableView.dequeueReusableCell(for: indexPath)
+            cell.configure(with: viewModel)
             return cell
-            
         case 2:
             let cell: STMSettingsNotification_TVCell = tableView.dequeueReusableCell(for: indexPath)
+            cell.configure(with: viewModel)
             return cell
-            
         default:
-            break
+            return UITableViewCell()
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
         
-        return UITableViewCell()
+        if let controller = segue.destination as? STMAddNewCategory_VC {
+            controller.viewModel = STMAddNewCategory_VM()
+        }
     }
 }

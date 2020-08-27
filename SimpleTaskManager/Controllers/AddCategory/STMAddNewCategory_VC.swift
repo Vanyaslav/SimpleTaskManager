@@ -14,17 +14,20 @@ class STMAddNewCategory_VC: UIViewController {
     @IBOutlet var saveButton: UIButton!
     @IBOutlet var titleTextView: UITextField!
     
+    var viewModel: STMAddNewCategory_VM!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        saveButton.addTarget(self, action: #selector(saveNewCategory),
+        saveButton.addTarget(self,
+                             action: #selector(saveNewCategory),
                              for: .touchUpInside)
     }
     
     @objc func saveNewCategory() {
         if let titleText = titleTextView.text, titleText.count > 2 {
             let categoryColor = UIColor.standardColorList[colorPicker.selectedRow(inComponent: 0)]
-            STMCategory.createTaskCategory(with: titleText, color: categoryColor)
+            viewModel.saveCategory(with: titleText, color: categoryColor)
             self.navigationController?.popViewController(animated: true)
         } else {
             showIncorectTitleAlert()

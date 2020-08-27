@@ -8,18 +8,31 @@
 
 import UIKit
 
-class STMSettingsNotification_TVCell: STMSwitch_TVCell {
+class STMSettingsNotification_TVCell: UITableViewCell {
+    @IBOutlet weak var cellSwitch: UISwitch!
+    
+    private var viewModel: STMSettings_VM!
+    
+    func configure(with viewModel: STMSettings_VM) {
+        self.viewModel = viewModel
+        cellSwitch.setOn(viewModel.initialNotificationState(),
+                         animated: true)
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        self.isGlobal = true
-        //
-        let globalStatus = STMRecord.getAllTasks().map({ task in
-            task.isNotificationOn == true
-        })
         
-        if globalStatus.count == STMRecord.getAllTasks().count {
-            self.cellSwitch.isOn = true
+        guard STMRecord.getAllTasks().count != 0 else {
+            cellSwitch.isUserInteractionEnabled = false
+            return
         }
+        
+        cellSwitch.addTarget(self,
+                             action: #selector(manageSwitch(_:)),
+                             for: .touchUpInside)
+    }
+    
+    @objc func manageSwitch(_ swtch: UISwitch) {
+        viewModel.notificationsChanged(swtch.isOn)
     }
 }

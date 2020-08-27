@@ -11,7 +11,7 @@ import Foundation
 class STMTaskDetail_VM {
     var task: STMRecord?
     
-    init(task: STMRecord?) {
+    init(task: STMRecord? = nil) {
         self.task = task
         if nil != task {
             initModel(with: task!)
@@ -19,23 +19,56 @@ class STMTaskDetail_VM {
     }
     
     var hasBeenUpdated = false
-    var taskTitle: String = ""
-    var taskCategory = STMCategory.allCategories[0]
-    var taskDueDate = Date()
-    var taskDesription: String = ""
-    var taskNotificationStatus = false
-    var taskStatus = false
+    
+    var taskTitle: String? {
+        didSet {
+            hasBeenUpdated = true
+        }
+    }
+    var taskCategory = STMCategory.allCategories[0] {
+        didSet {
+            hasBeenUpdated = true
+        }
+    }
+    var taskDueDate = Date() {
+        didSet {
+            hasBeenUpdated = true
+        }
+    }
+    var taskDesription: String = "" {
+        didSet {
+            hasBeenUpdated = true
+        }
+    }
+    var taskNotificationStatus = false  {
+        didSet {
+            hasBeenUpdated = true
+        }
+    }
+    var taskStatus = false {
+        didSet {
+            hasBeenUpdated = true
+        }
+    }
     ///
     var isEligable: Bool {
-        guard taskTitle.count > 2 else {
+        guard let title = taskTitle, title.count > 2 else {
             return false
         }
         return true
     }
     
+    func manageTask() {
+        if let task = task {
+            task.isFinished
+                ? STMTaskStatusEnum.incompleteTask.manageTask(with: task)
+                : STMTaskStatusEnum.completeTask.manageTask(with: task)
+        }
+    }
+    
     func addNewTask() -> Bool {
         guard isEligable else { return false }
-        STMRecord.createTask(with: taskTitle,
+        STMRecord.createTask(with: taskTitle!,
                              category: taskCategory,
                              dueDate: taskDueDate,
                              description: taskDesription,
@@ -43,33 +76,22 @@ class STMTaskDetail_VM {
         return true
     }
     
-    func editTask() {
-        guard let task = self.task else { return }
+    func editTask() -> Bool  {
+        guard let task = self.task else { return false }
         STMRecord.updateTask(with: task.id!,
-                             title: taskTitle,
+                             title: taskTitle!,
                              category: taskCategory,
                              dueDate: taskDueDate,
                              description: taskDesription)
 
         STMRecord.updateTaskNotification(with: task, isNotified: taskNotificationStatus)
         STMRecord.manageTaskStatus(with: task, isFinished: taskStatus)
-    }
-    
-    func updateModel(with type: STMTaskDetailEnum, value: AnyObject) {
-        switch type {
-        case .title: taskTitle = (value as! String)
-        case .category: taskCategory = (value as! STMCategory)
-        case .dueDate: taskDueDate = (value as! Date)
-        case .description: taskDesription = (value as! String)
-        case .status: taskStatus = (value as! Bool)
-        case .notification: taskNotificationStatus = (value as! Bool)
-        }
         
-        self.hasBeenUpdated = true
+        return true
     }
     
     private func initModel(with task: STMRecord) {
-        taskTitle = task.taskTitle ?? ""
+        taskTitle = task.taskTitle
         taskCategory = task.taskCategory!
         taskDueDate = task.taskDueDate!
         taskDesription = task.taskDescription!

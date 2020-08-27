@@ -8,28 +8,42 @@
 
 import UIKit
 
-
-class STMDetailCategoty_TVCell: STMPicker_TVCell, UIPickerViewDelegate, UIPickerViewDataSource {
-    //
-    weak var delegate: STMRecordDetailProtocol?
-    //
-    let taskCategories = STMCategory.allCategories
-    //
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return taskCategories[row].title!
+extension STMDetailCategoty_TVCell: UIPickerViewDelegate {
+    func pickerView(_ pickerView: UIPickerView,
+                    didSelectRow row: Int,
+                    inComponent component: Int) {
+        viewModel.taskCategory = taskCategories[row]
     }
-    //
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        // delegate
-        delegate?.updateDetailModel(with: .category, value: taskCategories[row])
+}
+
+extension STMDetailCategoty_TVCell: UIPickerViewDataSource {
+    func pickerView(_ pickerView: UIPickerView,
+                    titleForRow row: Int,
+                    forComponent component: Int) -> String? {
+        taskCategories[row].title!
     }
     
-    //
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+        1
     }
-    //
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return taskCategories.count
+
+    func pickerView(_ pickerView: UIPickerView,
+                    numberOfRowsInComponent component: Int) -> Int {
+        taskCategories.count
+    }
+}
+
+
+class STMDetailCategoty_TVCell: UITableViewCell {
+    @IBOutlet weak var picker: UIPickerView!
+    
+    private var viewModel: STMTaskDetail_VM!
+    private let taskCategories = STMCategory.allCategories
+    
+    func configure(with viewModel: STMTaskDetail_VM) {
+        self.viewModel = viewModel
+        self.picker.selectRow(STMCategory.allCategories.firstIndex(of: viewModel.taskCategory)!,
+                              inComponent: 0,
+                              animated: true)
     }
 }

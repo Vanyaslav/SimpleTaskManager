@@ -9,21 +9,19 @@
 import UIKit
 
 class STMDetailDueDate_TVCell: UITableViewCell {
-    //
-    @IBOutlet weak var theDatePicker: UIDatePicker!
-    //
-    weak var delegate: STMRecordDetailProtocol?
-    //
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-        theDatePicker.addTarget(self,
-                                action: #selector(STMDetailDueDate_TVCell.pickerChangedDate(sender:)),
-                                for: .valueChanged)
+    private var viewModel: STMTaskDetail_VM!
+    
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
+    func configure(with viewModel: STMTaskDetail_VM) {
+        self.viewModel = viewModel
+        datePicker.setDate(viewModel.taskDueDate, animated: true)
+        datePicker.addTarget(self,
+                             action: #selector(STMDetailDueDate_TVCell.pickerChangedDate(sender:)),
+                             for: .valueChanged)
     }
-    //
-    @objc func pickerChangedDate(sender:UIDatePicker) {
-        //
-        delegate?.updateDetailModel(with: .dueDate, value: sender.date as AnyObject)
+    
+    @objc func pickerChangedDate(sender: UIDatePicker) {
+        viewModel.taskDueDate = sender.date
     }
 }

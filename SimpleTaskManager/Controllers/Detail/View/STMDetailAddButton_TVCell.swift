@@ -9,18 +9,19 @@
 import UIKit
 
 ///
-class STMDetailAddButton_TVCell: STMButton_TVCell {
-    //
-    weak var delegate: STMStoreDataDelegate?
-    ///
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        //
-        manageButton.setTitle("Add New Task", for: .normal)
-        manageButton.addTarget(self, action: #selector(manageTask), for: .touchUpInside)
+class STMDetailAddButton_TVCell: UITableViewCell {
+    @IBOutlet weak var manageButton: UIButton!
+    
+    private var viewModel: STMTaskDetail_VM!
+    
+    func configure(with viewModel: STMTaskDetail_VM) {
+        self.viewModel = viewModel
+        manageButton.addTarget(self,
+                               action: #selector(manageTask),
+                               for: .touchUpInside)
     }
     ///
     @objc func manageTask() {
-        delegate?.saveTask()
+        viewModel.addNewTask()
     }
 }

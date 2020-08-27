@@ -8,13 +8,17 @@
 
 import UIKit
 
-class STMOrderingPicker_TVCell: STMPicker_TVCell {
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // set ordering configuration
-        self.picker.selectRow(STMOrderingMannerEnum
-            .getStored().rawValue, inComponent: 1, animated: true)
-        self.picker.selectRow(STMOrderingTypeEnum
-            .getStored().rawValue, inComponent: 0, animated: true)
+class STMOrderingPicker_TVCell: UITableViewCell {
+    @IBOutlet weak var picker: UIPickerView!
+    
+    private var viewModel: STMSettings_VM!
+    
+    func configure(with viewModel: STMSettings_VM) {
+        self.viewModel = viewModel
+        
+        viewModel.initialOrderinPicker()
+            .forEach{ picker.selectRow($0.row,
+                                       inComponent: $0.component,
+                                       animated: true) }
     }
 }

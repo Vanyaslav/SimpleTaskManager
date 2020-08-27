@@ -9,12 +9,19 @@
 import UIKit
 
 @objc class ColorPickerDelegate: NSObject, UIPickerViewDelegate {
-    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+    func pickerView(_ pickerView: UIPickerView,
+                    viewForRow row: Int,
+                    forComponent component: Int,
+                    reusing view: UIView?) -> UIView {
         
-        let theView = UILabel(frame: CGRect(x: 0, y: 0, width: 85, height: 25))
-        theView.backgroundColor = UIColor.standardColorList[row]
-        
-        return theView
+        if let view = view {
+            view.backgroundColor = UIColor.standardColorList[row]
+            return view
+        } else {
+            let view = UILabel(frame: CGRect(x: 0, y: 0, width: 85, height: 25))
+            view.backgroundColor = UIColor.standardColorList[row]
+            return view
+        }
     }
 }
 
