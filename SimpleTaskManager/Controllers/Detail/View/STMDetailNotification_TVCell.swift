@@ -17,8 +17,8 @@ class STMDetailNotification_TVCell: UITableViewCell {
         self.viewModel = viewModel
         cellSwitch.isOn = viewModel.taskNotificationStatus
         cellSwitch.addTarget(self,
-            action: #selector(manageSwitch(_:)),
-            for: .touchUpInside)
+                            action: #selector(manageSwitch(_:)),
+                            for: .touchUpInside)
     }
     
     @objc func manageSwitch(_ swtch: UISwitch) {

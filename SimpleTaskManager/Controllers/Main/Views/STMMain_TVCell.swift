@@ -8,17 +8,30 @@
 
 import UIKit
 ///
-class STMMain_TVCell: STMConfirmButton_TVCell {
+class STMMain_TVCell: STMButton_TVCell {
     @IBOutlet var titelLabel: UILabel!
     @IBOutlet var dueDateLabel: UILabel!
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    weak var delegate: STMTaskList_TVCDelegate? = nil
+    
+    private var viewModel: STMTaskList_VM!
+    
+    private var indexPath: IndexPath!
+    
+    func configure(with viewModel: STMTaskList_VM, indexPath: IndexPath) {
+        self.viewModel = viewModel
+        self.indexPath = indexPath
         
-        assignAction()
+        formatButton()
+        
+        manageButton.addTarget(self,
+                               action: #selector(manageTask),
+                               for: .touchUpInside)
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    @objc func manageTask() {
+        manageButton.isSelected = !isSelected
+        viewModel.manageTaskState(indexPath: indexPath)
+        delegate?.reloadData()
     }
 }

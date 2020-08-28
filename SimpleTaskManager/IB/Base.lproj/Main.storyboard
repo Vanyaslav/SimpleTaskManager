@@ -291,8 +291,10 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="uzK-Sy-I4Y" firstAttribute="leading" secondItem="LmP-GA-r5T" secondAttribute="leadingMargin" id="17H-FD-jsA"/>
+                                                <constraint firstItem="uzK-Sy-I4Y" firstAttribute="top" secondItem="LmP-GA-r5T" secondAttribute="topMargin" constant="10" id="34B-UN-tPe"/>
                                                 <constraint firstItem="uzK-Sy-I4Y" firstAttribute="centerY" secondItem="LmP-GA-r5T" secondAttribute="centerY" id="MUu-3x-ve7"/>
                                                 <constraint firstItem="uzK-Sy-I4Y" firstAttribute="trailing" secondItem="LmP-GA-r5T" secondAttribute="trailingMargin" id="Oav-g4-lFy"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="uzK-Sy-I4Y" secondAttribute="bottom" constant="10" id="gaf-Sg-oAj"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -392,18 +394,18 @@
                                             <outlet property="taskDescription" destination="O3Z-l8-aRh" id="gEG-0y-U6h"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="STMDetailNotification_TVCell" rowHeight="79" id="6X0-wy-YLq" customClass="STMDetailNotification_TVCell" customModule="SimpleTaskManager" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="819.5" width="375" height="79"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="STMDetailNotification_TVCell" id="6X0-wy-YLq" customClass="STMDetailNotification_TVCell" customModule="SimpleTaskManager" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="819.5" width="375" height="44.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6X0-wy-YLq" id="0We-cp-hNu">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Hav-Od-shb">
-                                                    <rect key="frame" x="310" y="24" width="51" height="31"/>
+                                                    <rect key="frame" x="310" y="7" width="51" height="31"/>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Local notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fuv-lA-bXN">
-                                                    <rect key="frame" x="16" y="29.5" width="135" height="20.5"/>
+                                                    <rect key="frame" x="16" y="11.5" width="135" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -413,6 +415,8 @@
                                                 <constraint firstItem="Hav-Od-shb" firstAttribute="centerY" secondItem="0We-cp-hNu" secondAttribute="centerY" id="0Zd-vE-9nh"/>
                                                 <constraint firstItem="Fuv-lA-bXN" firstAttribute="centerY" secondItem="0We-cp-hNu" secondAttribute="centerY" id="Cuu-UE-WS7"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Hav-Od-shb" secondAttribute="trailing" constant="1" id="Mrp-99-gWH"/>
+                                                <constraint firstItem="Fuv-lA-bXN" firstAttribute="top" secondItem="0We-cp-hNu" secondAttribute="topMargin" constant="0.5" id="PIP-ah-Wi6"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Fuv-lA-bXN" secondAttribute="bottom" constant="0.5" id="ght-dF-ux6"/>
                                                 <constraint firstItem="Fuv-lA-bXN" firstAttribute="leading" secondItem="0We-cp-hNu" secondAttribute="leadingMargin" constant="1" id="z6h-Wj-dQG"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -421,7 +425,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="STMDetailAddButton_TVCell" rowHeight="79" id="cYv-h6-lvC" customClass="STMDetailAddButton_TVCell" customModule="SimpleTaskManager" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="898.5" width="375" height="79"/>
+                                        <rect key="frame" x="0.0" y="864" width="375" height="79"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cYv-h6-lvC" id="XV1-7e-JrE">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
@@ -445,7 +449,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="STMConfirmButton_TVCell" rowHeight="79" id="toz-k2-fYb" customClass="STMConfirmButton_TVCell" customModule="SimpleTaskManager" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="977.5" width="375" height="79"/>
+                                        <rect key="frame" x="0.0" y="943" width="375" height="79"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="toz-k2-fYb" id="gOa-Py-al5">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>

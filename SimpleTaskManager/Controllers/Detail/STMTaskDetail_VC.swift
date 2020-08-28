@@ -12,19 +12,13 @@ enum STMTaskDetailEnum: CaseIterable {
     case title, category, dueDate, description, status, notification
 }
 
-extension STMTaskDetail_VC {
-    func reloadData() {
-        self.tableView.reloadRows(at: [IndexPath(row: 0, section: 5)], with: .fade)
-    }
-}
-
-extension STMTaskDetail_VC {
-    func saveTask() {
-        if viewModel.addNewTask() {
-            self.navigationController?.popViewController(animated: true)
-        } else {
-            showIncorectTitleAlert()
-        }
+extension STMTaskDetail_VC: STMDetailAddButton_TVCellDelegate {
+    func processedTask(with result: Bool) {
+        result
+            ? self.navigationController?
+                .popViewController(animated: true)
+                .map{ _ in }
+            : showIncorectTitleAlert()
     }
 }
 
@@ -70,6 +64,7 @@ extension STMTaskDetail_VC: UITableViewDataSource {
             } else {
                 let cell: STMDetailAddButton_TVCell = tableView.dequeueReusableCell(for: indexPath)
                 cell.configure(with: viewModel)
+                cell.delagate = self
                 return cell
             }
         default:
@@ -86,7 +81,9 @@ class STMTaskDetail_VC: UIViewController {
     @objc func saveAction(sender: UIButton) {
         if viewModel.hasBeenUpdated {
             showUpdateAlert(with: { confirmAction in
-                self.updateRecentValues()
+                if !self.viewModel.editTask() {
+                    self.showIncorectTitleAlert()
+                }
                 self.pushControllerBack(animated: true)
                 
             }, cancelAction: { cancelAction in
@@ -107,12 +104,6 @@ class STMTaskDetail_VC: UIViewController {
                                              action: #selector(STMTaskDetail_VC.saveAction(sender:)))
             
             self.navigationItem.rightBarButtonItem = saveButton
-        }
-    }
-    
-    private func updateRecentValues() {
-        if !viewModel.editTask() {
-            showIncorectTitleAlert()
         }
     }
 }

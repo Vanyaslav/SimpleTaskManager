@@ -8,8 +8,12 @@
 
 import UIKit
 
+
+protocol STMTaskList_TVCDelegate: class {
+    func reloadData()
+}
 //
-extension STMTaskList_TVC {
+extension STMTaskList_TVC: STMTaskList_TVCDelegate {
     func reloadData() {
         viewModel.reloadRecords()
         self.tableView.reloadData()
@@ -21,7 +25,6 @@ class STMTaskList_TVC: UITableViewController {
     //
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.reloadData()
     }
 
@@ -57,15 +60,18 @@ class STMTaskList_TVC: UITableViewController {
                 cell.backgroundColor = UIColor(ciColor: CIColor(string: color)).withAlphaComponent(0.1)
             }
             
-            // cell.delegate = self
+            cell.configure(with: viewModel, indexPath: indexPath)
+            cell.delegate = self
             cell.titelLabel.text = task.taskTitle
             cell.dueDateLabel.text = task.taskDueDate?.getString(with: .long)
             cell.manageButton.isSelected = selected
         }
             
         switch indexPath.section {
-        case 0: assignColor(for: viewModel.incompletedTasks[indexPath.row], selected: false)
-        default: assignColor(for: viewModel.completedTasks[indexPath.row], selected: true)
+        case 0: assignColor(for: viewModel.incompletedTasks[indexPath.row],
+                            selected: false)
+        default: assignColor(for: viewModel.completedTasks[indexPath.row],
+                             selected: true)
         }
         return cell
     }

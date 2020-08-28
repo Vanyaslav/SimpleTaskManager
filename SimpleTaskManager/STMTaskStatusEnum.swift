@@ -12,13 +12,6 @@ import Foundation
 enum STMTaskStatusEnum {
     case completeTask, incompleteTask
     
-    func manageTask(with record: STMRecord) {
-        switch self {
-        case .completeTask: STMRecord.manageTaskStatus(with: record, isFinished: true)
-        case .incompleteTask: STMRecord.manageTaskStatus(with: record, isFinished: false)
-        }
-    }
-    
     var labelTitle: String {
         switch self {
         case .incompleteTask:   return "Finish Task!"

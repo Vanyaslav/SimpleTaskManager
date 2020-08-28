@@ -27,4 +27,12 @@ class STMTaskList_VM {
                 : completedTasks[indexPath.row].id!)
         reloadRecords()
     }
+    
+    func manageTaskState(indexPath: IndexPath) {
+        let record = indexPath.section == 0
+            ? incompletedTasks[indexPath.row]
+            : completedTasks[indexPath.row]
+        STMRecord.manageTaskStatus(with: record, isFinished: !record.isFinished)
+        reloadRecords()
+    }
 }

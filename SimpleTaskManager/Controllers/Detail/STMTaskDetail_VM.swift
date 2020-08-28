@@ -60,9 +60,7 @@ class STMTaskDetail_VM {
     
     func manageTask() {
         if let task = task {
-            task.isFinished
-                ? STMTaskStatusEnum.incompleteTask.manageTask(with: task)
-                : STMTaskStatusEnum.completeTask.manageTask(with: task)
+            STMRecord.manageTaskStatus(with: task, isFinished: !task.isFinished)
         }
     }
     
@@ -77,7 +75,7 @@ class STMTaskDetail_VM {
     }
     
     func editTask() -> Bool  {
-        guard let task = self.task else { return false }
+        guard let task = self.task, hasBeenUpdated else { return false }
         STMRecord.updateTask(with: task.id!,
                              title: taskTitle!,
                              category: taskCategory,

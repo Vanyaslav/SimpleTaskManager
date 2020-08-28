@@ -8,9 +8,15 @@
 
 import UIKit
 
+//
+protocol STMDetailAddButton_TVCellDelegate: class {
+    func processedTask(with result: Bool)
+}
 ///
 class STMDetailAddButton_TVCell: UITableViewCell {
     @IBOutlet weak var manageButton: UIButton!
+    
+    weak var delagate: STMDetailAddButton_TVCellDelegate? = nil
     
     private var viewModel: STMTaskDetail_VM!
     
@@ -22,6 +28,6 @@ class STMDetailAddButton_TVCell: UITableViewCell {
     }
     ///
     @objc func manageTask() {
-        viewModel.addNewTask()
+        delagate?.processedTask(with: viewModel.addNewTask())
     }
 }

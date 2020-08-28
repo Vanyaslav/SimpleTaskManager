@@ -8,31 +8,34 @@
 
 import UIKit
 
+extension STMButton_TVCell {
+    func formatButton() {
+        manageButton.setTitle(STMTaskStatusEnum.incompleteTask.labelTitle,
+                              for: .normal)
+        manageButton.setTitle(STMTaskStatusEnum.completeTask.labelTitle,
+                              for: .selected)
+    }
+}
 
 class STMConfirmButton_TVCell: STMButton_TVCell {
     private var viewModel: STMTaskDetail_VM!
     
     func configure(with viewModel: STMTaskDetail_VM) {
         self.viewModel = viewModel
-        manageButton.setTitle(STMTaskStatusEnum.incompleteTask.labelTitle,
-                              for: .normal)
-        manageButton.setTitle(STMTaskStatusEnum.completeTask.labelTitle,
-                              for: .selected)
-        assignAction()
         
-        if let task = viewModel.task {
-            manageButton.isSelected = task.isFinished
-        }
-    }
-
-    func assignAction() {
         manageButton.addTarget(self,
                                action: #selector(manageTask),
                                for: .touchUpInside)
+            
+        if let task = viewModel.task {
+            manageButton.isSelected = task.isFinished
+        }
+        
+        formatButton()
     }
     ///
     @objc func manageTask() {
-        manageButton.isSelected = !isSelected
+        manageButton.isSelected = !manageButton.isSelected
         viewModel.manageTask()
     }
 }
