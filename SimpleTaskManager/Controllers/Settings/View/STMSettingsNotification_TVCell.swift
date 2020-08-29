@@ -15,7 +15,7 @@ class STMSettingsNotification_TVCell: UITableViewCell {
     
     func configure(with viewModel: STMSettings_VM) {
         self.viewModel = viewModel
-        cellSwitch.setOn(viewModel.initialNotificationState(),
+        cellSwitch.setOn(viewModel.initialNotificationState,
                          animated: true)
         
         guard viewModel.numberOfTasks != 0 else {

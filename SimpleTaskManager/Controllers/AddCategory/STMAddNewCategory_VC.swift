@@ -10,9 +10,9 @@ import UIKit
 
 ///
 class STMAddNewCategory_VC: UIViewController {
-    @IBOutlet var colorPicker: UIPickerView!
-    @IBOutlet var saveButton: UIButton!
-    @IBOutlet var titleTextView: UITextField!
+    @IBOutlet weak var colorPicker: UIPickerView!
+    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var titleTextView: UITextField!
     
     var viewModel: STMAddNewCategory_VM!
     

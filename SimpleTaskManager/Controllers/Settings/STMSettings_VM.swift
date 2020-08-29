@@ -22,17 +22,13 @@ class STMSettings_VM {
     func notificationsChanged(_ status: Bool) {
         dataService.updateGlobalNotification(with: status)
     }
-    
-    func initialNotificationState() -> Bool {
-        let globalStatus = dataService.getRecords().map({ task in
-            task.isNotificationOn == true
-        })
-        
-        if globalStatus.count == numberOfTasks {
-            return true
-        }
-        
-        return false
+    //
+    var initialNotificationState: Bool {
+        guard dataService.getRecords()
+            .filter({ $0.isNotificationOn })
+            .count == numberOfTasks else { return false }
+
+        return true
     }
     
     func initialOrderinPicker() -> ([(row: Int, component: Int)]) {

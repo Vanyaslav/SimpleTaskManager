@@ -14,14 +14,9 @@ import UIKit
                     forComponent component: Int,
                     reusing view: UIView?) -> UIView {
         
-        if let view = view {
-            view.backgroundColor = UIColor.standardColorList[row]
-            return view
-        } else {
-            let view = UILabel(frame: CGRect(x: 0, y: 0, width: 85, height: 25))
-            view.backgroundColor = UIColor.standardColorList[row]
-            return view
-        }
+        let view = UILabel(frame: CGRect(x: 0, y: 0, width: 85, height: 25))
+        view.backgroundColor = UIColor.standardColorList[row]
+        return view
     }
 }
 
