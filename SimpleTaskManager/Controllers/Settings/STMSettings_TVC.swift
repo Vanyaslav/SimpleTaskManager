@@ -45,7 +45,7 @@ class STMSettings_TVC: UITableViewController {
         super.prepare(for: segue, sender: sender)
         
         if let controller = segue.destination as? STMAddNewCategory_VC {
-            controller.viewModel = STMAddNewCategory_VM()
+            controller.viewModel = STMAddNewCategory_VM(dataService: viewModel.dataService)
         }
     }
 }

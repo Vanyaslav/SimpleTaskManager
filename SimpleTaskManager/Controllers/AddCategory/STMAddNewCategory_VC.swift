@@ -25,7 +25,8 @@ class STMAddNewCategory_VC: UIViewController {
     }
     
     @objc func saveNewCategory() {
-        if let titleText = titleTextView.text, titleText.count > 2 {
+        if let titleText = titleTextView.text,
+            titleText.count > viewModel.minTitleLegth {
             let categoryColor = UIColor.standardColorList[colorPicker.selectedRow(inComponent: 0)]
             viewModel.saveCategory(with: titleText, color: categoryColor)
             self.navigationController?.popViewController(animated: true)

@@ -9,16 +9,26 @@
 import Foundation
 
 class STMSettings_VM {
+    var numberOfTasks: Int {
+        return dataService.getRecords().count
+    }
+    
+    let dataService: STMDataService
+
+    init(dataService: STMDataService) {
+        self.dataService = dataService
+    }
+    
     func notificationsChanged(_ status: Bool) {
-        STMRecord.updateAllTaskNotification(isOn: status)
+        dataService.updateGlobalNotification(with: status)
     }
     
     func initialNotificationState() -> Bool {
-        let globalStatus = STMRecord.getAllTasks().map({ task in
+        let globalStatus = dataService.getRecords().map({ task in
             task.isNotificationOn == true
         })
         
-        if globalStatus.count == STMRecord.getAllTasks().count {
+        if globalStatus.count == numberOfTasks {
             return true
         }
         

@@ -109,14 +109,15 @@ class STMTaskList_TVC: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let controller = segue.destination as? STMTaskDetail_VC {
             if let task = sender as? STMRecord {
-                controller.viewModel = STMTaskDetail_VM(task: task)
+                controller.viewModel = STMTaskDetail_VM(dataService: viewModel.dataService,
+                                                        task: task)
             } else {
-                controller.viewModel = STMTaskDetail_VM()
+                controller.viewModel = STMTaskDetail_VM(dataService: viewModel.dataService)
             }
         }
         
         if let controller = segue.destination as? STMSettings_TVC {
-            controller.viewModel = STMSettings_VM()
+            controller.viewModel = STMSettings_VM(dataService: viewModel.dataService)
         }
     }
 }

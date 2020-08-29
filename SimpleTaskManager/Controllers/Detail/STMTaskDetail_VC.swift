@@ -8,10 +8,6 @@
 
 import UIKit
 
-enum STMTaskDetailEnum: CaseIterable {
-    case title, category, dueDate, description, status, notification
-}
-
 extension STMTaskDetail_VC: STMDetailAddButton_TVCellDelegate {
     func processedTask(with result: Bool) {
         result
@@ -24,7 +20,7 @@ extension STMTaskDetail_VC: STMDetailAddButton_TVCellDelegate {
 
 extension STMTaskDetail_VC: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        STMTaskDetailEnum.allCases.count
+        6
     }
 
     func tableView(_ tableView: UITableView,

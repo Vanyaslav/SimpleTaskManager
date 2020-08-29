@@ -9,14 +9,19 @@
 import Foundation
 
 class STMTaskDetail_VM {
-    var task: STMRecord?
+    let task: STMRecord?
     
-    init(task: STMRecord? = nil) {
+    private let dataService: STMDataService
+    
+    init(dataService: STMDataService, task: STMRecord? = nil) {
         self.task = task
+        self.dataService = dataService
         if nil != task {
             initModel(with: task!)
         }
     }
+    
+    let taskCategories = STMCategory.allCategories
     
     var hasBeenUpdated = false
     
@@ -60,32 +65,34 @@ class STMTaskDetail_VM {
     
     func manageTask() {
         if let task = task {
-            STMRecord.manageTaskStatus(with: task, isFinished: !task.isFinished)
+            dataService.updateTaskStatus(task, status: !task.isFinished)
         }
     }
     
     func addNewTask() -> Bool {
         guard isEligable else { return false }
-        STMRecord.createTask(with: taskTitle!,
-                             category: taskCategory,
-                             dueDate: taskDueDate,
-                             description: taskDesription,
-                             isNotified: taskNotificationStatus)
+        dataService.appendNewTask(with: taskTitle!,
+                                  category: taskCategory,
+                                  date: taskDueDate,
+                                  description: taskDesription,
+                                  isNotified: taskNotificationStatus)
         return true
     }
     
     func editTask() -> Bool  {
         guard let task = self.task, hasBeenUpdated else { return false }
-        STMRecord.updateTask(with: task.id!,
-                             title: taskTitle!,
-                             category: taskCategory,
-                             dueDate: taskDueDate,
-                             description: taskDesription)
-
-        STMRecord.updateTaskNotification(with: task, isNotified: taskNotificationStatus)
-        STMRecord.manageTaskStatus(with: task, isFinished: taskStatus)
-        
+        dataService.updateTask(with: task,
+                               title: taskTitle!,
+                               category: taskCategory,
+                               date: taskDueDate,
+                               description: taskDesription,
+                               isNotified: taskNotificationStatus,
+                               status: taskStatus)
         return true
+    }
+    
+    func updateCategory(with index: Int) {
+        taskCategory = taskCategories[index]
     }
     
     private func initModel(with task: STMRecord) {

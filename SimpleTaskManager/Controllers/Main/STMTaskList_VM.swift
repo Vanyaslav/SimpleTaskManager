@@ -16,23 +16,32 @@ class STMTaskList_VM {
         return completedTasks.count + incompletedTasks.count
     }
     
+    let dataService: STMDataService
+    
+    init(dataService: STMDataService) {
+        self.dataService = dataService
+    }
+    
     func reloadRecords() {
-        completedTasks = STMRecord.getAllTasks(completed: true)
-        incompletedTasks = STMRecord.getAllTasks(completed: false)
+        completedTasks = dataService.getRecords(true)
+        incompletedTasks = dataService.getRecords(false)
     }
     
     func deleteRecords(in indexPath: IndexPath) {
-            STMRecord.deleteTask(with: indexPath.section == 0
-                ? incompletedTasks[indexPath.row].id!
-                : completedTasks[indexPath.row].id!)
+        guard let id = getRecord(with: indexPath).id else { return }
+        dataService.deleteRecord(with: id)
         reloadRecords()
     }
     
     func manageTaskState(indexPath: IndexPath) {
-        let record = indexPath.section == 0
+        let record = getRecord(with: indexPath)
+        dataService.manageRecord(record, with: !record.isFinished)
+        reloadRecords()
+    }
+    
+    private func getRecord(with indexPath: IndexPath) -> STMRecord {
+        return indexPath.section == 0
             ? incompletedTasks[indexPath.row]
             : completedTasks[indexPath.row]
-        STMRecord.manageTaskStatus(with: record, isFinished: !record.isFinished)
-        reloadRecords()
     }
 }

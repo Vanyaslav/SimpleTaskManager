@@ -17,12 +17,8 @@ class STMSettingsNotification_TVCell: UITableViewCell {
         self.viewModel = viewModel
         cellSwitch.setOn(viewModel.initialNotificationState(),
                          animated: true)
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
         
-        guard STMRecord.getAllTasks().count != 0 else {
+        guard viewModel.numberOfTasks != 0 else {
             cellSwitch.isUserInteractionEnabled = false
             return
         }

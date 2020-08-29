@@ -27,15 +27,16 @@ enum STMOrderingMannerEnum: Int, CaseIterable {
     }
     
     public static func getTitle(row: Int) -> String {
-        (STMOrderingMannerEnum(rawValue: row)?.title)!
+        guard let item = STMOrderingMannerEnum(rawValue: row) else { return "" }
+        return item.title
     }
     
     static func manageOrdering(with row: Int) {
-        UserDefaults.storeOrderingManner(with: STMOrderingMannerEnum(rawValue: row)!)
+        UserDefaults.storeOrderingManner(with: row)
     }
     
     static func getStored() -> STMOrderingMannerEnum {
-        UserDefaults.getOrderingManner()
+        STMOrderingMannerEnum(rawValue: UserDefaults.getOrderingManner())!
     }
 }
 ///
@@ -49,7 +50,7 @@ enum STMOrderingTypeEnum: Int, CaseIterable {
         }
     }
     
-    public static func getOrderVariable() -> String {
+    public static func getManagingTitle() -> String {
         STMOrderingTypeEnum.getStored() == .date
             ? "taskDueDate"
             : "taskTitle"
@@ -60,11 +61,11 @@ enum STMOrderingTypeEnum: Int, CaseIterable {
     }
     
     static func manageOrdering(with row: Int) {
-        UserDefaults.storeOrderingType(with: STMOrderingTypeEnum(rawValue: row)!)
+        UserDefaults.storeOrderingType(with: row)
     }
     
     static func getStored() -> STMOrderingTypeEnum {
-        UserDefaults.getOrderingType()
+        STMOrderingTypeEnum(rawValue: UserDefaults.getOrderingType())!
     }
 }
 //
@@ -73,19 +74,19 @@ extension UserDefaults {
     private static let storageKeyManner = "STMOrderingManner"
     private static let storageKeyType = "STMOrderingType"
     
-    fileprivate static func storeOrderingManner(with manner: STMOrderingMannerEnum) {
-        standard.set(manner.rawValue, forKey: storageKeyManner)
+    fileprivate static func storeOrderingManner(with manner: Int) {
+        standard.set(manner, forKey: storageKeyManner)
     }
     
-    fileprivate static func storeOrderingType(with type: STMOrderingTypeEnum) {
-        standard.set(type.rawValue, forKey: storageKeyType)
+    fileprivate static func storeOrderingType(with type: Int) {
+        standard.set(type, forKey: storageKeyType)
     }
     
-    fileprivate static func getOrderingManner() -> STMOrderingMannerEnum {
-        STMOrderingMannerEnum(rawValue: standard.integer(forKey: storageKeyManner))!
+    fileprivate static func getOrderingManner() -> Int {
+        standard.integer(forKey: storageKeyManner)
     }
     
-    fileprivate static func getOrderingType() -> STMOrderingTypeEnum {
-        STMOrderingTypeEnum(rawValue: standard.integer(forKey: storageKeyType))!
+    fileprivate static func getOrderingType() -> Int {
+        standard.integer(forKey: storageKeyType)
     }
 }

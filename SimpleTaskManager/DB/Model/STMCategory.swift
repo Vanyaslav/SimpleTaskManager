@@ -18,9 +18,9 @@ extension STMCategory {
     
     public static func createTaskCategory(with title: String, color: UIColor) {
         MagicalRecord.save(blockAndWait: { context in
-            let theRecord = STMCategory.mr_createEntity(in: context)
-            theRecord?.title = title
-            theRecord?.backgroundColor = color.coreImageColor.stringRepresentation
+            let record = STMCategory.mr_createEntity(in: context)
+            record?.title = title
+            record?.backgroundColor = color.coreImageColor.stringRepresentation
         })
     }
 }

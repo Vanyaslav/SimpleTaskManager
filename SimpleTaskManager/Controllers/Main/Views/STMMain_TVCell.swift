@@ -9,8 +9,8 @@
 import UIKit
 ///
 class STMMain_TVCell: STMButton_TVCell {
-    @IBOutlet var titelLabel: UILabel!
-    @IBOutlet var dueDateLabel: UILabel!
+    @IBOutlet weak var titelLabel: UILabel!
+    @IBOutlet weak var dueDateLabel: UILabel!
     
     weak var delegate: STMTaskList_TVCDelegate? = nil
     

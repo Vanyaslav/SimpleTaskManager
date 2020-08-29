@@ -22,10 +22,11 @@ extension STMRecord {
     }
 
     public static func getAllTasks() -> [STMRecord] {
-        let theType = STMOrderingTypeEnum.getOrderVariable()
-        let theManner = STMOrderingMannerEnum.getStored().actionBool
+        let typeTitle = STMOrderingTypeEnum.getManagingTitle()
+        let manner = STMOrderingMannerEnum.getStored().actionBool
         
-        guard let tasks = STMRecord.mr_findAllSorted(by: theType, ascending: theManner) as? [STMRecord] else {
+        guard let tasks = STMRecord.mr_findAllSorted(by: typeTitle,
+                                                     ascending: manner) as? [STMRecord] else {
             return []
         }
         

@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, STMPersistentProtocol {
         
         if let nc = window?.rootViewController as? UINavigationController,
             let vc = nc.topViewController as? STMTaskList_TVC {
-            vc.viewModel = STMTaskList_VM()
+            vc.viewModel = STMTaskList_VM(dataService: STMDataService())
         }
         
         return true

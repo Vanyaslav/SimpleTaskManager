@@ -10,11 +10,11 @@
 		3D3ED009D959468E4FA5D9A8 /* Pods_SimpleTaskManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12E7DA96F8BBEEC2B6BA0DB1 /* Pods_SimpleTaskManager.framework */; };
 		A10EBBA524F2854200F5DCE0 /* STMSettings_VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10EBBA424F2854200F5DCE0 /* STMSettings_VM.swift */; };
 		A133D2C624F776A500B78E63 /* STMAddNewCategory_VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A133D2C524F776A500B78E63 /* STMAddNewCategory_VM.swift */; };
-		A133D2C824F7A37B00B78E63 /* STMDetailCellConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A133D2C724F7A37B00B78E63 /* STMDetailCellConfiguration.swift */; };
 		A133D2CA24F7C41F00B78E63 /* STMConfirmButton_TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A133D2C924F7C41F00B78E63 /* STMConfirmButton_TVCell.swift */; };
 		A16D57B624EA929A008B45E7 /* STMTaskDetail_VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16D57B524EA929A008B45E7 /* STMTaskDetail_VM.swift */; };
 		A1786FA420ACDF56002229DF /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1786FA320ACDF56002229DF /* UIViewController+Alerts.swift */; };
 		A199D0CF2088650800F39B6E /* SimpleTaskManager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A199D0CD2088650800F39B6E /* SimpleTaskManager.xcdatamodeld */; };
+		A1A5664424FA323F0032F9CA /* STMDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A5664324FA323F0032F9CA /* STMDataService.swift */; };
 		A1B755EF20848D7000FFB67D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B755EE20848D7000FFB67D /* AppDelegate.swift */; };
 		A1B755F420848D7100FFB67D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1B755F220848D7100FFB67D /* Main.storyboard */; };
 		A1B755F920848D7200FFB67D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B755F820848D7200FFB67D /* Assets.xcassets */; };
@@ -54,11 +54,11 @@
 		41A03B0A4318C6ADEC95F4DC /* Pods-SimpleTaskManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleTaskManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleTaskManager/Pods-SimpleTaskManager.release.xcconfig"; sourceTree = "<group>"; };
 		A10EBBA424F2854200F5DCE0 /* STMSettings_VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMSettings_VM.swift; sourceTree = "<group>"; };
 		A133D2C524F776A500B78E63 /* STMAddNewCategory_VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMAddNewCategory_VM.swift; sourceTree = "<group>"; };
-		A133D2C724F7A37B00B78E63 /* STMDetailCellConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMDetailCellConfiguration.swift; sourceTree = "<group>"; };
 		A133D2C924F7C41F00B78E63 /* STMConfirmButton_TVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMConfirmButton_TVCell.swift; sourceTree = "<group>"; };
 		A16D57B524EA929A008B45E7 /* STMTaskDetail_VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMTaskDetail_VM.swift; sourceTree = "<group>"; };
 		A1786FA320ACDF56002229DF /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
 		A199D0CE2088650800F39B6E /* SimpleTaskManager.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SimpleTaskManager.xcdatamodel; sourceTree = "<group>"; };
+		A1A5664324FA323F0032F9CA /* STMDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMDataService.swift; sourceTree = "<group>"; };
 		A1B755EB20848D7000FFB67D /* SimpleTaskManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleTaskManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B755EE20848D7000FFB67D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1B755F320848D7100FFB67D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -191,6 +191,7 @@
 			children = (
 				A199D0CD2088650800F39B6E /* SimpleTaskManager.xcdatamodeld */,
 				A1B75608208494B900FFB67D /* Model */,
+				A1A5664324FA323F0032F9CA /* STMDataService.swift */,
 			);
 			path = DB;
 			sourceTree = "<group>";
@@ -251,7 +252,6 @@
 				A1B7562B20853F5D00FFB67D /* View */,
 				A1B756202084FDB300FFB67D /* STMTaskDetail_VC.swift */,
 				A16D57B524EA929A008B45E7 /* STMTaskDetail_VM.swift */,
-				A133D2C724F7A37B00B78E63 /* STMDetailCellConfiguration.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -441,6 +441,7 @@
 				A1B7562D20853F8800FFB67D /* STMDetailTextView_TVCell.swift in Sources */,
 				A1EC3EFD2086A2810012AAC6 /* STMDetailTaskTitle_TVCell.swift in Sources */,
 				A1EC3EF92086A2340012AAC6 /* STMDetailDueDate_TVCell.swift in Sources */,
+				A1A5664424FA323F0032F9CA /* STMDataService.swift in Sources */,
 				A133D2CA24F7C41F00B78E63 /* STMConfirmButton_TVCell.swift in Sources */,
 				A1B756152084B2F600FFB67D /* STMDefaults.swift in Sources */,
 				A1B756362085683F00FFB67D /* ColorPickerDataDelegate.swift in Sources */,
@@ -468,7 +469,6 @@
 				A1B756122084AF1700FFB67D /* STMCategory.swift in Sources */,
 				A1EC3EF0208696BD0012AAC6 /* STMOrderingPicker_TVCell.swift in Sources */,
 				A1EC3EE92086829D0012AAC6 /* STMOrderingPickerDataDelegate.swift in Sources */,
-				A133D2C824F7A37B00B78E63 /* STMDetailCellConfiguration.swift in Sources */,
 				A16D57B624EA929A008B45E7 /* STMTaskDetail_VM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

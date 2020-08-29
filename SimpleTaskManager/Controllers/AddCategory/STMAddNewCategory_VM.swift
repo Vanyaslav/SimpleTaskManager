@@ -9,7 +9,15 @@
 import UIKit
 
 class STMAddNewCategory_VM {
+    let minTitleLegth = 2
+    
+    let dataService: STMDataService
+
+    init(dataService: STMDataService) {
+        self.dataService = dataService
+    }
+    
     func saveCategory(with title: String, color: UIColor) {
-        STMCategory.createTaskCategory(with: title, color: color)
+        dataService.saveCategory(with: title, color: color)
     }
 }

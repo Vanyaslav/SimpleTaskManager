@@ -12,7 +12,7 @@ extension STMDetailCategoty_TVCell: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView,
                     didSelectRow row: Int,
                     inComponent component: Int) {
-        viewModel.taskCategory = taskCategories[row]
+        viewModel.updateCategory(with: row)
     }
 }
 
@@ -20,7 +20,7 @@ extension STMDetailCategoty_TVCell: UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView,
                     titleForRow row: Int,
                     forComponent component: Int) -> String? {
-        taskCategories[row].title!
+        viewModel.taskCategories[row].title!
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -29,7 +29,7 @@ extension STMDetailCategoty_TVCell: UIPickerViewDataSource {
 
     func pickerView(_ pickerView: UIPickerView,
                     numberOfRowsInComponent component: Int) -> Int {
-        taskCategories.count
+        viewModel.taskCategories.count
     }
 }
 
@@ -38,11 +38,15 @@ class STMDetailCategoty_TVCell: UITableViewCell {
     @IBOutlet weak var picker: UIPickerView!
     
     private var viewModel: STMTaskDetail_VM!
-    private let taskCategories = STMCategory.allCategories
     
     func configure(with viewModel: STMTaskDetail_VM) {
         self.viewModel = viewModel
-        self.picker.selectRow(STMCategory.allCategories.firstIndex(of: viewModel.taskCategory)!,
+        
+        guard let category = viewModel
+            .taskCategories
+            .firstIndex(of: viewModel.taskCategory) else { return }
+        
+        self.picker.selectRow(category,
                               inComponent: 0,
                               animated: true)
     }
