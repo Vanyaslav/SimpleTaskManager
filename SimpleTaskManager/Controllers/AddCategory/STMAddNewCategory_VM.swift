@@ -13,6 +13,8 @@ class STMAddNewCategory_VM {
     
     let dataService: STMDataService
     
+    let colors = UIColor.standardColorList
+    
     var categoryTitle = ""
     var categoryColor = UIColor.standardColorList[0]
     

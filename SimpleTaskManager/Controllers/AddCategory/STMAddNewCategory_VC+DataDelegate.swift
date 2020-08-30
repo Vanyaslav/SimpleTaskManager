@@ -14,14 +14,14 @@ extension STMAddNewCategory_VC: UIPickerViewDelegate {
                     forComponent component: Int,
                     reusing view: UIView?) -> UIView {
         let view = UILabel(frame: CGRect(x: 0, y: 0, width: 85, height: 25))
-        view.backgroundColor = UIColor.standardColorList[row]
+        view.backgroundColor = viewModel.colors[row]
         return view
     }
     
     func pickerView(_ pickerView: UIPickerView,
                     didSelectRow row: Int,
                     inComponent component: Int) {
-        let color = UIColor.standardColorList[colorPicker.selectedRow(inComponent: 0)]
+        let color = viewModel.colors[colorPicker.selectedRow(inComponent: 0)]
         viewModel.categoryColor = color
     }
 }
@@ -34,6 +34,6 @@ extension STMAddNewCategory_VC: UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView,
                     numberOfRowsInComponent component: Int) -> Int {
-        UIColor.standardColorList.count
+        viewModel.colors.count
     }
 }
