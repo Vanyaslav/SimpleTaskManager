@@ -9,7 +9,7 @@
 import Foundation
 
 class STMTaskDetail_VM {
-    let task: STMRecord?
+    private let task: STMRecord?
     
     private let dataService: STMDataService
     
@@ -20,6 +20,8 @@ class STMTaskDetail_VM {
             initModel(with: task!)
         }
     }
+    
+    var isEditing: Bool { return nil != task }
     
     let taskCategories = STMCategory.allCategories
     
@@ -79,7 +81,7 @@ class STMTaskDetail_VM {
         return true
     }
     
-    func editTask() -> Bool  {
+    func editTask() -> Bool {
         guard let task = self.task, hasBeenUpdated else { return false }
         dataService.updateTask(with: task,
                                title: taskTitle!,

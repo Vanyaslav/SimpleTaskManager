@@ -32,13 +32,12 @@
 		A1B7562D20853F8800FFB67D /* STMDetailTextView_TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B7562C20853F8800FFB67D /* STMDetailTextView_TVCell.swift */; };
 		A1B756302085408600FFB67D /* STMButton_TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B7562F2085408600FFB67D /* STMButton_TVCell.swift */; };
 		A1B7563220854EE800FFB67D /* STMDetailAddButton_TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B7563120854EE800FFB67D /* STMDetailAddButton_TVCell.swift */; };
-		A1B756362085683F00FFB67D /* ColorPickerDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B756352085683F00FFB67D /* ColorPickerDataDelegate.swift */; };
+		A1B756362085683F00FFB67D /* STMAddNewCategory_VC+DataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B756352085683F00FFB67D /* STMAddNewCategory_VC+DataDelegate.swift */; };
 		A1DF57FD24EBCC5E00A9CE2B /* STMTaskList_VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DF57FC24EBCC5E00A9CE2B /* STMTaskList_VM.swift */; };
 		A1DF580124ED610600A9CE2B /* UIKit+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DF580024ED610600A9CE2B /* UIKit+Ext.swift */; };
 		A1DF580424EDC0DF00A9CE2B /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DF580324EDC0DF00A9CE2B /* ReusableView.swift */; };
 		A1DF580624EDC15400A9CE2B /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DF580524EDC15400A9CE2B /* UITableView+Ext.swift */; };
 		A1EC3EE32086232C0012AAC6 /* UNNotification+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC3EE22086232C0012AAC6 /* UNNotification+Ext.swift */; };
-		A1EC3EE92086829D0012AAC6 /* STMOrderingPickerDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC3EE82086829D0012AAC6 /* STMOrderingPickerDataDelegate.swift */; };
 		A1EC3EEB208694F80012AAC6 /* OrderingEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC3EEA208694F80012AAC6 /* OrderingEnum.swift */; };
 		A1EC3EF0208696BD0012AAC6 /* STMOrderingPicker_TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC3EEF208696BD0012AAC6 /* STMOrderingPicker_TVCell.swift */; };
 		A1EC3EF220869BAD0012AAC6 /* STMDetailNotification_TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC3EF120869BAD0012AAC6 /* STMDetailNotification_TVCell.swift */; };
@@ -78,13 +77,12 @@
 		A1B7562C20853F8800FFB67D /* STMDetailTextView_TVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMDetailTextView_TVCell.swift; sourceTree = "<group>"; };
 		A1B7562F2085408600FFB67D /* STMButton_TVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMButton_TVCell.swift; sourceTree = "<group>"; };
 		A1B7563120854EE800FFB67D /* STMDetailAddButton_TVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMDetailAddButton_TVCell.swift; sourceTree = "<group>"; };
-		A1B756352085683F00FFB67D /* ColorPickerDataDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerDataDelegate.swift; sourceTree = "<group>"; };
+		A1B756352085683F00FFB67D /* STMAddNewCategory_VC+DataDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "STMAddNewCategory_VC+DataDelegate.swift"; sourceTree = "<group>"; };
 		A1DF57FC24EBCC5E00A9CE2B /* STMTaskList_VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMTaskList_VM.swift; sourceTree = "<group>"; };
 		A1DF580024ED610600A9CE2B /* UIKit+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Ext.swift"; sourceTree = "<group>"; };
 		A1DF580324EDC0DF00A9CE2B /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		A1DF580524EDC15400A9CE2B /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
 		A1EC3EE22086232C0012AAC6 /* UNNotification+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UNNotification+Ext.swift"; sourceTree = "<group>"; };
-		A1EC3EE82086829D0012AAC6 /* STMOrderingPickerDataDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMOrderingPickerDataDelegate.swift; sourceTree = "<group>"; };
 		A1EC3EEA208694F80012AAC6 /* OrderingEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderingEnum.swift; sourceTree = "<group>"; };
 		A1EC3EEF208696BD0012AAC6 /* STMOrderingPicker_TVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMOrderingPicker_TVCell.swift; sourceTree = "<group>"; };
 		A1EC3EF120869BAD0012AAC6 /* STMDetailNotification_TVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMDetailNotification_TVCell.swift; sourceTree = "<group>"; };
@@ -238,8 +236,8 @@
 		A1B7562220850AB700FFB67D /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				A1EC3EEA208694F80012AAC6 /* OrderingEnum.swift */,
 				A1EC3EF520869C8A0012AAC6 /* View */,
-				A1EC3EEE208695430012AAC6 /* Ordering */,
 				A1B756162084BFCF00FFB67D /* STMSettings_TVC.swift */,
 				A10EBBA424F2854200F5DCE0 /* STMSettings_VM.swift */,
 			);
@@ -261,7 +259,7 @@
 			children = (
 				A1B7562620851BC600FFB67D /* STMAddNewCategory_VC.swift */,
 				A133D2C524F776A500B78E63 /* STMAddNewCategory_VM.swift */,
-				A1B756352085683F00FFB67D /* ColorPickerDataDelegate.swift */,
+				A1B756352085683F00FFB67D /* STMAddNewCategory_VC+DataDelegate.swift */,
 			);
 			path = AddCategory;
 			sourceTree = "<group>";
@@ -294,15 +292,6 @@
 				A1DF580324EDC0DF00A9CE2B /* ReusableView.swift */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		A1EC3EEE208695430012AAC6 /* Ordering */ = {
-			isa = PBXGroup;
-			children = (
-				A1EC3EE82086829D0012AAC6 /* STMOrderingPickerDataDelegate.swift */,
-				A1EC3EEA208694F80012AAC6 /* OrderingEnum.swift */,
-			);
-			path = Ordering;
 			sourceTree = "<group>";
 		};
 		A1EC3EF520869C8A0012AAC6 /* View */ = {
@@ -444,7 +433,7 @@
 				A1A5664424FA323F0032F9CA /* STMDataService.swift in Sources */,
 				A133D2CA24F7C41F00B78E63 /* STMConfirmButton_TVCell.swift in Sources */,
 				A1B756152084B2F600FFB67D /* STMDefaults.swift in Sources */,
-				A1B756362085683F00FFB67D /* ColorPickerDataDelegate.swift in Sources */,
+				A1B756362085683F00FFB67D /* STMAddNewCategory_VC+DataDelegate.swift in Sources */,
 				A1EC3EFB2086A25F0012AAC6 /* STMDetailCategoty_TVCell.swift in Sources */,
 				A10EBBA524F2854200F5DCE0 /* STMSettings_VM.swift in Sources */,
 				A1B756192084CCCC00FFB67D /* STMTaskList_TVC.swift in Sources */,
@@ -468,7 +457,6 @@
 				A1B756172084BFCF00FFB67D /* STMSettings_TVC.swift in Sources */,
 				A1B756122084AF1700FFB67D /* STMCategory.swift in Sources */,
 				A1EC3EF0208696BD0012AAC6 /* STMOrderingPicker_TVCell.swift in Sources */,
-				A1EC3EE92086829D0012AAC6 /* STMOrderingPickerDataDelegate.swift in Sources */,
 				A16D57B624EA929A008B45E7 /* STMTaskDetail_VM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

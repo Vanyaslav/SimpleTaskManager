@@ -27,8 +27,8 @@ class STMConfirmButton_TVCell: STMButton_TVCell {
                                action: #selector(manageTask),
                                for: .touchUpInside)
             
-        if let task = viewModel.task {
-            manageButton.isSelected = task.isFinished
+        if viewModel.isEditing {
+            manageButton.isSelected = viewModel.taskStatus
         }
         
         formatButton()

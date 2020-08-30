@@ -8,11 +8,21 @@
 
 import UIKit
 
+extension STMAddNewCategory_VC: UITextFieldDelegate {
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        guard let title = textField.text else { return }
+        viewModel.updateCategory(with: title)
+    }
+}
 ///
 class STMAddNewCategory_VC: UIViewController {
     @IBOutlet weak var colorPicker: UIPickerView!
     @IBOutlet weak var saveButton: UIButton!
-    @IBOutlet weak var titleTextView: UITextField!
+    @IBOutlet weak var titleTextView: UITextField! {
+        didSet {
+            titleTextView.delegate = self
+        }
+    }
     
     var viewModel: STMAddNewCategory_VM!
     
@@ -25,10 +35,8 @@ class STMAddNewCategory_VC: UIViewController {
     }
     
     @objc func saveNewCategory() {
-        if let titleText = titleTextView.text,
-            titleText.count > viewModel.minTitleLegth {
-            let categoryColor = UIColor.standardColorList[colorPicker.selectedRow(inComponent: 0)]
-            viewModel.saveCategory(with: titleText, color: categoryColor)
+        if viewModel.isEligible {
+            viewModel.saveCategory()
             self.navigationController?.popViewController(animated: true)
         } else {
             showIncorectTitleAlert()

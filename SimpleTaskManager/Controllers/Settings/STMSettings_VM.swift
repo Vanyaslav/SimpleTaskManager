@@ -37,4 +37,10 @@ class STMSettings_VM {
         items.append((row: STMOrderingTypeEnum.getStored().rawValue, component: 0))
         return items
     }
+    
+    func updateOrdering(with row: Int, component: Int) {
+        component == 0
+            ? STMOrderingTypeEnum.manageOrdering(with: row)
+            : STMOrderingMannerEnum.manageOrdering(with: row)
+    }
 }

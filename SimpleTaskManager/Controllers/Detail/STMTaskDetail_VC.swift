@@ -53,7 +53,7 @@ extension STMTaskDetail_VC: UITableViewDataSource {
             return cell
         // alternate behaviour according to the action
         case 5:
-            if let _ = viewModel.task {
+            if viewModel.isEditing {
                 let cell: STMConfirmButton_TVCell = tableView.dequeueReusableCell(for: indexPath)
                 cell.configure(with: viewModel)
                 return cell
@@ -93,7 +93,7 @@ class STMTaskDetail_VC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if viewModel.task != nil {
+        if viewModel.isEditing {
             let saveButton = UIBarButtonItem(title: "Save",
                                              style: .done,
                                              target: self,

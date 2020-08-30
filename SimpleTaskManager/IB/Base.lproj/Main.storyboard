@@ -133,8 +133,8 @@
                                         <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MAD-Cf-fRO">
                                             <rect key="frame" x="16" y="23" width="343" height="162"/>
                                             <connections>
-                                                <outlet property="dataSource" destination="8c7-TK-b1g" id="1dI-ZY-Ljf"/>
-                                                <outlet property="delegate" destination="zla-43-dQj" id="wWP-cH-zbA"/>
+                                                <outlet property="dataSource" destination="igF-Tp-D9g" id="CJy-Ml-Eq2"/>
+                                                <outlet property="delegate" destination="wfl-xv-dJh" id="A2h-5v-Ht9"/>
                                             </connections>
                                         </pickerView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6M-D8-lis">
@@ -195,8 +195,6 @@
                     </tableView>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4a6-UW-Sxi" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="8c7-TK-b1g" customClass="STMOrderingPickerData" customModule="SimpleTaskManager" customModuleProvider="target"/>
-                <customObject id="zla-43-dQj" customClass="STMOrderingPickerDelegate" customModule="SimpleTaskManager" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="-194.40000000000001" y="1059.2203898050975"/>
         </scene>
@@ -220,8 +218,8 @@
                                     <constraint firstAttribute="height" constant="145" id="UYR-uP-Opu"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="dataSource" destination="NGr-HO-vyD" id="hn4-EA-LvM"/>
-                                    <outlet property="delegate" destination="uR7-7N-mUy" id="W4g-QA-ktN"/>
+                                    <outlet property="dataSource" destination="OPx-qu-TyE" id="2ZK-gn-niJ"/>
+                                    <outlet property="delegate" destination="OPx-qu-TyE" id="Kip-01-akg"/>
                                 </connections>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UrA-cS-h4W">
@@ -258,8 +256,6 @@
                         <action selector="respondTouch" destination="OPx-qu-TyE" id="suC-dT-aea"/>
                     </connections>
                 </tapGestureRecognizer>
-                <customObject id="NGr-HO-vyD" customClass="ColorPickerData" customModule="SimpleTaskManager" customModuleProvider="target"/>
-                <customObject id="uR7-7N-mUy" customClass="ColorPickerDelegate" customModule="SimpleTaskManager" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="632.79999999999995" y="1058.3208395802101"/>
         </scene>
@@ -395,17 +391,17 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="STMDetailNotification_TVCell" id="6X0-wy-YLq" customClass="STMDetailNotification_TVCell" customModule="SimpleTaskManager" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="819.5" width="375" height="44.5"/>
+                                        <rect key="frame" x="0.0" y="819.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6X0-wy-YLq" id="0We-cp-hNu">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Hav-Od-shb">
-                                                    <rect key="frame" x="310" y="7" width="51" height="31"/>
+                                                    <rect key="frame" x="310" y="6.5" width="51" height="31"/>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Local notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fuv-lA-bXN">
-                                                    <rect key="frame" x="16" y="11.5" width="135" height="21.5"/>
+                                                    <rect key="frame" x="16" y="11.5" width="135" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -425,7 +421,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="STMDetailAddButton_TVCell" rowHeight="79" id="cYv-h6-lvC" customClass="STMDetailAddButton_TVCell" customModule="SimpleTaskManager" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="864" width="375" height="79"/>
+                                        <rect key="frame" x="0.0" y="863.5" width="375" height="79"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cYv-h6-lvC" id="XV1-7e-JrE">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
@@ -449,7 +445,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="STMConfirmButton_TVCell" rowHeight="79" id="toz-k2-fYb" customClass="STMConfirmButton_TVCell" customModule="SimpleTaskManager" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="943" width="375" height="79"/>
+                                        <rect key="frame" x="0.0" y="942.5" width="375" height="79"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="toz-k2-fYb" id="gOa-Py-al5">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
