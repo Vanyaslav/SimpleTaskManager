@@ -13,24 +13,20 @@ class STMAddNewCategory_VM {
     
     let dataService: STMDataService
     
-    private var categoryTitle = ""
-    private var categoryColor = UIColor.standardColorList[0]
+    var categoryTitle = ""
+    var categoryColor = UIColor.standardColorList[0]
     
-    var isEligible: Bool { return categoryTitle.count > minTitleLegth }
+    private var isEligible: Bool {
+        return categoryTitle.count > minTitleLegth
+    }
 
     init(dataService: STMDataService) {
         self.dataService = dataService
     }
     
-    func updateCategory(with title: String) {
-        categoryTitle = title
-    }
-    
-    func updateCategory(with color: UIColor) {
-        categoryColor = color
-    }
-    
-    func saveCategory() {
+    func saveCategory() -> Bool {
+        guard isEligible else { return false }
         dataService.saveCategory(with: categoryTitle, color: categoryColor)
+        return true
     }
 }

@@ -11,7 +11,7 @@ import UIKit
 extension STMAddNewCategory_VC: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
         guard let title = textField.text else { return }
-        viewModel.updateCategory(with: title)
+        viewModel.categoryTitle = title
     }
 }
 ///
@@ -35,8 +35,7 @@ class STMAddNewCategory_VC: UIViewController {
     }
     
     @objc func saveNewCategory() {
-        if viewModel.isEligible {
-            viewModel.saveCategory()
+        if viewModel.saveCategory() {
             self.navigationController?.popViewController(animated: true)
         } else {
             showIncorectTitleAlert()
