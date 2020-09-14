@@ -8,6 +8,10 @@
 
 import Foundation
 
+extension STMTaskDetail_VM {
+    var minTitleLegth: Int { 2 }
+}
+
 class STMTaskDetail_VM {
     private let task: STMRecord?
     
@@ -22,11 +26,8 @@ class STMTaskDetail_VM {
     }
     
     var isEditing: Bool { return nil != task }
-    
     let taskCategories = STMCategory.allCategories
-    
     var hasBeenUpdated = false
-    
     var taskTitle: String? {
         didSet {
             hasBeenUpdated = true
@@ -58,8 +59,8 @@ class STMTaskDetail_VM {
         }
     }
     ///
-    var isEligable: Bool {
-        guard let title = taskTitle, title.count > 2 else {
+    private var isEligable: Bool {
+        guard let title = taskTitle, title.count > minTitleLegth else {
             return false
         }
         return true

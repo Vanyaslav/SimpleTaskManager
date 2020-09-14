@@ -22,12 +22,6 @@ class STMTaskList_VM {
         self.dataService = dataService
     }
     
-//    func selectTask(with index: Int, finished: Bool) -> STMRecord {
-//        return finished
-//            ? completedTasks[index]
-//            : incompletedTasks[index]
-//    }
-    
     func reloadRecords() {
         completedTasks = dataService.getRecords(finished: true)
         incompletedTasks = dataService.getRecords(finished: false)

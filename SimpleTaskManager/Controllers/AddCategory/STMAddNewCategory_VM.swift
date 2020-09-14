@@ -8,11 +8,11 @@
 
 import UIKit
 
+extension STMAddNewCategory_VM {
+    var minTitleLegth: Int { 2 }
+}
+
 class STMAddNewCategory_VM {
-    let minTitleLegth = 2
-    
-    private let dataService: STMDataService
-    
     let colors = UIColor.standardColorList
     
     var categoryTitle = ""
@@ -21,6 +21,8 @@ class STMAddNewCategory_VM {
     private var isEligible: Bool {
         return categoryTitle.count > minTitleLegth
     }
+    
+    private let dataService: STMDataService
 
     init(dataService: STMDataService) {
         self.dataService = dataService

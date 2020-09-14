@@ -8,10 +8,7 @@
 
 import UIKit
 
-///
-class STMSettings_TVC: UITableViewController {
-    //
-    var viewModel: STMSettings_VM!
+extension STMSettings_TVC {
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         3
@@ -40,6 +37,10 @@ class STMSettings_TVC: UITableViewController {
             return UITableViewCell()
         }
     }
+}
+///
+class STMSettings_TVC: UITableViewController {
+    var viewModel: STMSettings_VM!
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
