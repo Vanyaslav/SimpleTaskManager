@@ -28,8 +28,8 @@ extension STMOrderingPicker_TVCell: UIPickerViewDelegate {
         let label = UILabel()
         label.textAlignment = .center
         label.text = component == 0
-            ? STMOrderingTypeEnum.getTitle(row: row)
-            : STMOrderingMannerEnum.getTitle(row: row)
+            ? STMOrderingTypeEnum.init(rawValue: row)!.title
+            : STMOrderingMannerEnum.init(rawValue: row)!.title
         return label
     }
     

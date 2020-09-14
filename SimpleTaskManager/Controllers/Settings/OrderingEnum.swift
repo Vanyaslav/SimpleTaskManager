@@ -12,7 +12,7 @@ import Foundation
 enum STMOrderingMannerEnum: Int, CaseIterable {
     case ascending = 0, descending
     
-    private var title: String {
+    var title: String {
         switch self {
         case .ascending: return "Ascending"
         case .descending: return "Descending"
@@ -24,11 +24,6 @@ enum STMOrderingMannerEnum: Int, CaseIterable {
         case .ascending: return true
         case .descending: return false
         }
-    }
-    
-    public static func getTitle(row: Int) -> String {
-        guard let item = STMOrderingMannerEnum(rawValue: row) else { return "" }
-        return item.title
     }
     
     static func manageOrdering(with row: Int) {
@@ -43,7 +38,7 @@ enum STMOrderingMannerEnum: Int, CaseIterable {
 enum STMOrderingTypeEnum: Int, CaseIterable {
     case date = 0, name
     
-    private var title: String {
+    var title: String {
         switch self {
         case .date: return "By Due Date"
         case .name: return "By Name"
@@ -54,10 +49,6 @@ enum STMOrderingTypeEnum: Int, CaseIterable {
         STMOrderingTypeEnum.getStored() == .date
             ? "taskDueDate"
             : "taskTitle"
-    }
-    
-    public static func getTitle(row: Int) -> String {
-        (STMOrderingTypeEnum(rawValue: row)?.title)!
     }
     
     static func manageOrdering(with row: Int) {

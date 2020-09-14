@@ -12,29 +12,27 @@ import UserNotifications
 //
 extension STMRecord {
     public static func getAllTasks(completed: Bool) -> [STMRecord] {
-        let tasks = getAllTasks()
-
-        let filteredTasks = tasks.filter({ task in
-            task.isFinished == completed
-        })
-        
-        return filteredTasks
+        return getAllTasks().filter{ $0.isFinished == completed }
     }
 
     public static func getAllTasks() -> [STMRecord] {
         let typeTitle = STMOrderingTypeEnum.getManagingTitle()
         let manner = STMOrderingMannerEnum.getStored().actionBool
         
-        guard let tasks = STMRecord.mr_findAllSorted(by: typeTitle,
-                                                     ascending: manner) as? [STMRecord] else {
+        guard let tasks = STMRecord
+            .mr_findAllSorted(by: typeTitle,
+                              ascending: manner) as? [STMRecord] else {
             return []
         }
         
         return tasks
     }
 
-    public static func createTask(with title: String, category: STMCategory, dueDate: Date, description: String, isNotified: Bool) {
-
+    public static func createTask(with title: String,
+                                  category: STMCategory,
+                                  dueDate: Date,
+                                  description: String,
+                                  isNotified: Bool) {
         let newId = UUID()
 
         MagicalRecord.save(blockAndWait: { context in
@@ -51,11 +49,15 @@ extension STMRecord {
         })
         
         if isNotified {
-            UNNotification.createNotification(from: STMRecord.getRecord(by: newId)!)
+            UNNotification.createNotification(from: getRecord(by: newId)!)
         }
     }
 
-    public static func updateTask(with id: UUID, title: String, category: STMCategory, dueDate: Date, description: String) {
+    public static func updateTask(with id: UUID,
+                                  title: String,
+                                  category: STMCategory,
+                                  dueDate: Date,
+                                  description: String) {
         if let record = getRecord(by:id) {
             MagicalRecord.save(blockAndWait: { context in
                 let localRecord = record.mr_(in: context)
@@ -97,7 +99,6 @@ extension STMRecord {
     
     public static func manageTaskStatus(with task: STMRecord, isFinished: Bool) {
         if task.isFinished != isFinished {
-            
             MagicalRecord.save(blockAndWait: { context in
                 let localRecord = task.mr_(in: context)
                 localRecord?.isFinished = isFinished
