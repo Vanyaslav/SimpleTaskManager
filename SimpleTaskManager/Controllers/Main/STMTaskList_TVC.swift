@@ -21,7 +21,7 @@ extension STMTaskList_TVC: STMTaskList_TVCDelegate {
 }
 ///
 class STMTaskList_TVC: UITableViewController {
-    var viewModel: STMTaskList_VM!
+    private let viewModel = STMTaskList_VM()
     //
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

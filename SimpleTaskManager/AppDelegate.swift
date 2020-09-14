@@ -25,15 +25,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, STMPersistentProtocol {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+        // Font assigment
         STMDefault.initDefaults()
+        // db
         initPersinstentStore()
+        // permision
         UNNotification.makeAuthorizationRequest(with: self)
-        
-        if let nc = window?.rootViewController as? UINavigationController,
-            let vc = nc.topViewController as? STMTaskList_TVC {
-            vc.viewModel = STMTaskList_VM(dataService: STMDataService())
-        }
         
         return true
     }

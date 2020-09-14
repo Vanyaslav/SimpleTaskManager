@@ -18,7 +18,7 @@ class STMTaskList_VM {
     
     let dataService: STMDataService
     
-    init(dataService: STMDataService) {
+    init(dataService: STMDataService = STMDataService()) {
         self.dataService = dataService
     }
     

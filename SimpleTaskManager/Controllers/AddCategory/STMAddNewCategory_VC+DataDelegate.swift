@@ -21,8 +21,8 @@ extension STMAddNewCategory_VC: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView,
                     didSelectRow row: Int,
                     inComponent component: Int) {
-        let color = viewModel.colors[colorPicker.selectedRow(inComponent: 0)]
-        viewModel.categoryColor = color
+        viewModel.categoryColor = viewModel
+            .colors[colorPicker.selectedRow(inComponent: 0)]
     }
 }
 

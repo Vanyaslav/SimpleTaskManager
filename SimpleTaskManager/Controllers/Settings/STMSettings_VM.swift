@@ -27,7 +27,6 @@ class STMSettings_VM {
         guard dataService.getRecords()
             .filter({ $0.isNotificationOn })
             .count == numberOfTasks else { return false }
-
         return true
     }
     
