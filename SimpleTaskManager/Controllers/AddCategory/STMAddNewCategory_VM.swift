@@ -11,7 +11,7 @@ import UIKit
 class STMAddNewCategory_VM {
     let minTitleLegth = 2
     
-    let dataService: STMDataService
+    private let dataService: STMDataService
     
     let colors = UIColor.standardColorList
     

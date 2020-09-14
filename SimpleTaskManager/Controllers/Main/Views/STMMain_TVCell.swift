@@ -22,6 +22,18 @@ class STMMain_TVCell: STMButton_TVCell {
         self.viewModel = viewModel
         self.indexPath = indexPath
         
+        let task = viewModel.getRecord(with: indexPath)
+        
+        if let color = task.taskCategory?.backgroundColor {
+            backgroundColor = UIColor(ciColor: CIColor(string: color))
+                .withAlphaComponent(0.3)
+        }
+        titelLabel.text = task.taskTitle
+        dueDateLabel.text = task.taskDueDate?.getString(with: .long)
+        manageButton.isSelected = indexPath.section == 0
+            ? false
+            : true
+        
         formatButton()
         
         manageButton.addTarget(self,

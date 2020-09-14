@@ -28,7 +28,9 @@ class STMAddNewCategory_VC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if #available(iOS 13.0, *) {
+            view.backgroundColor = UIColor.systemBackground
+        }
         saveButton.addTarget(self,
                              action: #selector(saveNewCategory),
                              for: .touchUpInside)

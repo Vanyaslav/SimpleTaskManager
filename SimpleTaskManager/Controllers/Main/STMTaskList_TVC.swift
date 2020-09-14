@@ -54,33 +54,17 @@ class STMTaskList_TVC: UITableViewController {
     override func tableView(_ tableView: UITableView,
                             cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: STMMain_TVCell = tableView.dequeueReusableCell(for: indexPath)
-        
-        func assignColor(for task: STMRecord, selected: Bool) {
-            if let color = task.taskCategory?.backgroundColor {
-                cell.backgroundColor = UIColor(ciColor: CIColor(string: color)).withAlphaComponent(0.1)
-            }
-            
-            cell.configure(with: viewModel, indexPath: indexPath)
             cell.delegate = self
-            cell.titelLabel.text = task.taskTitle
-            cell.dueDateLabel.text = task.taskDueDate?.getString(with: .long)
-            cell.manageButton.isSelected = selected
-        }
-            
         switch indexPath.section {
-        case 0: assignColor(for: viewModel.incompletedTasks[indexPath.row],
-                            selected: false)
-        default: assignColor(for: viewModel.completedTasks[indexPath.row],
-                             selected: true)
+        case 0: cell.configure(with: viewModel, indexPath: indexPath)
+        default: cell.configure(with: viewModel, indexPath: indexPath)
         }
         return cell
     }
     
     override func tableView(_ tableView: UITableView,
                             didSelectRowAt indexPath: IndexPath) {
-        let task = indexPath.section == 0
-            ? viewModel.incompletedTasks[indexPath.row]
-            : viewModel.completedTasks[indexPath.row]
+        let task = viewModel.getRecord(with: indexPath)
         
         self.performSegue(withIdentifier: "showTaskDetail", sender: task)
     }

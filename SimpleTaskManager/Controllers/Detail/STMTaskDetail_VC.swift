@@ -8,6 +8,13 @@
 
 import UIKit
 
+extension STMTaskDetail_VC {
+    @IBAction func respondTouch() {
+        titleTextView.resignFirstResponder()
+        descriptionTextView.resignFirstResponder()
+    }
+}
+
 extension STMTaskDetail_VC: STMDetailAddButton_TVCellDelegate {
     func processedTask(with result: Bool) {
         result
@@ -34,6 +41,7 @@ extension STMTaskDetail_VC: UITableViewDataSource {
         case 0:
             let cell: STMDetailTaskTitle_TVCell = tableView.dequeueReusableCell(for: indexPath)
             cell.configure(with: viewModel)
+            titleTextView = cell.textField
             return cell
         case 1:
             let cell: STMDetailCategoty_TVCell = tableView.dequeueReusableCell(for: indexPath)
@@ -46,6 +54,7 @@ extension STMTaskDetail_VC: UITableViewDataSource {
         case 3:
             let cell: STMDetailTextView_TVCell = tableView.dequeueReusableCell(for: indexPath)
             cell.configure(with: viewModel)
+            descriptionTextView = cell.taskDescription
             return cell
         case 4:
             let cell: STMDetailNotification_TVCell = tableView.dequeueReusableCell(for: indexPath)
@@ -71,6 +80,9 @@ extension STMTaskDetail_VC: UITableViewDataSource {
 
 class STMTaskDetail_VC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    // holding references to resign responder
+    private weak var titleTextView: UITextField!
+    private weak var descriptionTextView: UITextView!
     
     var viewModel: STMTaskDetail_VM!
     

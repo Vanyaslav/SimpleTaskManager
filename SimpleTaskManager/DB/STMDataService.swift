@@ -41,7 +41,7 @@ class STMDataService {
         STMRecord.manageTaskStatus(with: task, isFinished: status)
     }
     
-    func getRecords(_ finished: Bool? = nil) -> [STMRecord] {
+    func getRecords(finished: Bool? = nil) -> [STMRecord] {
         guard let finished = finished else { return STMRecord.getAllTasks() }
         return STMRecord.getAllTasks(completed: finished)
     }
@@ -50,11 +50,11 @@ class STMDataService {
         STMRecord.deleteTask(with: id)
     }
     
-    func manageRecord(_ record: STMRecord, with status: Bool) {
+    func manageRecord(_ record: STMRecord) {
         STMRecord.manageTaskStatus(with: record, isFinished: !record.isFinished)
     }
     
-    func updateGlobalNotification(with status: Bool){
+    func updateGlobalNotification(with status: Bool) {
         STMRecord.updateAllTaskNotification(isOn: status)
     }
     //

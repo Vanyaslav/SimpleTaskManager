@@ -27,7 +27,6 @@ extension STMOrderingPicker_TVCell: UIPickerViewDelegate {
                     reusing view: UIView?) -> UIView {
         let label = UILabel()
         label.textAlignment = .center
-        label.textColor = .blue
         label.text = component == 0
             ? STMOrderingTypeEnum.getTitle(row: row)
             : STMOrderingMannerEnum.getTitle(row: row)
