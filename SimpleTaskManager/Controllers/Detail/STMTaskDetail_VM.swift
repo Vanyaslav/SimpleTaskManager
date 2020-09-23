@@ -9,7 +9,7 @@
 import Foundation
 
 extension STMTaskDetail_VM {
-    var minTitleLegth: Int { 2 }
+    var minTitleLength: Int { 2 }
 }
 
 class STMTaskDetail_VM {
@@ -52,7 +52,7 @@ class STMTaskDetail_VM {
             hasBeenUpdated = true
         }
     }
-    var taskNotificationStatus = false  {
+    var taskNotificationStatus = false {
         didSet {
             hasBeenUpdated = true
         }
@@ -64,9 +64,8 @@ class STMTaskDetail_VM {
     }
     ///
     private var isEligable: Bool {
-        guard let title = taskTitle, title.count > minTitleLegth else {
-            return false
-        }
+        guard let title = taskTitle,
+            title.count > minTitleLength else { return false }
         return true
     }
     
@@ -87,7 +86,9 @@ class STMTaskDetail_VM {
     }
     
     func editTask() -> Bool {
-        guard let task = self.task, hasBeenUpdated else { return false }
+        guard let task = self.task,
+            hasBeenUpdated,
+            isEligable else { return false }
         dataService.updateTask(with: task,
                                title: taskTitle!,
                                category: taskCategory,

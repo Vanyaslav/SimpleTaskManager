@@ -22,7 +22,7 @@ extension UNNotification {
         }
     }
 
-    public static func createNotification(from task:STMRecord) {
+    public static func createNotification(from task: STMRecord) {
         cancelNotification(with: task.id!)
         
         let content = UNMutableNotificationContent()
@@ -48,7 +48,7 @@ extension UNNotification {
         notificationCenter.add(request, withCompletionHandler: nil)
     }
     
-    public static func cancelNotification(with id:UUID) {
+    public static func cancelNotification(with id: UUID) {
         notificationCenter.removePendingNotificationRequests(withIdentifiers: [id.uuidString])
     }
     

@@ -49,17 +49,13 @@ class STMTaskList_TVC: UITableViewController {
                             cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: STMMain_TVCell = tableView.dequeueReusableCell(for: indexPath)
             cell.delegate = self
-        switch indexPath.section {
-        case 0: cell.configure(with: viewModel, indexPath: indexPath)
-        default: cell.configure(with: viewModel, indexPath: indexPath)
-        }
+            cell.configure(with: viewModel, indexPath: indexPath)
         return cell
     }
     
     override func tableView(_ tableView: UITableView,
                             didSelectRowAt indexPath: IndexPath) {
         let task = viewModel.getRecord(with: indexPath)
-        
         self.performSegue(withIdentifier: "showTaskDetail", sender: task)
     }
     

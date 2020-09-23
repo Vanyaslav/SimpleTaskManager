@@ -39,35 +39,42 @@ extension STMTaskDetail_VC: UITableViewDataSource {
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            let cell: STMDetailTaskTitle_TVCell = tableView.dequeueReusableCell(for: indexPath)
+            let cell: STMDetailTaskTitle_TVCell = tableView
+                .dequeueReusableCell(for: indexPath)
             cell.configure(with: viewModel)
             titleTextView = cell.textField
             return cell
         case 1:
-            let cell: STMDetailCategoty_TVCell = tableView.dequeueReusableCell(for: indexPath)
+            let cell: STMDetailCategoty_TVCell = tableView
+                .dequeueReusableCell(for: indexPath)
             cell.configure(with: viewModel)
             return cell
         case 2:
-            let cell: STMDetailDueDate_TVCell = tableView.dequeueReusableCell(for: indexPath)
+            let cell: STMDetailDueDate_TVCell = tableView
+                .dequeueReusableCell(for: indexPath)
             cell.configure(with: viewModel)
             return cell
         case 3:
-            let cell: STMDetailTextView_TVCell = tableView.dequeueReusableCell(for: indexPath)
+            let cell: STMDetailTextView_TVCell = tableView
+                .dequeueReusableCell(for: indexPath)
             cell.configure(with: viewModel)
             descriptionTextView = cell.taskDescription
             return cell
         case 4:
-            let cell: STMDetailNotification_TVCell = tableView.dequeueReusableCell(for: indexPath)
+            let cell: STMDetailNotification_TVCell = tableView
+                .dequeueReusableCell(for: indexPath)
             cell.configure(with: viewModel)
             return cell
         // alternate behaviour according to the action
         case 5:
             if viewModel.isEditing {
-                let cell: STMConfirmButton_TVCell = tableView.dequeueReusableCell(for: indexPath)
+                let cell: STMConfirmButton_TVCell = tableView
+                    .dequeueReusableCell(for: indexPath)
                 cell.configure(with: viewModel)
                 return cell
             } else {
-                let cell: STMDetailAddButton_TVCell = tableView.dequeueReusableCell(for: indexPath)
+                let cell: STMDetailAddButton_TVCell = tableView
+                    .dequeueReusableCell(for: indexPath)
                 cell.configure(with: viewModel)
                 cell.delagate = self
                 return cell

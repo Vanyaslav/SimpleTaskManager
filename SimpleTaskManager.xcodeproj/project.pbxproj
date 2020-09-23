@@ -236,8 +236,8 @@
 		A1B7562220850AB700FFB67D /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				A1EC3EEA208694F80012AAC6 /* OrderingEnum.swift */,
 				A1EC3EF520869C8A0012AAC6 /* View */,
+				A1EC3EEA208694F80012AAC6 /* OrderingEnum.swift */,
 				A1B756162084BFCF00FFB67D /* STMSettings_TVC.swift */,
 				A10EBBA424F2854200F5DCE0 /* STMSettings_VM.swift */,
 			);

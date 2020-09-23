@@ -9,7 +9,7 @@
 import UIKit
 
 extension STMAddNewCategory_VM {
-    var minTitleLegth: Int { 2 }
+    var minTitleLength: Int { 2 }
 }
 
 class STMAddNewCategory_VM {
@@ -19,7 +19,7 @@ class STMAddNewCategory_VM {
     var categoryColor = UIColor.standardColorList[0]
     
     private var isEligible: Bool {
-        return categoryTitle.count > minTitleLegth
+        return categoryTitle.count > minTitleLength
     }
     
     private let dataService: STMDataService

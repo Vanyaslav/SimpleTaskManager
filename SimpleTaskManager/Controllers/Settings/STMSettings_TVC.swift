@@ -23,14 +23,17 @@ extension STMSettings_TVC {
                             cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            let cell: STMButton_TVCell = tableView.dequeueReusableCell(for: indexPath)
+            let cell: STMButton_TVCell = tableView
+                .dequeueReusableCell(for: indexPath)
             return cell
         case 1:
-            let cell: STMOrderingPicker_TVCell = tableView.dequeueReusableCell(for: indexPath)
+            let cell: STMOrderingPicker_TVCell = tableView
+                .dequeueReusableCell(for: indexPath)
             cell.configure(with: viewModel)
             return cell
         case 2:
-            let cell: STMSettingsNotification_TVCell = tableView.dequeueReusableCell(for: indexPath)
+            let cell: STMSettingsNotification_TVCell = tableView
+                .dequeueReusableCell(for: indexPath)
             cell.configure(with: viewModel)
             return cell
         default:
