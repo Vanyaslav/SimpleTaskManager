@@ -31,24 +31,18 @@ class STMTaskList_TVC: UITableViewController {
     // MARK: - Table view data source
     // Split Table View according to the completition state
     override func numberOfSections(in tableView: UITableView) -> Int {
-        viewModel.numberOfItems > 0
-            ? 2
-            : 0
+        viewModel.numberOfSections
     }
 
     override func tableView(_ tableView: UITableView,
                             numberOfRowsInSection section: Int) -> Int {
-        section == 0
-            ? viewModel.incompletedTasks.count
-            : viewModel.completedTasks.count
+        viewModel.numberOfRows(in: section)
     }
     
     //
     override func tableView(_ tableView: UITableView,
                             titleForHeaderInSection section: Int) -> String? {
-        section == 0
-            ? STMTaskStatusEnum.incompleteTask.tableHeaderTitle
-            : STMTaskStatusEnum.completeTask.tableHeaderTitle
+        viewModel.tableHeaders(section)
     }
     
     override func tableView(_ tableView: UITableView,

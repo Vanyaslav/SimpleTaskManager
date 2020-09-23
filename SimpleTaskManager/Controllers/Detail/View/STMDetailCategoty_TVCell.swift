@@ -42,11 +42,7 @@ class STMDetailCategoty_TVCell: UITableViewCell {
     func configure(with viewModel: STMTaskDetail_VM) {
         self.viewModel = viewModel
         
-        guard let category = viewModel
-            .taskCategories
-            .firstIndex(of: viewModel.taskCategory) else { return }
-        
-        self.picker.selectRow(category,
+        self.picker.selectRow(viewModel.rowForCategory,
                               inComponent: 0,
                               animated: true)
     }

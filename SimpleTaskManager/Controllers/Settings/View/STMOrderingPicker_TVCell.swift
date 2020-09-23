@@ -11,12 +11,12 @@ import UIKit
 ///
 extension STMOrderingPicker_TVCell: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        STMOrderingTypeEnum.allCases.count
+        viewModel.numberOfPickerComponents
     }
 
     func pickerView(_ pickerView: UIPickerView,
                     numberOfRowsInComponent component: Int) -> Int {
-        STMOrderingMannerEnum.allCases.count
+        viewModel.numberOfPickerRows
     }
 }
 ///
@@ -27,9 +27,7 @@ extension STMOrderingPicker_TVCell: UIPickerViewDelegate {
                     reusing view: UIView?) -> UIView {
         let label = UILabel()
         label.textAlignment = .center
-        label.text = component == 0
-            ? STMOrderingTypeEnum.init(rawValue: row)!.title
-            : STMOrderingMannerEnum.init(rawValue: row)!.title
+        label.text = viewModel.loadTitles(with: row, component: component)
         return label
     }
     
@@ -53,7 +51,7 @@ class STMOrderingPicker_TVCell: UITableViewCell {
     func configure(with viewModel: STMSettings_VM) {
         self.viewModel = viewModel
         
-        viewModel.initialOrderinPicker()
+        viewModel.initialPickerValues
             .forEach{ picker.selectRow($0.row,
                                        inComponent: $0.component,
                                        animated: true) }

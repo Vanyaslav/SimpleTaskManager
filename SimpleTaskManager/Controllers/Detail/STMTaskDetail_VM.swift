@@ -14,24 +14,28 @@ extension STMTaskDetail_VM {
 
 class STMTaskDetail_VM {
     private let task: STMRecord?
-    
     private let dataService: STMDataService
     
     init(dataService: STMDataService, task: STMRecord? = nil) {
         self.task = task
         self.dataService = dataService
         if nil != task {
+            // editing mode
             initModel(with: task!)
         }
+        // default behaviour is adding mode
     }
     
     var isEditing: Bool { return nil != task }
-    let taskCategories = STMCategory.allCategories
     var hasBeenUpdated = false
+    let taskCategories = STMCategory.allCategories
     var taskTitle: String? {
         didSet {
             hasBeenUpdated = true
         }
+    }
+    var rowForCategory: Int {
+        STMCategory.rowForCategory(with: taskCategory) ?? 0
     }
     var taskCategory = STMCategory.allCategories[0] {
         didSet {

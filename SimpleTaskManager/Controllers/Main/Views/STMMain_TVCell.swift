@@ -30,9 +30,7 @@ class STMMain_TVCell: STMButton_TVCell {
         }
         titelLabel.text = task.taskTitle
         dueDateLabel.text = task.taskDueDate?.getString(with: .long)
-        manageButton.isSelected = indexPath.section == 0
-            ? false
-            : true
+        manageButton.isSelected = indexPath.section == 1
         
         formatButton()
         

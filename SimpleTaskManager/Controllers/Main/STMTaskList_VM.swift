@@ -9,17 +9,31 @@
 import Foundation
 
 class STMTaskList_VM {
-    var completedTasks = [STMRecord]()
-    var incompletedTasks = [STMRecord]()
+    private var completedTasks = [STMRecord]()
+    private var incompletedTasks = [STMRecord]()
     
-    var numberOfItems: Int {
-        return completedTasks.count + incompletedTasks.count
+    var numberOfSections: Int {
+        completedTasks.count + incompletedTasks.count > 0
+            ? 2
+            : 0
     }
     
     let dataService: STMDataService
     
     init(dataService: STMDataService = STMDataService()) {
         self.dataService = dataService
+    }
+    
+    func numberOfRows(in section: Int) -> Int {
+        section == 0
+            ? incompletedTasks.count
+            : completedTasks.count
+    }
+    
+    func tableHeaders(_ section: Int) -> String {
+        section == 0
+            ? STMTaskStatusEnum.incompleteTask.tableHeaderTitle
+            : STMTaskStatusEnum.completeTask.tableHeaderTitle
     }
     
     func reloadRecords() {
@@ -40,7 +54,7 @@ class STMTaskList_VM {
     }
     
     func getRecord(with indexPath: IndexPath) -> STMRecord {
-        return indexPath.section == 0
+        indexPath.section == 0
             ? incompletedTasks[indexPath.row]
             : completedTasks[indexPath.row]
     }

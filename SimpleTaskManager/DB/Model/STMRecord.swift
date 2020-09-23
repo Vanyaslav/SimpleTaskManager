@@ -16,8 +16,8 @@ extension STMRecord {
     }
 
     public static func getAllTasks() -> [STMRecord] {
-        let typeTitle = STMOrderingTypeEnum.getManagingTitle()
-        let manner = STMOrderingMannerEnum.getStored().actionBool
+        let typeTitle = STMOrderingTypeEnum.managingParameter
+        let manner = STMOrderingMannerEnum.storedValue.actionBool
         
         guard let tasks = STMRecord
             .mr_findAllSorted(by: typeTitle,

@@ -30,8 +30,16 @@ enum STMOrderingMannerEnum: Int, CaseIterable {
         UserDefaults.storeOrderingManner(with: row)
     }
     
-    static func getStored() -> STMOrderingMannerEnum {
+    static var storedValue: STMOrderingMannerEnum {
         STMOrderingMannerEnum(rawValue: UserDefaults.getOrderingManner())!
+    }
+}
+//
+extension STMOrderingTypeEnum {
+    static var managingParameter: String {
+        storedValue == .date
+            ? "taskDueDate"
+            : "taskTitle"
     }
 }
 ///
@@ -45,17 +53,11 @@ enum STMOrderingTypeEnum: Int, CaseIterable {
         }
     }
     
-    public static func getManagingTitle() -> String {
-        STMOrderingTypeEnum.getStored() == .date
-            ? "taskDueDate"
-            : "taskTitle"
-    }
-    
     static func manageOrdering(with row: Int) {
         UserDefaults.storeOrderingType(with: row)
     }
     
-    static func getStored() -> STMOrderingTypeEnum {
+    static var storedValue: STMOrderingTypeEnum {
         STMOrderingTypeEnum(rawValue: UserDefaults.getOrderingType())!
     }
 }

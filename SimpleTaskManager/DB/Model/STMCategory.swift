@@ -16,6 +16,10 @@ extension STMCategory {
         return STMCategory.mr_findAll() as? [STMCategory] ?? []
     }
     
+    static func rowForCategory(with category: STMCategory) -> Int? {
+        allCategories.firstIndex(of: category)
+    }
+    
     public static func createTaskCategory(with title: String, color: UIColor) {
         MagicalRecord.save(blockAndWait: { context in
             let record = STMCategory.mr_createEntity(in: context)
