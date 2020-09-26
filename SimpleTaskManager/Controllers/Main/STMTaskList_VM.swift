@@ -30,7 +30,7 @@ class STMTaskList_VM {
             : completedTasks.count
     }
     
-    func tableHeaders(_ section: Int) -> String {
+    func tableHeaderTitle(in section: Int) -> String {
         section == 0
             ? STMTaskStatusEnum.incompleteTask.tableHeaderTitle
             : STMTaskStatusEnum.completeTask.tableHeaderTitle

@@ -42,7 +42,7 @@ class STMTaskList_TVC: UITableViewController {
     //
     override func tableView(_ tableView: UITableView,
                             titleForHeaderInSection section: Int) -> String? {
-        viewModel.tableHeaders(section)
+        viewModel.tableHeaderTitle(in: section)
     }
     
     override func tableView(_ tableView: UITableView,

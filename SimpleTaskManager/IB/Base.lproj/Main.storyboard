@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7dj-i6-8Fn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7dj-i6-8Fn">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,7 +16,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="CgS-GP-UkM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="STMMain_TVCell" rowHeight="110" id="xLn-53-jiP" customClass="STMMain_TVCell" customModule="SimpleTaskManager" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="55.5" width="375" height="110"/>
@@ -30,8 +31,8 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CwU-xr-GcX">
-                                            <rect key="frame" x="130.5" y="66" width="114" height="33"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CwU-xr-GcX">
+                                            <rect key="frame" x="131" y="66" width="113" height="33"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <state key="normal" title="Complete Task"/>
                                         </button>
@@ -55,7 +56,7 @@
                                 <connections>
                                     <outlet property="dueDateLabel" destination="7Rq-nZ-Ozr" id="EcF-bB-IwV"/>
                                     <outlet property="manageButton" destination="CwU-xr-GcX" id="wmU-32-CbB"/>
-                                    <outlet property="titelLabel" destination="pJI-lw-xtk" id="ysG-IM-zM6"/>
+                                    <outlet property="titleLabel" destination="pJI-lw-xtk" id="2bW-CE-0y6"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -94,7 +95,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="igF-Tp-D9g">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="STMButton_TVCell" rowHeight="103" id="d3p-Fi-W3O" customClass="STMButton_TVCell" customModule="SimpleTaskManager" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="55.5" width="375" height="103"/>
@@ -103,8 +104,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="103"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wCE-JM-1v2">
-                                            <rect key="frame" x="105" y="33.5" width="165" height="36"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wCE-JM-1v2">
+                                            <rect key="frame" x="104.5" y="33.5" width="166" height="36"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <state key="normal" title="Add New Category"/>
                                             <connections>
@@ -132,14 +133,14 @@
                                     <subviews>
                                         <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MAD-Cf-fRO">
                                             <rect key="frame" x="16" y="23" width="343" height="162"/>
-                                            <color key="tintColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="tintColor" systemColor="systemTealColor"/>
                                             <connections>
                                                 <outlet property="dataSource" destination="igF-Tp-D9g" id="CJy-Ml-Eq2"/>
                                                 <outlet property="delegate" destination="wfl-xv-dJh" id="A2h-5v-Ht9"/>
                                             </connections>
                                         </pickerView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6M-D8-lis">
-                                            <rect key="frame" x="148.5" y="4" width="84.5" height="21"/>
+                                            <rect key="frame" x="148.5" y="4" width="84" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -169,7 +170,7 @@
                                             <rect key="frame" x="308" y="36" width="51" height="31"/>
                                         </switch>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Turn notifications on/off" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="izu-LI-kJS">
-                                            <rect key="frame" x="16" y="41" width="183" height="21"/>
+                                            <rect key="frame" x="16" y="41" width="181.5" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -223,12 +224,13 @@
                                     <outlet property="delegate" destination="OPx-qu-TyE" id="Kip-01-akg"/>
                                 </connections>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UrA-cS-h4W">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UrA-cS-h4W">
                                 <rect key="frame" x="117.5" y="608" width="140" height="39"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Save Category"/>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="o6q-hb-JEl"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="LZC-04-RzY" firstAttribute="top" secondItem="nia-BF-ujY" secondAttribute="bottom" constant="7" id="0FC-Be-UdF"/>
@@ -240,7 +242,6 @@
                             <constraint firstItem="o6q-hb-JEl" firstAttribute="bottom" secondItem="UrA-cS-h4W" secondAttribute="bottom" constant="20" id="txj-gy-02p"/>
                             <constraint firstItem="nia-BF-ujY" firstAttribute="top" secondItem="o6q-hb-JEl" secondAttribute="top" constant="18" id="zZC-Yk-D35"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="o6q-hb-JEl"/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="6ub-Sb-hhW" appends="YES" id="geu-LI-2fZ"/>
                         </connections>
@@ -271,7 +272,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Asc-9z-DTe">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="1150"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="STMDetailTaskTitle_TVCell" rowHeight="76" id="i67-YZ-nrm" customClass="STMDetailTaskTitle_TVCell" customModule="SimpleTaskManager" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="76"/>
@@ -281,7 +282,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Task name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uzK-Sy-I4Y">
-                                                    <rect key="frame" x="15" y="21" width="345" height="34"/>
+                                                    <rect key="frame" x="16" y="21" width="343" height="34"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                 </textField>
@@ -306,7 +307,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O4V-zP-p5T">
-                                                    <rect key="frame" x="25" y="11" width="325" height="192"/>
+                                                    <rect key="frame" x="26" y="11" width="323" height="192"/>
                                                     <connections>
                                                         <outlet property="dataSource" destination="zRH-OO-Tve" id="Dcs-V2-E1c"/>
                                                         <outlet property="delegate" destination="zRH-OO-Tve" id="m3a-mc-Zqb"/>
@@ -335,7 +336,7 @@
                                                     <rect key="frame" x="16" y="40" width="343" height="204"/>
                                                 </datePicker>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZv-ag-xru">
-                                                    <rect key="frame" x="16" y="11" width="71.5" height="21"/>
+                                                    <rect key="frame" x="17" y="11" width="71" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -363,7 +364,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="O3Z-l8-aRh">
-                                                    <rect key="frame" x="16" y="34" width="343" height="180"/>
+                                                    <rect key="frame" x="17" y="34" width="341" height="180"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="180" id="AxB-bf-gRb"/>
@@ -372,7 +373,7 @@
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhY-Ku-0EJ">
-                                                    <rect key="frame" x="16" y="11" width="88" height="21"/>
+                                                    <rect key="frame" x="17" y="11" width="88" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -392,17 +393,17 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="STMDetailNotification_TVCell" id="6X0-wy-YLq" customClass="STMDetailNotification_TVCell" customModule="SimpleTaskManager" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="819.5" width="375" height="44.5"/>
+                                        <rect key="frame" x="0.0" y="819.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6X0-wy-YLq" id="0We-cp-hNu">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Hav-Od-shb">
-                                                    <rect key="frame" x="310" y="7" width="51" height="31"/>
+                                                    <rect key="frame" x="309" y="6.5" width="51" height="31"/>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Local notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fuv-lA-bXN">
-                                                    <rect key="frame" x="16" y="11.5" width="135" height="21.5"/>
+                                                    <rect key="frame" x="17" y="11.5" width="134" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -422,14 +423,14 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="STMDetailAddButton_TVCell" rowHeight="79" id="cYv-h6-lvC" customClass="STMDetailAddButton_TVCell" customModule="SimpleTaskManager" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="864" width="375" height="79"/>
+                                        <rect key="frame" x="0.0" y="863.5" width="375" height="79"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cYv-h6-lvC" id="XV1-7e-JrE">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QOj-B0-ZYm">
-                                                    <rect key="frame" x="16" y="11" width="343" height="57"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QOj-B0-ZYm">
+                                                    <rect key="frame" x="17" y="11" width="341" height="57"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                     <state key="normal" title="Add Task"/>
                                                 </button>
@@ -446,14 +447,14 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="STMConfirmButton_TVCell" rowHeight="79" id="toz-k2-fYb" customClass="STMConfirmButton_TVCell" customModule="SimpleTaskManager" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="943" width="375" height="79"/>
+                                        <rect key="frame" x="0.0" y="942.5" width="375" height="79"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="toz-k2-fYb" id="gOa-Py-al5">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ZR-TG-d6v">
-                                                    <rect key="frame" x="16" y="11" width="343" height="57"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ZR-TG-d6v">
+                                                    <rect key="frame" x="17" y="11" width="341" height="57"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                     <state key="normal" title="Complete Task"/>
                                                 </button>
@@ -477,8 +478,8 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="fki-jA-SYp"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="5Fe-8f-5ge" appends="YES" id="P3i-m9-wIY"/>
                         </connections>
@@ -519,4 +520,21 @@
     <inferredMetricsTieBreakers>
         <segue reference="khE-wN-th7"/>
     </inferredMetricsTieBreakers>
+    <resources>
+        <systemColor name="groupTableViewBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="groupTableViewBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="groupTableViewBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

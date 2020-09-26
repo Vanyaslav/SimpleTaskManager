@@ -8,14 +8,6 @@
 
 import UIKit
 
-extension STMButton_TVCell {
-    func formatButton() {
-        manageButton.setTitle(STMTaskStatusEnum.incompleteTask.labelTitle,
-                              for: .normal)
-        manageButton.setTitle(STMTaskStatusEnum.completeTask.labelTitle,
-                              for: .selected)
-    }
-}
 
 class STMConfirmButton_TVCell: STMButton_TVCell {
     private var viewModel: STMTaskDetail_VM!
@@ -30,8 +22,6 @@ class STMConfirmButton_TVCell: STMButton_TVCell {
         if viewModel.isEditing {
             manageButton.isSelected = viewModel.taskStatus
         }
-        
-        formatButton()
     }
     ///
     @objc func manageTask() {

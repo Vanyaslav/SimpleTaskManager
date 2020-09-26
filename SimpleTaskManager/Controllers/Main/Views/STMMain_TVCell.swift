@@ -9,7 +9,7 @@
 import UIKit
 ///
 class STMMain_TVCell: STMButton_TVCell {
-    @IBOutlet weak var titelLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dueDateLabel: UILabel!
     
     weak var delegate: STMTaskList_TVCDelegate? = nil
@@ -28,18 +28,16 @@ class STMMain_TVCell: STMButton_TVCell {
             backgroundColor = UIColor(ciColor: CIColor(string: color))
                 .withAlphaComponent(0.3)
         }
-        titelLabel.text = task.taskTitle
+        titleLabel.text = task.taskTitle
         dueDateLabel.text = task.taskDueDate?.getString(with: .long)
         manageButton.isSelected = indexPath.section == 1
         
-        formatButton()
-        
         manageButton.addTarget(self,
-                               action: #selector(manageTask),
+                               action: #selector(toggleTaskState),
                                for: .touchUpInside)
     }
     
-    @objc func manageTask() {
+    @objc func toggleTaskState() {
         manageButton.isSelected = !isSelected
         viewModel.manageTaskState(indexPath: indexPath)
         delegate?.reloadData()
