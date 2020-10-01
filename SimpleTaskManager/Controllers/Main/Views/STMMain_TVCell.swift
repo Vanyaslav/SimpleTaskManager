@@ -8,7 +8,7 @@
 
 import UIKit
 ///
-class STMMain_TVCell: STMButton_TVCell {
+class STMMain_TVCell: STMButton_TVCell, STMFormatState {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dueDateLabel: UILabel!
     
@@ -17,6 +17,12 @@ class STMMain_TVCell: STMButton_TVCell {
     private var viewModel: STMTaskList_VM!
     
     private var indexPath: IndexPath!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        formatManageButton()
+    }
     
     func configure(with viewModel: STMTaskList_VM, indexPath: IndexPath) {
         self.viewModel = viewModel

@@ -212,10 +212,10 @@
                                 <rect key="frame" x="16" y="62" width="343" height="34"/>
                                 <viewLayoutGuide key="safeArea" id="qIg-17-tna"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                             </textField>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LZC-04-RzY">
-                                <rect key="frame" x="11" y="103" width="348" height="145"/>
+                                <rect key="frame" x="16" y="146" width="343" height="145"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="145" id="UYR-uP-Opu"/>
                                 </constraints>
@@ -229,16 +229,24 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Save Category"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose category color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2v9-ge-Ur7">
+                                <rect key="frame" x="101" y="112" width="173" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="o6q-hb-JEl"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="LZC-04-RzY" firstAttribute="top" secondItem="nia-BF-ujY" secondAttribute="bottom" constant="7" id="0FC-Be-UdF"/>
-                            <constraint firstItem="LZC-04-RzY" firstAttribute="leading" secondItem="o6q-hb-JEl" secondAttribute="leading" constant="11" id="5rY-Jv-FZa"/>
+                            <constraint firstItem="LZC-04-RzY" firstAttribute="leading" secondItem="o6q-hb-JEl" secondAttribute="leading" constant="16" id="5rY-Jv-FZa"/>
                             <constraint firstItem="UrA-cS-h4W" firstAttribute="centerX" secondItem="QsQ-jB-lK6" secondAttribute="centerX" id="CNu-uV-CcQ"/>
                             <constraint firstItem="o6q-hb-JEl" firstAttribute="trailing" secondItem="nia-BF-ujY" secondAttribute="trailing" constant="16" id="KIR-Jd-Axu"/>
+                            <constraint firstItem="2v9-ge-Ur7" firstAttribute="centerX" secondItem="QsQ-jB-lK6" secondAttribute="centerX" id="UHI-Nd-krk"/>
                             <constraint firstItem="o6q-hb-JEl" firstAttribute="trailing" secondItem="LZC-04-RzY" secondAttribute="trailing" constant="16" id="Vex-0p-AVy"/>
+                            <constraint firstItem="2v9-ge-Ur7" firstAttribute="top" secondItem="nia-BF-ujY" secondAttribute="bottom" constant="16" id="mAO-JU-eQ5"/>
                             <constraint firstItem="nia-BF-ujY" firstAttribute="leading" secondItem="o6q-hb-JEl" secondAttribute="leading" constant="16" id="mqw-h7-srt"/>
+                            <constraint firstItem="LZC-04-RzY" firstAttribute="top" secondItem="2v9-ge-Ur7" secondAttribute="bottom" constant="13" id="qF0-db-VZ5"/>
                             <constraint firstItem="o6q-hb-JEl" firstAttribute="bottom" secondItem="UrA-cS-h4W" secondAttribute="bottom" constant="20" id="txj-gy-02p"/>
                             <constraint firstItem="nia-BF-ujY" firstAttribute="top" secondItem="o6q-hb-JEl" secondAttribute="top" constant="18" id="zZC-Yk-D35"/>
                         </constraints>
@@ -393,17 +401,17 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="STMDetailNotification_TVCell" id="6X0-wy-YLq" customClass="STMDetailNotification_TVCell" customModule="SimpleTaskManager" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="819.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="819.5" width="375" height="44.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6X0-wy-YLq" id="0We-cp-hNu">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Hav-Od-shb">
-                                                    <rect key="frame" x="309" y="6.5" width="51" height="31"/>
+                                                    <rect key="frame" x="309" y="7" width="51" height="31"/>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Local notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fuv-lA-bXN">
-                                                    <rect key="frame" x="17" y="11.5" width="134" height="21"/>
+                                                    <rect key="frame" x="17" y="11.5" width="134" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -423,7 +431,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="STMDetailAddButton_TVCell" rowHeight="79" id="cYv-h6-lvC" customClass="STMDetailAddButton_TVCell" customModule="SimpleTaskManager" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="863.5" width="375" height="79"/>
+                                        <rect key="frame" x="0.0" y="864" width="375" height="79"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cYv-h6-lvC" id="XV1-7e-JrE">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
@@ -447,7 +455,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="STMConfirmButton_TVCell" rowHeight="79" id="toz-k2-fYb" customClass="STMConfirmButton_TVCell" customModule="SimpleTaskManager" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="942.5" width="375" height="79"/>
+                                        <rect key="frame" x="0.0" y="943" width="375" height="79"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="toz-k2-fYb" id="gOa-Py-al5">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>

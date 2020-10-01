@@ -9,8 +9,14 @@
 import UIKit
 
 
-class STMConfirmButton_TVCell: STMButton_TVCell {
+class STMConfirmButton_TVCell: STMButton_TVCell, STMFormatState {
     private var viewModel: STMTaskDetail_VM!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+
+        formatManageButton()
+    }
     
     func configure(with viewModel: STMTaskDetail_VM) {
         self.viewModel = viewModel
