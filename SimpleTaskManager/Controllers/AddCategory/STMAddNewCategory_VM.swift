@@ -13,25 +13,30 @@ extension STMAddNewCategory_VM {
 }
 
 class STMAddNewCategory_VM {
-    let colors = UIColor.standardColorList
-    
-    var categoryTitle = ""
-    private
-    var categoryColor = UIColor.standardColorList[0]
-    
+    // in
     func assignColor(with index: Int) {
         categoryColor = colors[index]
     }
     
+    var categoryTitle = ""
+    // out
     func getColor(with index: Int) -> UIColor {
         colors[index]
     }
     
-    private var isEligible: Bool {
-        return categoryTitle.count > minTitleLength
-    }
+    var numberOfColors: Int { colors.count }
     
-    private let dataService: STMDataService
+    private
+    var isEligible: Bool { return categoryTitle.count > minTitleLength }
+    
+    private
+    let colors = UIColor.standardColorList
+    
+    private
+    var categoryColor = UIColor.standardColorList[0]
+    
+    private
+    let dataService: STMDataService
 
     init(dataService: STMDataService) {
         self.dataService = dataService

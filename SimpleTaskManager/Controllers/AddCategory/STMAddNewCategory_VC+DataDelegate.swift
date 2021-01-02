@@ -33,6 +33,6 @@ extension STMAddNewCategory_VC: UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView,
                     numberOfRowsInComponent component: Int) -> Int {
-        viewModel.colors.count
+        viewModel.numberOfColors
     }
 }
