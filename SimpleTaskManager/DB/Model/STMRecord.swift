@@ -31,9 +31,8 @@ extension STMRecord {
                                   category: STMCategory,
                                   dueDate: Date,
                                   description: String,
+                                  newId: UUID,
                                   isNotified: Bool) {
-        let newId = UUID()
-
         MagicalRecord.save(blockAndWait: { context in
             if let theRecord = STMRecord.mr_createEntity(in: context) {
                 theRecord.id = newId
@@ -46,25 +45,32 @@ extension STMRecord {
                 theRecord.taskCategory = (context.object(with: category.objectID) as! STMCategory)
             }
         })
-        
-        if isNotified {
-            UNNotification.createNotification(from: getRecord(by: newId)!)
-        }
     }
 
     public static func updateTask(with id: UUID,
-                                  title: String,
-                                  category: STMCategory,
-                                  dueDate: Date,
-                                  description: String) {
+                                  title: String?,
+                                  category: STMCategory?,
+                                  dueDate: Date?,
+                                  description: String?,
+                                  isNofitied: Bool?) {
         if let record = getRecord(by:id) {
             MagicalRecord.save(blockAndWait: { context in
-                let localRecord = record.mr_(in: context)
-                
-                localRecord?.taskTitle = title
-                localRecord?.taskCategory = (context.object(with:category.objectID) as! STMCategory)
-                localRecord?.taskDueDate = dueDate
-                localRecord?.taskDescription = description
+                guard let localRecord = record.mr_(in: context) else { return }
+                if let title = title {
+                    localRecord.taskTitle = title
+                }
+                if let category = category {
+                    localRecord.taskCategory = (context.object(with: category.objectID) as! STMCategory)
+                }
+                if let date = dueDate {
+                    localRecord.taskDueDate = date
+                }
+                if let description = description {
+                    localRecord.taskDescription = description
+                }
+                if let notified = isNofitied {
+                    localRecord.isNotificationOn = notified
+                }
             })
         }
     }
@@ -84,12 +90,6 @@ extension STMRecord {
     }
     
     public static func updateTaskNotification(with task: STMRecord, isNotified: Bool) {
-        if isNotified {
-            UNNotification.createNotification(from: STMRecord.getRecord(by: task.id!)!)
-        } else {
-            UNNotification.cancelNotification(with: task.id!)
-        }
-        
         MagicalRecord.save(blockAndWait: { context in
             let localRecord = task.mr_(in:context)
             localRecord?.isNotificationOn = isNotified

@@ -27,15 +27,39 @@ extension STMDataService {
 }
 
 extension STMDataService {
+    func manageNotification(with id: UUID,
+                            title: String? = nil,
+                            description: String? = nil,
+                            dueDate: Date? = nil) {
+        if let title = title, let date = dueDate {
+            UNNotification.createNotification(with: title, description: description, dueDate: date, id: id)
+        } else {
+            UNNotification.cancelNotification(with: id)
+        }
+    }
+}
+
+extension STMDataService {
     func appendNewTask(with title: String,
                        category: STMCategory,
                        date: Date,
                        description: String,
                        isNotified: Bool) {
+        
+        let uuid = UUID()
+        
+        if isNotified {
+            manageNotification(with: uuid,
+                               title: title,
+                               description: description,
+                               dueDate: date)
+        }
+        
         STMRecord.createTask(with: title,
                              category: category,
                              dueDate: date,
                              description: description,
+                             newId: uuid,
                              isNotified: isNotified)
     }
     
@@ -46,17 +70,19 @@ extension STMDataService {
                     description: String,
                     isNotified: Bool,
                     status: Bool) {
+        
+        manageNotification(with: task.id!,
+                           title: isNotified ? title : nil,
+                           description: description,
+                           dueDate: isNotified ? date : nil)
+
         STMRecord.updateTask(with: task.id!,
                              title: title,
                              category: category,
                              dueDate: date,
-                             description: description)
-        STMRecord.updateTaskNotification(with: task, isNotified: isNotified)
-        STMRecord.manageTaskStatus(with: task, isFinished: status)
-    }
-    
-    func updateTaskStatus(_ task: STMRecord, status: Bool) {
-        STMRecord.manageTaskStatus(with: task, isFinished: status)
+                             description: description,
+                             isNofitied: isNotified)
+        manageRecord(task, status: status)
     }
     
     func getRecords(finished: Bool? = nil) -> [STMRecord] {
@@ -67,12 +93,13 @@ extension STMDataService {
         return data.filter{ $0.isFinished == finished }
     }
     
-    func deleteRecord(with id: UUID) {
+    func deleteRecord(_ record: STMRecord) {
+        guard let id = record.id else { debugPrint("No record to be deleted!") ; return }
         STMRecord.deleteTask(with: id)
     }
     
-    func manageRecord(_ record: STMRecord) {
-        STMRecord.manageTaskStatus(with: record, isFinished: !record.isFinished)
+    func manageRecord(_ record: STMRecord, status: Bool? = nil) {
+        STMRecord.manageTaskStatus(with: record, isFinished: status ?? !record.isFinished)
     }
     
     func updateGlobalNotification(with status: Bool) {

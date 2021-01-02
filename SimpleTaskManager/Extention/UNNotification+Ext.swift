@@ -22,15 +22,18 @@ extension UNNotification {
         }
     }
 
-    public static func createNotification(from task: STMRecord) {
-        cancelNotification(with: task.id!)
+    public static func createNotification(with title: String,
+                                          description: String? = nil,
+                                          dueDate: Date,
+                                          id: UUID) {
+        cancelNotification(with: id)
         
         let content = UNMutableNotificationContent()
-        if let description = task.taskDescription {
+        if let description = description {
             content.body = description
         }
         
-        content.title = task.taskTitle!
+        content.title = title
         content.sound = UNNotificationSound.default
         content.badge = UIApplication.shared.applicationIconBadgeNumber + 1 as NSNumber
         
@@ -39,9 +42,9 @@ extension UNNotification {
                              .month,
                              .day,
                              .hour,
-                             .minute], from: task.taskDueDate!)
+                             .minute], from: dueDate)
         let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
-        let request = UNNotificationRequest(identifier: task.id!.uuidString,
+        let request = UNNotificationRequest(identifier: id.uuidString,
                                             content: content,
                                             trigger: trigger)
         

@@ -42,14 +42,12 @@ class STMTaskList_VM {
     }
     
     func deleteRecords(in indexPath: IndexPath) {
-        guard let id = getRecord(with: indexPath).id else { return }
-        dataService.deleteRecord(with: id)
+        dataService.deleteRecord(getRecord(with: indexPath))
         reloadRecords()
     }
     
     func manageTaskState(indexPath: IndexPath) {
-        let record = getRecord(with: indexPath)
-        dataService.manageRecord(record)
+        dataService.manageRecord(getRecord(with: indexPath))
         reloadRecords()
     }
     

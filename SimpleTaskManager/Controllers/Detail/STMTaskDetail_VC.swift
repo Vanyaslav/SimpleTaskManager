@@ -94,7 +94,7 @@ class STMTaskDetail_VC: UIViewController {
     var viewModel: STMTaskDetail_VM!
     
     @objc func saveAction(sender: UIButton) {
-        if viewModel.hasBeenUpdated {
+        if viewModel.didUpdate {
             showUpdateAlert(with: { confirmAction in
                 if !self.viewModel.editTask() {
                     self.showIncorectTitleAlert()
@@ -113,12 +113,12 @@ class STMTaskDetail_VC: UIViewController {
         super.viewDidLoad()
         
         if viewModel.isEditing {
-            let saveButton = UIBarButtonItem(title: "Save",
+            let saveButton = UIBarButtonItem(title: "Back",
                                              style: .done,
                                              target: self,
                                              action: #selector(saveAction(sender:)))
             
-            self.navigationItem.rightBarButtonItem = saveButton
+            self.navigationItem.leftBarButtonItem = saveButton
         }
     }
 }

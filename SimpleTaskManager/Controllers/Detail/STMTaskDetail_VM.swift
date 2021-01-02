@@ -19,47 +19,48 @@ class STMTaskDetail_VM {
     init(dataService: STMDataService, task: STMRecord? = nil) {
         self.task = task
         self.dataService = dataService
-        if nil != task {
+        if let task = task {
             // editing mode
-            initModel(with: task!)
+            initModel(with: task)
         }
-        // default behaviour is adding mode
     }
     
     var isEditing: Bool { return nil != task }
-    var hasBeenUpdated = false
+    var didUpdate = false
     lazy var taskCategories = dataService.getAllCategories()
-    var taskTitle: String? {
-        didSet {
-            hasBeenUpdated = true
-        }
-    }
+    
     var rowForCategory: Int {
         STMCategory.rowForCategory(with: taskCategory) ?? 0
     }
+    
+    var taskTitle: String? {
+        didSet {
+            didUpdate = taskTitle != task?.taskTitle
+        }
+    }
     var taskCategory = STMCategory.allCategories[0] {
         didSet {
-            hasBeenUpdated = true
+            didUpdate = taskCategory != task?.taskCategory
         }
     }
     var taskDueDate = Date() {
         didSet {
-            hasBeenUpdated = true
+            didUpdate = taskDueDate != task?.taskDueDate
         }
     }
     var taskDesription: String = "" {
         didSet {
-            hasBeenUpdated = true
+            didUpdate = taskDesription != task?.taskDescription
         }
     }
     var taskNotificationStatus = false {
         didSet {
-            hasBeenUpdated = true
+            didUpdate = taskNotificationStatus != task?.isNotificationOn
         }
     }
     var taskStatus = false {
         didSet {
-            hasBeenUpdated = true
+            didUpdate = taskStatus != task?.isFinished
         }
     }
     ///
@@ -71,7 +72,7 @@ class STMTaskDetail_VM {
     
     func manageTask() {
         if let task = task {
-            dataService.updateTaskStatus(task, status: !task.isFinished)
+            dataService.manageRecord(task)
         }
     }
     
@@ -86,9 +87,7 @@ class STMTaskDetail_VM {
     }
     
     func editTask() -> Bool {
-        guard let task = self.task,
-            hasBeenUpdated,
-            isEligable else { return false }
+        guard let task = self.task, isEligable else { return false }
         dataService.updateTask(with: task,
                                title: taskTitle!,
                                category: taskCategory,
