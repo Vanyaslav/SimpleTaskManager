@@ -32,21 +32,3 @@ extension UIColor {
         return CIColor(color: self)
     }
 }
-
-extension UILabel {
-    override open func awakeFromNib() {
-        super.awakeFromNib()
-        
-        font = UIFont(name: STMDefault.font.labelMain,
-                      size: STMDefault.font.labelMinorSize)
-    }
-}
-
-extension UIButton {
-    override open func awakeFromNib() {
-        super.awakeFromNib()
-        
-        titleLabel?.font = UIFont(name: STMDefault.font.labelMain,
-                                  size: STMDefault.font.buttonMainSize)
-    }
-}

@@ -36,8 +36,8 @@ class STMSettings_VM {
     
     var initialPickerValues: [(row: Int, component: Int)] {
         var items = [(row: Int, component: Int)]()
-        items.append((row: STMOrderingMannerEnum.storedValue.rawValue, component: 1))
-        items.append((row: STMOrderingTypeEnum.storedValue.rawValue, component: 0))
+        items.append((row: dataService.getOrderingManner(), component: 1))
+        items.append((row: dataService.getOrderingType(), component: 0))
         return items
     }
     
@@ -47,8 +47,8 @@ class STMSettings_VM {
     
     func updateOrdering(with row: Int, component: Int) {
         component == 0
-            ? STMOrderingTypeEnum.manageOrdering(with: row)
-            : STMOrderingMannerEnum.manageOrdering(with: row)
+            ? dataService.storeOrderingType(with: row)
+            : dataService.storeOrderingManner(with: row)
     }
     
     func loadTitles(with row: Int, component: Int) -> String? {

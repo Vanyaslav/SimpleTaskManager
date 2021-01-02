@@ -28,7 +28,7 @@ class STMTaskDetail_VM {
     
     var isEditing: Bool { return nil != task }
     var hasBeenUpdated = false
-    let taskCategories = STMCategory.allCategories
+    lazy var taskCategories = dataService.getAllCategories()
     var taskTitle: String? {
         didSet {
             hasBeenUpdated = true

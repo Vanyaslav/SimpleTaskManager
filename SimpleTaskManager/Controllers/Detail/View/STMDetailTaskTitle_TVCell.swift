@@ -15,13 +15,16 @@ extension STMDetailTaskTitle_TVCell: UITextFieldDelegate {
 }
 
 class STMDetailTaskTitle_TVCell: UITableViewCell {
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var textField: UITextField! {
+        didSet {
+            textField.delegate = self
+        }
+    }
     
     private var viewModel: STMTaskDetail_VM!
     
     func configure(with viewModel: STMTaskDetail_VM) {
         self.viewModel = viewModel
         textField.text = viewModel.taskTitle
-        textField.delegate = self
     }
 }

@@ -16,7 +16,16 @@ class STMAddNewCategory_VM {
     let colors = UIColor.standardColorList
     
     var categoryTitle = ""
+    private
     var categoryColor = UIColor.standardColorList[0]
+    
+    func assignColor(with index: Int) {
+        categoryColor = colors[index]
+    }
+    
+    func getColor(with index: Int) -> UIColor {
+        colors[index]
+    }
     
     private var isEligible: Bool {
         return categoryTitle.count > minTitleLength

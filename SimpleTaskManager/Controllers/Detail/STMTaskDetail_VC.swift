@@ -116,7 +116,7 @@ class STMTaskDetail_VC: UIViewController {
             let saveButton = UIBarButtonItem(title: "Save",
                                              style: .done,
                                              target: self,
-                                             action: #selector(STMTaskDetail_VC.saveAction(sender:)))
+                                             action: #selector(saveAction(sender:)))
             
             self.navigationItem.rightBarButtonItem = saveButton
         }

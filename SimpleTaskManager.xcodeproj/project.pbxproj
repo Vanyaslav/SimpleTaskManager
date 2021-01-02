@@ -44,6 +44,7 @@
 		A1EC3EF92086A2340012AAC6 /* STMDetailDueDate_TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC3EF82086A2340012AAC6 /* STMDetailDueDate_TVCell.swift */; };
 		A1EC3EFB2086A25F0012AAC6 /* STMDetailCategoty_TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC3EFA2086A25F0012AAC6 /* STMDetailCategoty_TVCell.swift */; };
 		A1EC3EFD2086A2810012AAC6 /* STMDetailTaskTitle_TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC3EFC2086A2810012AAC6 /* STMDetailTaskTitle_TVCell.swift */; };
+		A1FB638125A0EA110092A4E7 /* PropertyWrapper+UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FB638025A0EA110092A4E7 /* PropertyWrapper+UserDefaults.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +89,7 @@
 		A1EC3EF82086A2340012AAC6 /* STMDetailDueDate_TVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMDetailDueDate_TVCell.swift; sourceTree = "<group>"; };
 		A1EC3EFA2086A25F0012AAC6 /* STMDetailCategoty_TVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMDetailCategoty_TVCell.swift; sourceTree = "<group>"; };
 		A1EC3EFC2086A2810012AAC6 /* STMDetailTaskTitle_TVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMDetailTaskTitle_TVCell.swift; sourceTree = "<group>"; };
+		A1FB638025A0EA110092A4E7 /* PropertyWrapper+UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PropertyWrapper+UserDefaults.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +186,7 @@
 		A1B7560720848E0900FFB67D /* DB */ = {
 			isa = PBXGroup;
 			children = (
+				A1FB638025A0EA110092A4E7 /* PropertyWrapper+UserDefaults.swift */,
 				A199D0CD2088650800F39B6E /* SimpleTaskManager.xcdatamodeld */,
 				A1B75608208494B900FFB67D /* Model */,
 				A1A5664324FA323F0032F9CA /* STMDataService.swift */,
@@ -330,7 +333,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1210;
 				ORGANIZATIONNAME = "Tomas Baculák";
 				TargetAttributes = {
 					A1B755EA20848D7000FFB67D = {
@@ -424,6 +427,7 @@
 				A1B756152084B2F600FFB67D /* STMDefaults.swift in Sources */,
 				A1B756362085683F00FFB67D /* STMAddNewCategory_VC+DataDelegate.swift in Sources */,
 				A1EC3EFB2086A25F0012AAC6 /* STMDetailCategoty_TVCell.swift in Sources */,
+				A1FB638125A0EA110092A4E7 /* PropertyWrapper+UserDefaults.swift in Sources */,
 				A10EBBA524F2854200F5DCE0 /* STMSettings_VM.swift in Sources */,
 				A1B756192084CCCC00FFB67D /* STMTaskList_TVC.swift in Sources */,
 				A1B7561B2084EA2600FFB67D /* Date+Ext.swift in Sources */,
@@ -497,6 +501,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -557,6 +562,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;

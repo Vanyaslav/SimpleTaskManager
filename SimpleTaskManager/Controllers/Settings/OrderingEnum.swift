@@ -8,7 +8,6 @@
 
 import Foundation
 
-///
 enum STMOrderingMannerEnum: Int, CaseIterable {
     case ascending = 0, descending
     
@@ -25,24 +24,8 @@ enum STMOrderingMannerEnum: Int, CaseIterable {
         case .descending: return false
         }
     }
-    
-    static func manageOrdering(with row: Int) {
-        UserDefaults.storeOrderingManner(with: row)
-    }
-    
-    static var storedValue: STMOrderingMannerEnum {
-        STMOrderingMannerEnum(rawValue: UserDefaults.getOrderingManner())!
-    }
 }
-//
-extension STMOrderingTypeEnum {
-    static var managingParameter: String {
-        storedValue == .date
-            ? "taskDueDate"
-            : "taskTitle"
-    }
-}
-///
+
 enum STMOrderingTypeEnum: Int, CaseIterable {
     case date = 0, name
     
@@ -53,33 +36,9 @@ enum STMOrderingTypeEnum: Int, CaseIterable {
         }
     }
     
-    static func manageOrdering(with row: Int) {
-        UserDefaults.storeOrderingType(with: row)
-    }
-    
-    static var storedValue: STMOrderingTypeEnum {
-        STMOrderingTypeEnum(rawValue: UserDefaults.getOrderingType())!
-    }
-}
-//
-/// Persistancy
-extension UserDefaults {
-    private static let storageKeyManner = "STMOrderingManner"
-    private static let storageKeyType = "STMOrderingType"
-    
-    fileprivate static func storeOrderingManner(with manner: Int) {
-        standard.set(manner, forKey: storageKeyManner)
-    }
-    
-    fileprivate static func storeOrderingType(with type: Int) {
-        standard.set(type, forKey: storageKeyType)
-    }
-    
-    fileprivate static func getOrderingManner() -> Int {
-        standard.integer(forKey: storageKeyManner)
-    }
-    
-    fileprivate static func getOrderingType() -> Int {
-        standard.integer(forKey: storageKeyType)
+    func managingParameter() -> String {
+        self == .date
+            ? "taskDueDate"
+            : "taskTitle"
     }
 }

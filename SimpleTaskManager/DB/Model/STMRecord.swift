@@ -11,17 +11,16 @@ import MagicalRecord
 import UserNotifications
 //
 extension STMRecord {
-    public static func getAllTasks(completed: Bool) -> [STMRecord] {
-        return getAllTasks().filter{ $0.isFinished == completed }
-    }
-
-    public static func getAllTasks() -> [STMRecord] {
-        let typeTitle = STMOrderingTypeEnum.managingParameter
-        let manner = STMOrderingMannerEnum.storedValue.actionBool
-        
-        guard let tasks = STMRecord
+    public static func getAllTasks(with key: Int? = nil, manner: Int? = nil) -> [STMRecord] {
+        guard let key  = key,
+              let manner = manner else { guard let data = STMRecord.mr_findAll() as? [STMRecord] else { return [] } ; return data }
+        guard let storedManner = STMOrderingMannerEnum(rawValue: manner)?
+                .actionBool,
+              let typeTitle = STMOrderingTypeEnum(rawValue: key)?
+                .managingParameter(),
+              let tasks = STMRecord
             .mr_findAllSorted(by: typeTitle,
-                              ascending: manner) as? [STMRecord] else {
+                              ascending: storedManner) as? [STMRecord] else {
             return []
         }
         

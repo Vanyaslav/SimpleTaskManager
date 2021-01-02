@@ -34,6 +34,10 @@ struct STMDefault {
                 .setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
             UINavigationBar.appearance()
                 .titleTextAttributes = [NSAttributedString.Key.font: font]
+            UILabel.appearance()
+                .font = font
+            UILabel.appearance(whenContainedInInstancesOf: [UIButton.self])
+                .font = font
         }
     }
 }

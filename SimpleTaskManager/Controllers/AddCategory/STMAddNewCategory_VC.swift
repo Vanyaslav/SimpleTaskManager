@@ -17,7 +17,15 @@ extension STMAddNewCategory_VC: UITextFieldDelegate {
 ///
 class STMAddNewCategory_VC: UIViewController {
     @IBOutlet weak var colorPicker: UIPickerView!
-    @IBOutlet weak var saveButton: UIButton!
+    
+    @IBOutlet weak var saveButton: UIButton! {
+        didSet {
+            saveButton.addTarget(self,
+                                 action: #selector(saveNewCategory),
+                                 for: .touchUpInside)
+        }
+    }
+    
     @IBOutlet weak var titleTextView: UITextField! {
         didSet {
             titleTextView.delegate = self
@@ -28,14 +36,8 @@ class STMAddNewCategory_VC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if #available(iOS 13.0, *) {
-            view.backgroundColor = UIColor.systemGray6
-        }
-        
-        saveButton.addTarget(self,
-                             action: #selector(saveNewCategory),
-                             for: .touchUpInside)
+
+        view.backgroundColor = UIColor.systemGray6
     }
     
     @objc func saveNewCategory() {
