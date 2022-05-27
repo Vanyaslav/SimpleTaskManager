@@ -18,10 +18,19 @@ class STMTaskList_VM {
             : 0
     }
     
-    let dataService: STMDataService
+    private let dataService: STMDataService
+
+    var settingsViewModel: STMSettings_VM {
+        STMSettings_VM(dataService: dataService)
+    }
     
     init(dataService: STMDataService = STMDataService()) {
         self.dataService = dataService
+    }
+
+    func taskDetailViewModel(record: STMRecord?) -> STMTaskDetail_VM {
+        STMTaskDetail_VM(dataService: dataService,
+                         task: record)
     }
     
     func numberOfRows(in section: Int) -> Int {

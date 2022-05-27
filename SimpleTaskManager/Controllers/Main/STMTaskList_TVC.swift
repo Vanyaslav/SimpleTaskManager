@@ -9,7 +9,7 @@
 import UIKit
 
 
-protocol STMTaskList_TVCDelegate: class {
+protocol STMTaskList_TVCDelegate: AnyObject {
     func reloadData()
 }
 //
@@ -82,16 +82,11 @@ class STMTaskList_TVC: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let controller = segue.destination as? STMTaskDetail_VC {
-            if let task = sender as? STMRecord {
-                controller.viewModel = STMTaskDetail_VM(dataService: viewModel.dataService,
-                                                        task: task)
-            } else {
-                controller.viewModel = STMTaskDetail_VM(dataService: viewModel.dataService)
-            }
+            controller.viewModel = viewModel.taskDetailViewModel(record: (sender as? STMRecord))
         }
         
         if let controller = segue.destination as? STMSettings_TVC {
-            controller.viewModel = STMSettings_VM(dataService: viewModel.dataService)
+            controller.viewModel = viewModel.settingsViewModel
         }
     }
 }
